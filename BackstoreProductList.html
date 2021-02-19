@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Product List</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    //Bootstrap
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+    //Style
+    <link rel="stylesheet" type="text/css" href="Styles/BackstoreStyle.css"/>
+
+</head>
+
+<body>
+    <!-- Nav Bar -->
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top" style="background-color: blue; position:fixed;">
+            <h1 style="margin-top:0mm;color:white; font-size:50px;font-style:italic; font-weight:bold; margin-right:1cm;">
+                GSO</h1>
+    </nav>
+     
+    
+    <div class="container-fluid text-center">    
+        <div class="row content">
+
+            <!-- Side Bar -->
+            <div class="col-sm-2 sidenav">
+                <br/>
+                <p><a href="">Home</a></p>
+                <p><a href="">Grocery Store</a></p>
+                <p><a href="BackstoreProductList.html">Product List</a></p>
+                <p><a href="">Order List</a></p>
+                <p> <a href="BackstoreUserList.html">User List</a></p>
+                <p style="font-weight:bold;"><a href="">Log Out</a></p>
+            </div>
+
+
+            <div class="col-sm-8 text-left">       
+                <div class="right">
+                    <h2 style="font-style: italic;">Product List</h2>
+                    
+                    <!-- Add Product button -->
+                    <a href="BackstoreEditProduct.html" class="btn btn-primary" style="float: right;margin-bottom: 5px;">Add Product</a>
+            
+                    <!-- Search Bar -->
+                    <div class="input-group mb-3" >
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1">Search Product:</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="..." aria-label="..." aria-describedby="basic-addon1">
+                    </div>
+
+                    <!-- Product List -->
+                    <form>
+                        
+                         <table class="table" id="productTable">
+                            <thead id="productHead">
+                                <tr>
+                                    <th colspan="2">
+                                        <div class="dropdown">
+                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Filter
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="">Fruits & Vegetables</a>
+                                            <a class="dropdown-item" href="">Dairy</a>
+                                            <a class="dropdown-item" href="">Meat</a>
+                                            <a class="dropdown-item" href="">Bread</a>
+                                            </div>
+                                        </div>
+                                    </th>
+                                    <th><p>Product</p></th>
+                                    <th><p>Category</p></th>
+                                    <th><p>Quantity</p></th>
+                                    <th><p>Supplier</p></th>
+                                    <th><p>Price</p></th>
+                                    <th></td>
+                                </tr>
+                            </thead>
+                            
+                            <tr>
+                                <td><input type="checkbox" name="product1"/></td>
+                                <td><img alt= "Blueberries" src="Media/Blueberries(veeterzy_WOg_unsplash).jpg" width="90" height= "75"></td>
+                                <td>Blueberries</td>
+                                <td>Fruits & Vegetables</td>
+                                <td>150</td>
+                                <td>globalmjl</td>
+                                <td>5.50$</td>
+                                
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="product2"/></td>
+                                <td><img alt= "Oranges" src="Media/Oranges.jpg" width="90" height= "75"></td>
+                                <td>Oranges</td>
+                                <td>Fruits & Vegetables</td>
+                                <td>200</td>
+                                <td>globalmjl</td>
+                                <td>5.50$</td>
+                                
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="product3"/></td>
+                                <td><img alt= "Lemons" src="Media/Lemons(daniel_kim_unsplash).jpg" width="90" height= "75"></td>
+                                <td>Lemons</td>
+                                <td>Fruits & Vegetables</td>
+                                <td>150</td>
+                                <td>globalmjl</td>
+                                <td>1.00$</td>
+                                
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="product4"/></td>
+                                <td><img alt= "Tomatoes" src="Media/Tomatoes(vince_lee_unsplash).jpg" width="90" height= "75"></td>
+                                <td>Tomatoes</td>
+                                <td>Fruits & Vegetables</td>
+                                <td>6kg</td>
+                                <td>globalmjl</td>
+                                <td>1.50$</td>
+                                
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="product5"/></td>
+                                <td><img alt= "Yogurt" src="Media/yogurt.jpg" width="90" height= "75"></td>
+                                <td>Yogurt</td>
+                                <td>Dairy</td>
+                                <td>100</td>
+                                <td>Lactalis</td>
+                                <td>5.00$</td>
+                                
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="product6"/></td>
+                                <td><img alt= "Milk" src="Media/milk.jpg" width="90" height= "75"></td>
+                                <td>Milk</td>
+                                <td>Dairy</td>
+                                <td>200</td>
+                                <td>Lactalis</td>
+                                <td>4.00$</td>
+                                
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="product7"/></td>
+                                <td><img alt= "Butter" src="Media/butter.jpg" width="90" height= "75"></td>
+                                <td>Butter</td>
+                                <td>Dairy</td>
+                                <td>115</td>
+                                <td>Lactalis</td>
+                                <td>2.50$</td>
+                                
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="product8"/></td>
+                                <td><img alt= "Cheese" src="Media/cheese.jpg" width="90" height= "75"></td>
+                                <td>Cheese</td>
+                                <td>Dairy</td>
+                                <td>75</td>
+                                <td>Lactalis</td>
+                                <td>10.50$</td>
+                                
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="product9"/></td>
+                                <td><img alt= "Lamb" src="Media/lamb.jpg" width="90" height= "75"></td>
+                                <td>Rack of Lamb</td>
+                                <td>Meat</td>
+                                <td>60</td>
+                                <td>Distrobec</td>
+                                <td>55.00$</td>
+                            
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="product10"/></td>
+                                <td><img alt= "Chicken" src="Media/chicken.png" width="90" height= "75"></td>
+                                <td>Chicken</td>
+                                <td>Meat</td>
+                                <td>50</td>
+                                <td>Distrobec</td>
+                                <td>12.50$</td>
+                                
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="product11"/></td>
+                                <td><img alt= "Bacon" src="Media/bacon.jpg" width="90" height= "75"></td>
+                                <td>Bacon</td>
+                                <td>Meat</td>
+                                <td>80</td>
+                                <td>Distrobec</td>
+                                <td>5.50$</td>
+                            
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="product12"/></td>
+                                <td><img alt= "Steak" src="Media/steak.jpg" width="90" height= "75"></td>
+                                <td>Steak</td>
+                                <td>Meat</td>
+                                <td>30</td>
+                                <td>Distrobec</td>
+                                <td>20.00$</td>
+                                
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="product13"/></td>
+                                <td><img alt= "Pita" src="Media/pita.jpg" width="90" height= "75"></td>
+                                <td>Pita</td>
+                                <td>100</td>
+                                <td>95</td>
+                                <td>Boulart</td>
+                                <td>3.50$</td>
+                                
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="product14"/></td>
+                                <td><img alt= "BrownBread" src="Media/brown-bread.jpg" width="90" height= "75"></td>
+                                <td>Brown Bread</td>
+                                <td>Bread</td>
+                                <td>40</td>
+                                <td>Boulart</td>
+                                <td>5.00$</td>
+                                
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="product15"/></td>
+                                <td><img alt= "Ciabatta" src="Media/ciabatta.jpg" width="90" height= "75"></td>
+                                <td>Ciabatta</td>
+                                <td>Bread</td>
+                                <td>30</td>
+                                <td>Boulart</td>
+                                <td>5.50$</td>
+                                
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="product16"/></td>
+                                <td><img alt= "WhiteBread" src="Media/white-bread.jpg" width="90" height= "75"></td>
+                                <td>White Bread</td>
+                                <td>Bread</td>
+                                <td>100</td>
+                                <td>Boulart</td>
+                                <td>4.50$</td>
+                                
+                            </tr>
+
+                        </table>
+                
+                        <!-- Delete button -->
+                        <input type = "button" value = "Delete" class="btn btn-primary" style="float:right;"/>
+
+                        <!-- Edit Product button -->
+                        <a href="BackstoreEditProduct.html" class="btn btn-primary" style="float: right;margin-right: 5px;">Edit</a>
+
+                    </form>  
+        </div>
+    </div>
+
+<br/><br/><br/><br/>
+
+<!-- Footer -->
+<footer class="container py-4">
+    <div class="row">
+      <div class="col-12 col-md">
+        <small class="d-block mb-3 text-muted">&copy; 2021-2022 </br> </small>
+      <ul class="list-unstyled text-small">
+            <li><a href="BackstoreProductList.html"class="text-muted">Backstore</a></li></ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Team</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted">Fatema Akther</a></li>
+          <li><a class="text-muted">Julie Trinh</a></li>
+          <li><a class="text-muted">Jasmit Kalsi</a></li>
+          <li><a class="text-muted">Dzmitry Fiodarau</a></li>
+          <li><a class="text-muted">Alice Chen</a></li>
+          <li><a class="text-muted">Georgia Pitic</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Promotions</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted">Newsletter</a></li>
+          <li><a class="text-muted">Gift cards</a></li>
+          <li><a class="text-muted">Contests</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>About</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted">Contact us</a></li>
+          <li><a class="text-muted">Our story</a></li>
+          <li><a class="text-muted">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
+</html> 

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Sign Up</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    //Bootstrap
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    //Style
+    <link rel="stylesheet" type="text/css" href="Styles/newStyle.css" />
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top" style="background-color: blue;">
+        <h1 style="margin-top:0mm;color:white; font-size:50px;font-style:italic; font-weight:bold; margin-right:1cm;">
+            GSO</h1>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li><a href="GroceryStore-1.html">Home</a></li>
+
+                <li><a href="#">Aisles</a>
+                    <ul>
+                        <li><a href="#">
+                        <li><a href="Fruits and vegetables.html">Fruits and Vegetables</a></li>
+                        <li><a href="Meat.html">Meat</a></li>
+                        <li><a href="Dairy.html">Dairy</a></li>
+                        <li><a href="Bread.html">Bread</a></li>
+                        <li><br /></li>
+                        </a>
+                </li>
+            </ul>
+
+            <li><a href="#">Account</a>
+                <ul>
+                    <li><a href="SignUp.html">Sign up</a></li>
+                    <li><a href="SignIn.html">Sign in</a></li>
+                </ul>
+            </li>
+        </div>
+
+        <a href="ShoppingCart.html"><img src="Media/cart_logo.png" alt="Shopping Cart" width="50px" height="50px"
+                style="float:right"></a>
+    </nav>
+
+    <h1>Create Your Account</h1>
+    <h2>-------------------------------------</h2>
+
+    <form action="">
+        <fieldset style="margin-top: 0.5cm;">
+            <br />
+            <label>First Name:</label>
+            <input type="text" name="First Name" value="" placeholder="Your name" />
+            <label>Last Name:</label>
+            <input type="text" name="Last Name" value="" placeholder="Your last name" />
+            <br /><br />
+            <label>Gender:</label>
+            <input type="radio" name="Gender" value="Male">M</input>
+            <input type="radio" name="Gender" value="Female">F</input>
+            <br /><br />
+            <label>Postal Code:</label>
+            <input type="text" name="Postal Code" value="" placeholder="Your postal code" />
+            <br /><br />
+            <label>Email:</label>
+            <input type="text" name="Email" value="" placeholder="Your email" />
+            <label>Confirm Email:</label>
+            <input type="text" name="Email" value="" placeholder="Reenter your email" />
+            <br /><br />
+            <label>Password:</label>
+            <input type="password" name="Password" id="checked" value="" placeholder="Your password" minlength="8" />
+            <p style="font-size: x-small; margin-left:1cm">(You password must have at least 8 characters)</p>
+            <label>Confirm Password:</label>
+            <input type="password" name="Password" id="checked" value="" placeholder="Reenter your password" />
+            <br /><br />
+        </fieldset>
+
+        <br />
+
+        <fieldset>
+            <input type="checkbox" name="Accept Conditions" value="" />
+            <p style="display: inline;">I have read and accept the</p>
+            <a href="Terms_of_Use.html" target="_blank">Terms of Service</a>
+            <p style="display: inline;">.</p>
+            <br />
+        </fieldset>
+
+        <br />
+
+        <div style="text-align:center;">
+            <input type="reset" name="Reset" value="Reset" />
+            <input type="submit" name="Submit" value="Create Account" />
+        </div>
+    </form>
+
+    <br />
+    <br />
+    <br />
+    <hr style="height:1px; background-color:rgb(173, 173, 173);">
+
+    <!---------footer----------->
+    <footer class="container py-4">
+        <div class="row">
+            <div class="col-12 col-md">
+                <small class="d-block mb-3 text-muted">&copy; 2021-2022 </br> </small>
+                <ul class="list-unstyled text-small">
+                    <li><a href="BackstoreProductList.html" class="text-muted">Backstore</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-md">
+                <h5>Team</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="text-muted">Fatema Akther</a></li>
+                    <li><a class="text-muted">Julie Trinh</a></li>
+                    <li><a class="text-muted">Jasmit Kalsi</a></li>
+                    <li><a class="text-muted">Dzmitry Fiodarau</a></li>
+                    <li><a class="text-muted">Alice Chen</a></li>
+                    <li><a class="text-muted">Georgia Pitic</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-md">
+                <h5>Promotions</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="text-muted">Newsletter</a></li>
+                    <li><a class="text-muted">Gift cards</a></li>
+                    <li><a class="text-muted">Contests</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-md">
+                <h5>About</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="text-muted">Contact us</a></li>
+                    <li><a class="text-muted">Our story</a></li>
+                    <li><a class="text-muted">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

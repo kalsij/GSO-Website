@@ -1,0 +1,756 @@
+/*-------navigation bar-------*/
+nav ul li ul{
+    display: none;
+    position: absolute;
+    background-color: rgb(75, 75, 75);
+    padding: 2px;
+    border-radius: 0px 0px 5px 5px;
+}
+
+nav ul li:hover ul{
+    display: block;
+    padding-right: 15px;
+}
+
+ul{
+    list-style-type: none;
+}
+
+nav a{
+    text-decoration: none;
+    color:rgb(226, 215, 215);
+    margin-left: 0.5cm;
+    font-size: 20px;
+    padding: 5px;
+}
+
+nav a:hover{
+    text-decoration: none;
+    color:rgb(255, 255, 255);
+}
+
+
+/*--------header-----------*/
+.wrapper {
+	width: 800px;
+	margin: 0 auto;
+}
+.banner-area {
+	width: 100%;
+	height: 350px;
+	position: fixed;
+	top: 75px;
+  background-color: #ebebeb;
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: center center;
+}
+.banner-area h2 {
+	padding-top: 3%;
+	font-size: 70px;
+	font-family: poppins;
+	text-transform: uppercase;
+	color: #fff;
+}
+.content-area {
+	width: 100%;
+	position: relative;
+	top: 200px;
+	background:white;
+}
+
+
+/*-------aisles--------*/
+.fandv-aisle {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: 70px 0;
+  flex-basis: 30%;
+  margin-bottom: 30px;
+
+}
+.fandv-aisle :hover {
+  opacity: 0.7;
+}
+
+.meat-aisle {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: 70px 0;
+  flex-basis: 30%;
+  margin-bottom: 30px;
+}
+.meat-aisle :hover{ opacity: 0.7;}
+
+.bread-aisle {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: 70px 0;
+  flex-basis: 30%;
+  margin-bottom: 30px;
+}
+.bread-aisle :hover{ opacity: 0.7;}
+.dairy-frontpage {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: 70px 0px;
+  flex-basis: 30%;
+  margin-bottom: 30px;
+}
+.dairy-frontpage:hover{ opacity: 0.7;}
+
+
+/*-------weekly deals-------*/
+.orangedeals {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: 40px 0 80px 0;
+  text-align: center;
+  font-family: arial;
+  flex-basis: 30%;
+}
+
+.lambdeals {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: 40px 0 80px 0;
+  text-align: center;
+  font-family: arial;
+  flex-basis: 30%;
+}
+.pitadeals {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: 40px 0 80px 0;
+  text-align: center;
+  font-family: arial;
+  flex-basis: 30%;
+}
+.yogurtdeals {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: 40px 0 80px 0;
+  text-align: center;
+  font-family: arial;
+  flex-basis: 30%;
+  }
+.yogurtdeals:hover{ opacity: 0.7;}
+.pitadeals:hover{ opacity: 0.7;}
+.orangedeals:hover{ opacity: 0.7;}
+.lambdeals:hover{ opacity: 0.7;}
+
+.weeklydeals{
+text-align: center;
+line-height: 60px;
+position: relative;
+color: #555;
+}
+
+.weeklydeals::after{
+  content: '';
+  background: #ff523b;
+  width: 80px;
+  height: 5px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+/*------weekly deals end------*/
+
+
+/*------Forms------*/
+fieldset{
+  width:20cm;
+  border-radius: 1.5cm;
+  border-width: 0.5mm;
+  border-style: dashed;
+  border-color:black;
+  text-align: center;
+  margin:auto;
+}
+
+h1{
+  margin-top:2.5cm;
+  text-align: center; 
+  font-size:25px; 
+  color:rgb(134, 134, 134);
+}
+
+h2{
+  text-align: center;
+}
+
+label{
+    font-size:large;
+    margin-left: 0.5cm;
+}
+
+input[type="text"], input[type="password"]{
+background-color: rgb(209, 207, 207);
+}
+
+input[type="radio"], input[type="checkbox"]{
+    margin-left: 0.5cm;
+}
+
+input[type="reset"]{
+    margin-top: 0.5cm;
+    margin: auto;
+    background-color: rgb(209, 207, 207);
+}
+
+input[type="submit"]{
+    margin-top: 0.5cm;
+    margin-left: 0.5cm;
+    margin: auto;
+    background-color: rgb(209, 207, 207);
+}
+
+form a{
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+}
+/*-----End of Forms-----*/
+
+/*----Product cards----*/
+.ProductTitle{
+  margin-top: 2.5cm;
+  text-align: center; 
+  font-size:25px; 
+  color:rgb(134, 134, 134);
+}
+.tomato {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+  }
+  
+  .price {
+    color: grey;
+    font-size: 22px;
+  }
+  
+  .tomato button {
+    grid-row: 1 / 2;
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white (255, 255, 255);
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  .tomato button:hover {
+    opacity: 0.7;
+  }
+
+.buttonSummary {
+    font-size: 15px; 
+    margin-top: 20px; 
+    border: none;
+    outline: 0;
+    padding: 5px;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.buttonSummary:hover {
+    opacity: 0.7;
+}
+
+.blueberries {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+  }
+  .blueberries button {
+    grid-row: 1 / 2;
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white (255, 255, 255);
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  .blueberries button:hover {
+    opacity: 0.7;
+  }
+  .lemons {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+  }
+  .lemons button {
+    grid-row: 1 / 2;
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white (255, 255, 255);
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  .lemons button:hover {
+    opacity: 0.7;
+  }
+  .oranges {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+  }
+  .oranges button {
+    grid-row: 1 / 2;
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white (255, 255, 255);
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  .oranges button:hover {
+    opacity: 0.7;
+  }
+  .steak {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+  }
+  .steak button {
+    grid-row: 1 / 2;
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white (255, 255, 255);
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  .steak button:hover {
+    opacity: 0.7;
+  }
+  .chicken {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+  }
+  .chicken button {
+    grid-row: 1 / 2;
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white (255, 255, 255);
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  .chicken button:hover {
+    opacity: 0.7;
+  }
+  .lamb {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+  }
+  .lamb button {
+    grid-row: 1 / 2;
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white (255, 255, 255);
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  .lamb button:hover {
+    opacity: 0.7;
+  }
+
+  .bacon {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+  }
+  .bacon button {
+    grid-row: 1 / 2;
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white (255, 255, 255);
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  .bacon button:hover {
+    opacity: 0.7;
+  }
+
+  .milk {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+  }
+  .milk button {
+    grid-row: 1 / 2;
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white (255, 255, 255);
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  .milk button:hover {
+    opacity: 0.7;
+  }
+  .cheese {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+  }
+  .cheese button {
+    grid-row: 1 / 2;
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white (255, 255, 255);
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  .cheese button:hover {
+    opacity: 0.7;
+  }
+  .yogurt {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+  }
+  .yogurt button {
+    grid-row: 1 / 2;
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white (255, 255, 255);
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  .yogurt button:hover {
+    opacity: 0.7;
+  }
+
+  .butter {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+  }
+  .butter button {
+    grid-row: 1 / 2;
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white (255, 255, 255);
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  .butter button:hover {
+    opacity: 0.7;
+  }
+
+  .pita {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+  }
+  .pita button {
+    grid-row: 1 / 2;
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white (255, 255, 255);
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  .pita button:hover {
+    opacity: 0.7;
+  }
+  .white-bread {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+  }
+  .white-bread button {
+    grid-row: 1 / 2;
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white (255, 255, 255);
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  .white-bread button:hover {
+    opacity: 0.7;
+  }
+  .brown-bread {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+  }
+  .brown-bread button {
+    grid-row: 1 / 2;
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white (255, 255, 255);
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  .brown-bread button:hover {
+    opacity: 0.7;
+  }
+
+  .ciabatta {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+  }
+  .ciabatta button {
+    grid-row: 1 / 2;
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white (255, 255, 255);
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  .ciabatta button:hover {
+    opacity: 0.7;
+  }
+  /*end of product cards*/
+
+.container{
+    padding-top: 87px;
+    padding-bottom: 125px; 
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+ 
+.border {
+    border: 1px solid #dee2e6;
+}
+
+
+button{
+   background-color: black;
+   color:white;
+}
+
+.dropbtn {
+    background-color: white;
+    color:black;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid black;
+    cursor: pointer;
+  }
+  
+  .row{
+    display:flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+  
+  .picture {
+    border: 3px solid #555;
+    
+  }
+  .dropbtn:hover {
+    background-color: black;
+    color: white;
+  }
+
+  .btn:hover{
+    opacity: 0.7;
+  }
+  
+  /*-------List of Items - shopping cart-------*/
+  .shoppingCart {
+    padding-top: 10px;
+    margin-right:5%;
+    margin-left: 5%;
+  }
+
+  .number {
+    width: 50px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: auto;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  .numberItem {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 100px;
+    margin: auto;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  .numberItem button {
+    border: none;
+    outline: 0;
+    color: white;
+    background-color: rgb(219, 11, 11);
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 15px;    
+  }
+  
+  .numberItem button:hover {
+    opacity: 0.7;
+  }
+
+  .delete-trash {
+    max-width: 100px;
+    margin: auto;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+  .delete-trash button {
+    border: none;
+    outline: 0;
+    padding: 5px;
+    text-align: center;
+    cursor: pointer;
+    background-color:white;   
+  }
+
+  .delete-trash button:hover {
+    opacity: 0.7;
+  }
+
+  .listMyCart {
+   text-align: center;
+  }
+  
+  /*-------Summary of items - shopping cart-------*/
+  .listSummary {
+    text-align: center;
+  }
+
+  .continue button {
+    border: none;
+    outline: 0;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  .continue button:hover {
+    opacity: 0.7;
+  }
+
+  .donate button {
+    border: none;
+    outline: 0;
+    padding: 5px;
+    cursor: pointer;
+    color: #ffffff;
+    background-color:rgb(241, 85, 85);
+ }
+
+  .donate button:hover {
+    opacity: 0.7;
+  }
