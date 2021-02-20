@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>&#35;0000000001/Victor Jones</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    //Bootstrap
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+    //Style
+    <link rel="stylesheet" type="text/css" href="Styles/BackstoreStyle.css"/>
+
+</head>
+
+<body>
+    <!-- Nav Bar -->
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top" style="background-color: blue; position:fixed;">
+        <h1 style="margin-top:0mm;color:white; font-size:50px;font-style:italic; font-weight:bold; margin-right:1cm;">
+            GSO</h1>
+    </nav>
+ 
+    
+    <div class="container-fluid text-center">  
+        <div class="row content">
+            
+           <!-- Side Bar -->
+           <div class="col-sm-2 sidenav">
+            <br/>
+            <p><a href="">Home</a></p>
+            <p><a href="GroceryStore-1.html">Grocery Store</a></p>
+            <p><a href="BackstoreProductList.html">Product List</a></p>
+            <p><a href="BackstoreOrderList.html">Order List</a></p>
+            <p> <a href="BackstoreUserList.html">User List</a></p>
+            <p style="font-weight:bold;"><a href="">Log Out</a></p>
+            </div>
+
+            <!-- Edit Order -->
+            <div class="col-sm-8 text-left">  
+                <div class="right">
+                    <h2 style="font-style: italic;">Order Details</h2>
+                    <p style="color: gray; border-bottom: 1px solid lightgray;">Edit Order &#8725; Order &#35;0000000001</p>
+                    <form>
+                        <!-- Button to save the edits -->
+                        <input type = "button" value = "Save" class="btn btn-primary" style="float: right;"/>
+                        <input type = "button" value = "Cancel" class="btn btn-secondary" style="float: right; margin-right: 5px;"/>
+                        <br/>
+
+                        <label for="start">Date</label>
+                        <input type="date" name="order purchase date" value="2021-02-18"/>
+                        </br></br>
+
+                        <!-- Add/Edit the client's information -->
+                        <h5>Customer Contact</h5>
+
+                        <div class="form-row">                    
+                            <div class="form-group col-md-6">
+                                <label for="firstName">First Name</label>
+                                <input type="text" class="form-control" value="Victor" placeholder="First Name"/>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" class="form-control" value="Jones" placeholder="Last Name"/>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <label for="emailAddress">Email</label>
+                            <input type="text" class="form-control" value="VictorJones@gmail.ca" placeholder="Email"/>
+                        </div></br>
+                        
+                        <h5>Shipping Address</h5>
+
+                        <div class="form-row">            
+                            <label for="address">Address</label>
+                            <input type="text" class="form-control" value="123 Home Street" placeholder="Address"/>
+                        </div></br>    
+
+                        <div class="form-row">                    
+                            <div class="form-group col-md-6">
+                                <label for="postalCode">Postal Code</label>
+                                <input type="text" class="form-control" value="H1A 2B3" placeholder="Postal Code"/>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="city">City</label>
+                                <input type="text" class="form-control" value="Montreal" placeholder="City"/>
+                            </div>
+                        </div></br>
+
+                        <!-- Add/Edit the produce(s) of the customer's order -->
+                        <h5>Add a Product</h5>
+                        <div class="form-row align-items-center">
+
+                            <div class="col-auto">
+                                <label class="sr-only" for="SearchProduct">Search a Product</label>
+                                <input type="search" class="form-control" id="SearchProduct" placeholder="Search a Product"/>
+                            </div>
+                            
+                            <div class="col-auto">
+                                <button type="submit" class="btn btn-outline-primary">Search</button>
+                            </div>
+                            
+                        </div></br>
+                        
+
+                        <h5>Product(s)</h5>
+                        <div class="table-responsive-lg">
+                            <table class="table">
+
+                                <thead>
+                                    <tr>
+                                        <th><p>Product</p></th>
+                                        <th><p>Name/Details</p></th>
+                                        <th><p>Qty</p></th>
+                                        <th><p>Price(&#36;)&#8725;Unit</p></th>
+                                        <th><p>Total(&#36;)</p></th>
+                                        <th><p></p></th>
+                                    </tr>
+                                </thead>
+
+                                <!-- 1st Item -->
+                                <tr>
+                                    
+                                    <td>
+                                        <img alt="product" src="Media/yogurt.jpg" style="width: 45px; height: 40px;"/>
+                                    </td>
+
+                                    <td>
+                                        <div class="input-group">
+                                            <label class="sr-only" for="ProductName">Product Name</label>
+                                            <input type="text" class="form-control form-control-sm" value="Yogurt" placeholder="product"/>
+                                        </div>      
+                                    </td>
+
+                                    <td>
+                                        <div class="input-group">
+                                            <label class="sr-only" for="Quantity">Quantity</label>
+                                            <input type="text" class="form-control form-control-sm" value="1" placeholder="&#35;"/>
+                                        </div>
+                                    </td>
+                                    
+                                    <td>
+                                        <div class="input-group">
+                                            <label class="sr-only" for="PriceUnit">PriceUnit</label>
+                                            <input type="text" class="form-control form-control-sm" value="5.00&#36; &#8725; unit" placeholder="&#36;"/>
+                                        </div> 
+
+                                    <td>
+                                        <div class="input-group">
+                                            <label class="sr-only" for="Total">Total</label>
+                                            <input type="text" class="form-control form-control-sm" value="5.00&#36" placeholder="&#36;"/>
+                                        </div>
+                                    </td>
+
+                                    <td><button type="button" class="btn btn-danger"><img src="Media/TrashCan(Flaticon).png" alt="trash can" style="height:15px; width:14px;"/></button></td>
+                                </tr>
+
+                                <!-- 2nd Item -->
+                                <tr>
+                                    
+                                    <td>
+                                        <img alt="product" src="Media/chicken.png" style="width: 45px; height: 40px;"/>
+                                    </td>
+
+                                    <td>
+                                        <div class="input-group">
+                                            <label class="sr-only" for="ProductName">Product Name</label>
+                                            <input type="text" class="form-control form-control-sm" value="Chicken" placeholder="product"/>
+                                        </div>      
+                                    </td>
+
+                                    <td>
+                                        <div class="input-group">
+                                            <label class="sr-only" for="Quantity">Quantity</label>
+                                            <input type="text" class="form-control form-control-sm" value="2" placeholder="&#35;"/>
+                                        </div>
+                                    </td>
+                                    
+                                    <td>
+                                        <div class="input-group">
+                                            <label class="sr-only" for="PriceUnit">PriceUnit</label>
+                                            <input type="text" class="form-control form-control-sm" value="20.00&#36; &#8725; unit" placeholder="&#36;"/>
+                                        </div> 
+
+                                    <td>
+                                        <div class="input-group">
+                                            <label class="sr-only" for="Total">Total</label>
+                                            <input type="text" class="form-control form-control-sm" value="40.00&#36;" placeholder="&#36;"/>
+                                        </div>
+                                    </td>
+
+                                    <td><button type="button" class="btn btn-danger"><img src="Media/TrashCan(Flaticon).png" alt="trash can" style="height:15px; width:14px;"/></button></td>
+                                </tr>
+
+                            </table>
+                        </div></br>
+
+                        <!-- Summary of the order -->
+                        <div class="summaryOrder">
+                            <h5>Summary</h5>
+                            <hr>
+                            
+                            <div class="justify-content-between row">
+                                <div class="col-md-6">
+                                    Qty of Items
+                                </div>
+                                <div class="col-md-6 input-group sm-3">
+                                    <label class="sr-only" for="Quantity">Quantity</label>
+                                    <input type="text" class="form-control" value="3" placeholder="&#35;"/>
+                                </div>
+                            </div>
+                            <hr></br>
+
+                            <div class="justify-content-between row">
+                                <div class="col-md-6">
+                                    Subtotal
+                                </div>
+                                <div class="col-md-6 input-group">
+                                    <label class="sr-only" for="Subtotal">Subtotal</label>
+                                    <input type="text" class="form-control" value="45.00 &#36;" placeholder="&#36;"/>
+                                </div>
+                            </div>
+                            <hr></br>
+                            
+                            <div class="justify-content-between row">
+                                <div class="col-md-6">
+                                    GST (5%)
+                                </div>
+                                <div class="col-md-6 input-group">
+                                    <label class="sr-only" for="GST">GST</label>
+                                    <input type="text" class="form-control" value="2.25 &#36;" placeholder="&#36;"/>
+                                </div>
+                            </div>
+                            <hr></br>
+
+                            <div class="justify-content-between row">
+                                <div class="col-md-6">
+                                    QST (9.975%)
+                                </div>
+                                <div class="col-md-6 input-group">
+                                    <label class="sr-only" for="QST">QST</label>
+                                    <input type="text" class="form-control" value="4.49 &#36;" placeholder="&#36;"/>
+                                </div>
+                            </div>
+                            <hr></br>
+
+                            <div class="justify-content-between row">
+                                <div class="col-md-6">
+                                    Total
+                                </div>
+                                <div class="col-md-6 input-group">
+                                    <label class="sr-only" for="Total">Total</label>
+                                    <input type="text" class="form-control" value="51.74 &#36;" placeholder="&#36;"/>
+                                </div>
+                            </div>
+                            <hr></br>
+
+                            <div class="justify-content-between row">
+                                <div class="col-md-6">
+                                    Payment Status
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" style="margin-right: 5px;">Completed</button>
+                                        <div class="dropdown-menu">
+                                            <div class="dropdown-item">Completed</div>
+                                            <div class="dropdown-item">Pending</div>
+                                            <div class="dropdown-item">Cancelled</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><hr><hr>
+
+                        <div class="form-row">            
+                            <label for="income">Income</label>
+                            <input type="text" class="form-control" value="&#36;37.00" placeholder="&#36;"/>
+                        </div></br> 
+
+                        <div class="form-group">
+                            <label>Extra Order Note:</label>
+                            <textarea class="form-control" name ="ExtraNoteOrder" id="extraOrderNote" rows = "5"></textarea>
+                        </div></br>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>     
+
+    <!-- Footer -->
+    <footer class="container py-4">
+        <div class="row">
+          <div class="col-12 col-md">
+            <small class="d-block mb-3 text-muted">&copy; 2021-2022 </br> </small>
+            <ul class="list-unstyled text-small">
+                <li><a href="BackstoreProductList.html"class="text-muted">Backstore</a></li></ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Team</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted">Fatema Akther</a></li>
+              <li><a class="text-muted">Julie Trinh</a></li>
+              <li><a class="text-muted">Jasmit Kalsi</a></li>
+              <li><a class="text-muted">Dzmitry Fiodarau</a></li>
+              <li><a class="text-muted">Alice Chen</a></li>
+              <li><a class="text-muted">Georgia Pitic</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Promotions</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted">Newsletter</a></li>
+              <li><a class="text-muted">Gift cards</a></li>
+              <li><a class="text-muted">Contests</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>About</h5>
+            <ul class="list-unstyled text-small">
+              <li><a class="text-muted">Contact us</a></li>
+              <li><a class="text-muted">Our story</a></li>
+              <li><a class="text-muted">FAQ</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>   
+
+</body>
+
+</html>

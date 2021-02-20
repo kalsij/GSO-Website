@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Add Product</title>
+    <title>Add/Edit Product</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -33,10 +33,10 @@
             <!-- Side Bar -->
             <div class="col-sm-2 sidenav">
                 <br/>
-                <p><a href="">Home</a></p>
-                <p><a href="">Grocery Store</a></p>
+                <p><a href="GroceryStore-1.html">Home</a></p>
+                <p><a href="GroceryStore-1.html">Grocery Store</a></p>
                 <p><a href="BackstoreProductList.html">Product List</a></p>
-                <p><a href="">Order List</a></p>
+                <p><a href="BackstoreOrderList.html">Order List</a></p>
                 <p> <a href="BackstoreUserList.html">User List</a></p>
                 <p style="font-weight:bold;"><a href="">Log Out</a></p>
             </div>
@@ -44,7 +44,7 @@
 
             <div class="col-sm-8 text-left">       
                 <div class="right">
-                    <h2 style="font-style: italic;">Add Product</h2>
+                    <h2 style="font-style: italic;">Add/Edit Product</h2>
                     <br/>
 
                     <!-- Edit part -->
@@ -52,7 +52,6 @@
                       <input type = "button" value = "Save" class="btn btn-primary" style="float:right;"/>
                       <input type = "button" value = "Cancel" class="btn btn-secondary" style="float:right; margin-right: 5px;"/>
                       <br/>
- 
                           <div class="form-row">
                                 <div class="form-group col-md-6">
                                   <label for="supplier">Title</label>
@@ -65,28 +64,25 @@
                                   <label><input type="radio" name="section"style="margin-left: 30px;"/>Meat</label>
                                   <label><input type="radio" name="section"style="margin-left: 30px;"/>Bread</label>
                                 </div>
-                                
-
                           </div>
 
-
-                        <div class="form-row">
-                          
-                          <div class="form-group col-md-6">
-                            <label for="supplier">Supplier</label>
-                            <input type="text" class="form-control">
-                          </div>
-
-                          <div class="form-group col-md-6">
-                            <label for="price">Price/Unit</label>
-                            
-                            <div class="input-group-append">
+                          <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                              <label for="validationDefault03">Supplier</label>
                               <input type="text" class="form-control">
-                              <span class="input-group-text">$</span>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                              <label for="validationDefault04">Quantity</label>
+                              <input type="text" class="form-control">
+                            </div>
+                            <div class="col-md-3 mb-3">
+                              <label for="validationDefault05">Price/Unit</label>
+                              <div class="input-group-append">
+                                <input type="text" class="form-control">
+                                <span class="input-group-text">$</span>
+                              </div>
                             </div>
                           </div>
-
-                        </div>
         
                         <div class="form-group">
                           <label for="exampleFormControlTextarea1">Description</label>
@@ -97,8 +93,7 @@
                           <label for="exampleFormControlFile1">Add picture</label>
                           <input type="file" class="form-control-file" id="exampleFormControlFile1"> 
                         </div> 
-               
-                      
+                        
                     </form>  
                     <br/><br/>
         </div>
@@ -144,3 +139,4 @@
     </div>
   </footer>
 </body>
+</html> 
