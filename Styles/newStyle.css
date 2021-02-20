@@ -28,7 +28,7 @@ nav a:hover{
     text-decoration: none;
     color:rgb(255, 255, 255);
 }
-
+/*-------navigation bar end-------*/
 
 /*--------header-----------*/
 .wrapper {
@@ -58,6 +58,7 @@ nav a:hover{
 	top: 200px;
 	background:white;
 }
+/*-------header end -------*/
 
 
 /*-------aisles--------*/
@@ -98,6 +99,7 @@ nav a:hover{
   margin-bottom: 30px;
 }
 .dairy-frontpage:hover{ opacity: 0.7;}
+/*-------aisles end-------*/
 
 
 /*-------weekly deals-------*/
@@ -618,139 +620,132 @@ form a{
   }
   /*end of product cards*/
 
+/*---------Start of product sheets----------*/
 .container{
-    padding-top: 87px;
-    padding-bottom: 125px; 
-    margin-right: auto;
-    margin-left: auto;
-  }
+  padding-top: 87px;
+  padding-bottom: 125px; 
+  margin-right: auto;
+  margin-left: auto;
+}
 
- 
+
 .border {
-    border: 1px solid #dee2e6;
+  border: 1px solid #dee2e6;
 }
 
 
 button{
-   background-color: black;
-   color:white;
+ background-color: black;
+ color:white;
 }
 
+/*Description button*/
 .dropbtn {
-    background-color: white;
-    color:black;
-    padding: 10px;
-    font-size: 16px;
-    border: 2px solid black;
-    cursor: pointer;
-  }
+  background-color: white;
+  color:black;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid black;
+  cursor: pointer;
+}
+
+.dropbtn:hover {
+  background-color: black;
+  color: white;
+}
+
+.row{
+  display:flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.picture {
+  border: 3px solid #555;
   
-  .row{
-    display:flex;
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
-  }
+}
+
+
+.btn:hover{
+  opacity: 0.7;
+}
   
-  .picture {
-    border: 3px solid #555;
-    
-  }
-  .dropbtn:hover {
-    background-color: black;
-    color: white;
-  }
+ /*-------List of Items - shopping cart-------*/
+ .shoppingCart {
+  display: flex; 
+  flex-wrap: nowrap; 
+  margin-right: 10px;
+  margin-top: 20px;
+}
 
-  .btn:hover{
-    opacity: 0.7;
-  }
+.qtyItems {
+  width: 60px;
+  text-align: center;
+  margin: auto;
+  font-size: 15px; 
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.qtyItems button {
+  border: none;
+  outline: 0;
+  color: white;
   
-  /*-------List of Items - shopping cart-------*/
-  .shoppingCart {
-    padding-top: 10px;
-    margin-right:5%;
-    margin-left: 5%;
-  }
+  background-color: rgb(219, 11, 11);
+  cursor: pointer;
+  width: 100%;
+}
 
-  .number {
-    width: 50px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    margin: auto;
-    text-align: center;
-    font-family: 'Times New Roman', Times, serif;
-  }
+.qtyItems button:hover {
+  opacity: 0.7;
+}
 
-  .numberItem {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 100px;
-    margin: auto;
-    text-align: center;
-    font-family: 'Times New Roman', Times, serif;
-  }
+.delete-trash button {
+  margin: auto;
+  border: none;
+  outline: 0;
+  cursor: pointer;
+  background-color:#ffffff;   
+}
 
-  .numberItem button {
-    border: none;
-    outline: 0;
-    color: white;
-    background-color: rgb(219, 11, 11);
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-    font-size: 15px;    
-  }
-  
-  .numberItem button:hover {
-    opacity: 0.7;
-  }
+.delete-trash button:hover {
+  opacity: 0.7;
+}
 
-  .delete-trash {
-    max-width: 100px;
-    margin: auto;
-    text-align: center;
-    font-family: 'Times New Roman', Times, serif;
-  }
+.listMyCart {
+ text-align: center;
+}
 
-  .delete-trash button {
-    border: none;
-    outline: 0;
-    padding: 5px;
-    text-align: center;
-    cursor: pointer;
-    background-color:white;   
-  }
+/*-------Summary of items - shopping cart-------*/
+.summaryItems {
+  background-color:gainsboro;
+  margin-bottom: auto; 
+  margin-left: 10px; 
+  text-align: center;
+}
 
-  .delete-trash button:hover {
-    opacity: 0.7;
-  }
+.continue button {
+  border: none;
+  outline: 0;
+  padding: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
 
-  .listMyCart {
-   text-align: center;
-  }
-  
-  /*-------Summary of items - shopping cart-------*/
-  .listSummary {
-    text-align: center;
-  }
+.continue button:hover {
+  opacity: 0.7;
+}
 
-  .continue button {
-    border: none;
-    outline: 0;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  }
+.donate button {
+  border: none;
+  outline: 0;
+  padding: 5px;
+  cursor: pointer;
+  color: #ffffff;
+  background-color:rgb(241, 85, 85);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
 
-  .continue button:hover {
-    opacity: 0.7;
-  }
-
-  .donate button {
-    border: none;
-    outline: 0;
-    padding: 5px;
-    cursor: pointer;
-    color: #ffffff;
-    background-color:rgb(241, 85, 85);
- }
-
-  .donate button:hover {
-    opacity: 0.7;
-  }
+.donate button:hover {
+  opacity: 0.7;
+}
