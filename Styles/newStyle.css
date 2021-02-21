@@ -3,6 +3,7 @@
   background: linear-gradient(45deg, rgb(221, 221, 221), white 20%, 
             rgb(221, 221, 221), white 60%, rgb(221, 221, 221) 80%, white);
 }
+
 /*-------navigation bar-------*/
 nav ul li ul{
   display: none;
@@ -169,6 +170,7 @@ transform: translateX(-50%);
 
 /*------Forms------*/
 fieldset {
+text-align: center;
 width:10cm;
 margin-top: 0.5cm;
 border-radius: 1.5cm;
