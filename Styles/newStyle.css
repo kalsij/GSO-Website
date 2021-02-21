@@ -71,7 +71,7 @@ background:white;
 .fandv-aisle {
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 max-width: 300px;
-margin: 70px 0;
+margin: auto;
 margin-bottom: 30px;
 
 }
@@ -82,7 +82,7 @@ opacity: 0.7;
 .meat-aisle {
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 max-width: 300px;
-margin: 70px 0;
+margin: auto;
 margin-bottom: 30px;
 }
 .meat-aisle :hover{ opacity: 0.7;}
@@ -90,14 +90,14 @@ margin-bottom: 30px;
 .bread-aisle {
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 max-width: 300px;
-margin: 70px 0;
+margin: auto;
 margin-bottom: 30px;
 }
 .bread-aisle :hover{ opacity: 0.7;}
 .dairy-frontpage {
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 max-width: 300px;
-margin: 70px 0px;
+margin: auto;
 margin-bottom: 30px;
 }
 .dairy-frontpage:hover{ opacity: 0.7;}
@@ -108,7 +108,7 @@ margin-bottom: 30px;
 .orangedeals {
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 max-width: 300px;
-margin: 40px 0 80px 0;
+margin: auto;
 text-align: center;
 font-family: arial;
 }
@@ -116,21 +116,21 @@ font-family: arial;
 .lambdeals {
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 max-width: 300px;
-margin: 40px 0 80px 0;
+margin: auto;
 text-align: center;
 font-family: arial;
 }
 .pitadeals {
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 max-width: 300px;
-margin: 40px 0 80px 0;
+margin: auto;
 text-align: center;
 font-family: arial;
 }
 .yogurtdeals {
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 max-width: 300px;
-margin: 40px 0 80px 0;
+margin: auto;
 text-align: center;
 font-family: arial;
 }
