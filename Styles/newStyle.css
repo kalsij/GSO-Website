@@ -163,14 +163,26 @@ color: #555;
 
 
 /*------Forms------*/
-fieldset{
-  width:20cm;
+.signupForm{
+  width:14cm;
+  margin-top: 0.5cm;
   border-radius: 1.5cm;
   border-width: 0.5mm;
   border-style: dashed;
   border-color:black;
   text-align: center;
-  margin:auto;
+  margin: auto;
+}
+
+.signinForm{
+  width:10.5cm;
+  margin-top: 1cm;
+  border-radius: 1.5cm;
+  border-width: 0.5mm;
+  border-style: dashed;
+  border-color:black;
+  text-align: center;
+  margin: auto;
 }
 
 h1{
