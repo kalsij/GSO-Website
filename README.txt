@@ -47,9 +47,9 @@ The team that worked on this website is the following:
 Akther Fatema:    
 Chen Alice:       
 Fiodarau Dzmitry: 40170728
-Kalsi Jasmit: 40173635    
-Pitic Georgia: 40175034  
-Trinh Julie:  40175335    
+Kalsi Jasmit:     40173635    
+Pitic Georgia:    40175034  
+Trinh Julie:      40175335    
 
 
 
