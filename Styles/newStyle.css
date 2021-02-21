@@ -163,7 +163,7 @@ transform: translateX(-50%);
 
 
 /*------Forms------*/
-.styleForm{
+fieldset {
 width:10cm;
 margin-top: 0.5cm;
 border-radius: 1.5cm;
