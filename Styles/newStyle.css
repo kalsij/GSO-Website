@@ -164,6 +164,7 @@ transform: translateX(-50%);
 
 /*------Forms------*/
 fieldset {
+text-align: center;
 width:10cm;
 margin-top: 0.5cm;
 border-radius: 1.5cm;
