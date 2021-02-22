@@ -50,7 +50,6 @@ Fiodarau Dzmitry: 40170728
 Kalsi Jasmit:     40173635    
 Pitic Georgia:    40175034  
 Trinh Julie:      40175335
-40177866
 
 
 
