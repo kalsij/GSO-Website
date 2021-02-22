@@ -44,12 +44,13 @@ Team Description
 ___________________________________________________________________________________________________
 
 The team that worked on this website is the following:
-Akther Fatema:    40177866
+Akther Fatema:    40177866  
 Chen Alice:       40176279
 Fiodarau Dzmitry: 40170728
 Kalsi Jasmit:     40173635    
 Pitic Georgia:    40175034  
-Trinh Julie:      40175335    
+Trinh Julie:      40175335
+40177866
 
 
 
