@@ -1,4 +1,3 @@
-
 /* SideBar */
 .sidenav{
     float:left;
@@ -52,7 +51,8 @@
         #productTable td:nth-of-type(6):before { content: "Supplier"; font-weight: bold;}
         #productTable td:nth-of-type(7):before { content: "Price/Unit"; font-weight: bold;}
     }
-    /*  User List */
+
+/*  User List */
 #UserTable { 
     width: 100%; 
     border-collapse: collapse; 
@@ -81,6 +81,7 @@
         #UserTable td:nth-of-type(6):before { content: "E-mail"; font-weight: bold;}
         #UserTable td:nth-of-type(7):before { content: "Last Online"; font-weight: bold;}
     }
+    
 /*Edit Order Features*/
 .directionOrder p{
     margin-top: 2cm;
@@ -103,6 +104,9 @@
 .summaryOrder .row{
     margin: 5px;
 }
+
+
+
 
 
 
