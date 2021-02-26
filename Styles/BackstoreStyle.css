@@ -52,7 +52,35 @@
         #productTable td:nth-of-type(6):before { content: "Supplier"; font-weight: bold;}
         #productTable td:nth-of-type(7):before { content: "Price/Unit"; font-weight: bold;}
     }
+    /*  User List */
+#UserTable { 
+    width: 100%; 
+    border-collapse: collapse; 
+}
+    @media
+    only screen and (max-width: 760px) {
     
+        #UserTable,  #UserTable tbody, #UserTable td,  #UserTable tr { 
+            display: block; 
+        }
+        
+        #UserHead tr { 
+            display:none;
+        }
+        
+        #UserTable tr { border: 1px solid lightgray; }
+       
+        #UserTable td:before { 
+            left: 7px;
+            padding-right: 10px; 
+        }
+        
+        #UserTable td:nth-of-type(3):before { content: " "; font-weight: bold;}
+        #UserTable td:nth-of-type(4):before { content: "User"; font-weight: bold;}
+        #UserTable td:nth-of-type(5):before { content: "Display Name"; font-weight: bold;}
+        #UserTable td:nth-of-type(6):before { content: "E-mail"; font-weight: bold;}
+        #UserTable td:nth-of-type(7):before { content: "Last Online"; font-weight: bold;}
+    }
 /*Edit Order Features*/
 .directionOrder p{
     margin-top: 2cm;
