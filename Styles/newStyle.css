@@ -67,6 +67,24 @@ nav a:hover{
 
 
 /*-------aisles--------*/
+.aisles{
+  text-align: center;
+  line-height: 60px;
+  position: relative;
+  color: #555;
+  }
+  
+  .aisles::after{
+    content: '';
+    background: #ff523b;
+    width: 80px;
+    height: 5px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 .fandv-aisle {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 300px;
