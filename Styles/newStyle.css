@@ -102,6 +102,27 @@ nav a:hover{
 .dairy-frontpage:hover{ opacity: 0.7;}
 /*-------aisles end-------*/
 
+/*-------extra aisles-------*/
+.extra-aisle1 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 630px;
+  margin: auto;
+  margin-bottom: 30px;
+
+}
+.extra-aisle1 :hover {
+  opacity: 0.7;
+}
+
+.extra-aisle2 {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 630px;
+  margin: auto;
+  margin-bottom: 30px;
+}
+.extra-aisle2 :hover{ opacity: 0.7;}
+
+/*-------extra aisles end-------*/
 
 /*-------weekly deals-------*/
 .orangedeals {
@@ -215,6 +236,153 @@ form a{
     text-decoration: none;
 }
 /*-----End of Forms-----*/
+/*---------product cards of extra aisles------*/
+.coca-cola {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.coca-cola button {
+  grid-row: 1 / 2;
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white (255, 255, 255);
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.coca-cola button:hover {
+  opacity: 0.7;
+}
+
+.redbull {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+.redbull button {
+  grid-row: 1 / 2;
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white (255, 255, 255);
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.redbull button:hover {
+  opacity: 0.7;
+}
+.water {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+.water button {
+  grid-row: 1 / 2;
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white (255, 255, 255);
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.water button:hover {
+  opacity: 0.7;
+}
+.spaghetti {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+
+.spaghetti button {
+  grid-row: 1 / 2;
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white (255, 255, 255);
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.spaghetti button:hover {
+  opacity: 0.7;
+}
+
+
+.macaroni {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+.macaroni button {
+  grid-row: 1 / 2;
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white (255, 255, 255);
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.macaroni button:hover {
+  opacity: 0.7;
+}
+.penne {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+.penne button {
+  grid-row: 1 / 2;
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white (255, 255, 255);
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.penne button:hover {
+  opacity: 0.7;
+}
+/*---------product cards of extra aisles end------*/
+
 
 /*----Product cards----*/
 .ProductTitle{
