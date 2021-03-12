@@ -169,10 +169,10 @@
       </label>
       <script type="text/javaScript">
           function checkSub(){
-            if(document.getElementById('emailSub').value.length == 0)
-              alert("Please input an email address.");
+            if(document.getElementById('emailSub').value.lengthsearch(/^[0-9A-Za-z.]+\@[a-z]+\.[a-z]{3}$/) == -1)
+             { alert("Please input an email address.");}
             else
-              alert("Thank you :)");
+             { alert("Thank you :)"); }
             return false;
           }
       </script>
