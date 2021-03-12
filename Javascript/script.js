@@ -1,3 +1,4 @@
+//Description button 
 var coll = document.getElementsByClassName("dropbtn");
 var i;
 
