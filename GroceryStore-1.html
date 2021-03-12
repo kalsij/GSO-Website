@@ -18,7 +18,7 @@
 
 <body>
 <!----------nav bar---------->
-  <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+  <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top" style="background-color: blue;">
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
@@ -34,6 +34,8 @@
                     <li><a href="Meat.html">Meat</a></li>
                     <li><a href="Dairy.html">Dairy</a></li>
                     <li><a href="Bread.html">Bread</a></li>
+                    <li><a href="drinks.html">Drinks</a></li>
+                    <li><a href="pasta.html">Pasta</a></li>
                    </li>
                   </ul>
 
@@ -61,6 +63,7 @@
   </div>
 
 <!------featured aisles--------->
+<h2 class="aisles">Aisles</h2>
 <div class=" justify-content-md-center row">
   <div class="col-md-auto">
       <div class="fandv-aisle">
@@ -91,9 +94,30 @@
       </div>
     </div> 
 </div>
+<!-----etra categories----->
+
+<div class="justify-content-md-center d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+
+    <div class="col-lg-auto">
+      
+        <div class="extra-aisle1 ">
+          <a href="">        
+                <img src="Media/pexels-klaus-nielsen-6287446.jpg" alt="pasta aisle " style="width:100%">
+              </a>
+    
+      </div>
+    </div>
+    <div class="col-lg-auto">
+      <div class="extra-aisle2">
+        <a href="drinks.html">
+            <img src="Media/pexels-breakingpic-3008.jpg" alt="drinks aisle " style="width:100%">
+          </a>
+   </div>
+    </div>
+</div>
 
 
-<!----------weekly deals-----------> 
+<!----------weekly deals----------->
 
 <h2 class="weeklydeals">Weekly Deals</h2>
   <div class=" justify-content-md-center row">
@@ -136,16 +160,25 @@
 </div>
 
 <!-------email subscription-------->
-    <div class="container shadow-lg pt-4 pb-3 pt-2 mt-4 w-75 text-center border rounded-pill">
-      <form class="row">
-        <div class="col">
-          <label for="email" class="lead">Enter your email to receive notifications on deals!&nbsp
-            <input type="email" name="email" id="emailSub">
-      <button class="btn btn-outline-warning m-2" onclick="checkSub();">Submit</button>
-          </label>
-        </div>
-      </form>
+<div class="container shadow-lg pt-4 pb-3 pt-2 mt-4 w-75 text-center border rounded-pill">
+  <form class="row">
+    <div class="col">
+      <label for="email" class="lead">Enter your email to receive notifications on deals!&nbsp
+        <input type="email" name="email" id="emailSub" class="col-12 col-md-3">
+  <button class="btn btn-outline-warning m-2" onclick="checkSub();">Submit</button>
+      </label>
+      <script type="text/javaScript">
+          function checkSub(){
+            if(document.getElementById('emailSub').value.length == 0)
+              alert("Please input an email address.");
+            else
+              alert("Thank you :)");
+            return false;
+          }
+      </script>
     </div>
+  </form>
+</div>
 
 <!---------footer----------->
 <footer class="container py-4">
