@@ -8,6 +8,7 @@ function setPasswordVisible() {
     }
 }
 
+//reset password email verification
 function sendEmail() {
 
     var node = document.getElementById("aFeed");
@@ -31,6 +32,7 @@ function sendEmail() {
     node.appendChild(feedback);
 }
 
+//clearing reset password elements and unbluring the sign in
 function unblur() {
 
     var node = document.getElementById("aForg");
@@ -44,6 +46,7 @@ function unblur() {
     node2.appendChild(br2);
 }
 
+//creating the reset password elements and bluring the sign in
 function forgot() {
     var nodeP = document.getElementById("aForg");
     var space = document.getElementById("space");
@@ -95,6 +98,7 @@ function forgot() {
     nodeP.appendChild(br4);
 }
 
+//verification of email and password entered
 function verif() {
     var prob = false;
 
