@@ -157,3 +157,90 @@ function cheeseDescrip() {
         aDescrip.innerHTML = "";
     }
 }
+//STEAK PAGE (40173635 <Jasmit Kalsi>)
+//-----------------------------------------------
+var steak = 1;
+function incrSteak(){
+    var p = document.getElementById("steakamount");
+    p.textContent = (parseInt(p.textContent, 10)+1).toString();
+    steak+=1
+}
+function decrSteak(){
+    var p = document.getElementById("steakamount");
+    var newAmt = parseInt(p.textContent, 10)-1;
+    if(newAmt > 0)
+  p.textContent = (newAmt).toString();
+}
+function steakAdder(){
+    var d = document.getElementById("steaktotal");
+    var p = document.getElementById("steakamount");
+    var newAmt = parseInt(p.textContent, 10);
+    var total = (newAmt*20.00);
+    d.innerHTML =  "Thank you! This product has been added to your shopping cart. <br/> <strong> Total: </strong> $" + total.toString();
+}
+
+//CHICKEN PAGE (40173635 <Jasmit Kalsi>)
+//-----------------------------------------------
+var chicken = 1;
+function incrChicken(){
+    var p = document.getElementById("chickenamount");
+    p.textContent = (parseInt(p.textContent, 10)+1).toString();
+    steak+=1
+}
+function decrChicken(){
+    var p = document.getElementById("chickenamount");
+    var newAmt = parseInt(p.textContent, 10)-1;
+    if(newAmt > 0)
+  p.textContent = (newAmt).toString();
+}
+function chickenAdder(){
+    var d = document.getElementById("chickentotal");
+    var p = document.getElementById("chickenamount");
+    var newAmt = parseInt(p.textContent, 10);
+    var total = (newAmt*12.50);
+    d.innerHTML =  "Thank you! This product has been added to your shopping cart. <br/> <strong> Total: </strong> $" + total.toString();
+}
+
+//RACKOFLAMB PAGE (40173635 <Jasmit Kalsi>)
+//-----------------------------------------------
+var rackoflamb = 1;
+function incrRackoflamb(){
+    var p = document.getElementById("rackoflambamount");
+    p.textContent = (parseInt(p.textContent, 10)+1).toString();
+    steak+=1
+}
+function decrRackoflamb(){
+    var p = document.getElementById("rackoflambamount");
+    var newAmt = parseInt(p.textContent, 10)-1;
+    if(newAmt > 0)
+  p.textContent = (newAmt).toString();
+}
+function rackoflambAdder(){
+    var d = document.getElementById("rackoflambtotal");
+    var p = document.getElementById("rackoflambamount");
+    var newAmt = parseInt(p.textContent, 10);
+    var total = (newAmt*55.00);
+    d.innerHTML =  "Thank you! This product has been added to your shopping cart. <br/> <strong> Total: </strong> $" + total.toString();
+}
+
+//BACON PAGE (40173635 <Jasmit Kalsi>)
+//-----------------------------------------------
+var rackoflamb = 1;
+function incrBacon(){
+    var p = document.getElementById("baconamount");
+    p.textContent = (parseInt(p.textContent, 10)+1).toString();
+    steak+=1
+}
+function decrBacon(){
+    var p = document.getElementById("baconamount");
+    var newAmt = parseInt(p.textContent, 10)-1;
+    if(newAmt > 0)
+  p.textContent = (newAmt).toString();
+}
+function baconAdder(){
+    var d = document.getElementById("bacontotal");
+    var p = document.getElementById("baconamount");
+    var newAmt = parseInt(p.textContent, 10);
+    var total = (newAmt*55.00);
+    d.innerHTML =  "Thank you! This product has been added to your shopping cart. <br/> <strong> Total: </strong> $" + total.toString();
+}
