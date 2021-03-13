@@ -241,6 +241,6 @@ function baconAdder(){
     var d = document.getElementById("bacontotal");
     var p = document.getElementById("baconamount");
     var newAmt = parseInt(p.textContent, 10);
-    var total = (newAmt*55.00);
+    var total = (newAmt*5.50);
     d.innerHTML =  "Thank you! This product has been added to your shopping cart. <br/> <strong> Total: </strong> $" + total.toString();
 }
