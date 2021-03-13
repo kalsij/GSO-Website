@@ -1,4 +1,5 @@
-//Description button 
+//Description button (40175335 <Julie Trinh>)
+//-----------------------------------------------
 var coll = document.getElementsByClassName("dropbtn");
 var i;
 
@@ -243,4 +244,111 @@ function baconAdder(){
     var newAmt = parseInt(p.textContent, 10);
     var total = (newAmt*5.50);
     d.innerHTML =  "Thank you! This product has been added to your shopping cart. <br/> <strong> Total: </strong> $" + total.toString();
+}
+
+//TOMATO PAGE (40175335 <Julie Trinh>)
+//-----------------------------------------------
+var tomato = 1;
+
+function incrementTomato() {
+    
+    tomato++;
+    document.getElementById('quantity').innerHTML = tomato;
+}
+
+function decrementTomato(){
+
+    if(tomato>1){
+        tomato--;
+    }
+        document.getElementById('quantity').innerHTML = tomato;
+}
+
+function addTomatoCart(){
+    var total = 0;
+    total = tomato*1.5;
+    total = total.toFixed(2);
+    document.getElementById("tomatoPrice").innerHTML = "<br />Item has been added to your shopping cart. Thank you!";
+    document.getElementById("totalTomato").innerHTML = "<strong>Total: </strong>$"+ total ;
+}
+
+//LEMON PAGE (40175335 <Julie Trinh>)
+//-----------------------------------------------
+
+var lemon = 1;
+
+function incrementLemon() {
+    
+    lemon++;
+    document.getElementById('quantity').innerHTML = lemon;
+}
+
+function decrementLemon(){
+
+    if(lemon>1){
+        lemon--;
+    }
+        document.getElementById('quantity').innerHTML = lemon;
+}
+
+function addLemonCart(){
+    var total = 0;
+    total = lemon*1;
+    total = total.toFixed(2);
+    document.getElementById("lemonPrice").innerHTML = "<br />Item has been added to your shopping cart. Thank you!";
+    document.getElementById("totalLemon").innerHTML = "<strong>Total: </strong>$"+ total ;
+}
+
+//BLUEBERRIES PAGE (40175335 <Julie Trinh>)
+//-----------------------------------------------
+
+var berry = 1;
+
+function incrementBerry() {
+    
+    berry++;
+    document.getElementById('quantity').innerHTML = berry;
+}
+
+function decrementBerry(){
+
+    if(berry>1){
+        berry--;
+    }
+        document.getElementById('quantity').innerHTML = berry;
+}
+
+function addBerryCart(){
+    var total = 0;
+    total = berry*5.5;
+    total = total.toFixed(2);
+    document.getElementById("berryPrice").innerHTML = "<br />Item has been added to your shopping cart. Thank you!";
+    document.getElementById("totalBerry").innerHTML = "<strong>Total: </strong>$"+ total ;
+}
+
+//ORANGE PAGE (40175335 <Julie Trinh>)
+//-----------------------------------------------
+
+var orange = 1;
+
+function incrementOrange() {
+    
+    orange++;
+    document.getElementById('quantity').innerHTML = orange;
+}
+
+function decrementOrange(){
+
+    if(orange>1){
+        orange--;
+    }
+        document.getElementById('quantity').innerHTML = orange;
+}
+
+function addOrangeCart(){
+    var total = 0;
+    total = orange*5.5;
+    total = total.toFixed(2);
+    document.getElementById("orangePrice").innerHTML = "<br />Item has been added to your shopping cart. Thank you!";
+    document.getElementById("totalOrange").innerHTML = "<strong>Total: </strong>$"+ total ;
 }
