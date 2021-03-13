@@ -72,17 +72,23 @@
                         </h3>
                         <p>
                             2.00$/100g
-                        </p>
-                        <button  type="button">+</button>
-                            1
-                        <button type="button">-</button>
+                          </p>
+                        <button type="button" onclick="incrRackoflamb()">+</button>
+                        <p id = "rackoflambamount" style="display: inline">1</p>
+                        <button type="button" onclick="decrRackoflamb()">-</button>
+                        
                 
                         <div class="btn">
-                        <button type="submit">Add to cart</button>
+                        <button type="submit" onclick="rackoflambAdder()">Add to cart</button>
                         </div>
                         <br/>
+                        <p id = "rackoflambtotal"></p>
                         <div style="padding-top: 20px;">
-                            <button class="dropbtn">Product Description</button>
+                            <button type = "button" button class="dropbtn">Product Description</button>
+                            <div class="content">
+                                <p> Beautiful juicy and tender A5 quality racks of lamb from Australia.  </p>
+                                <script type="text/javascript" src="Javascript/script.js"></script>
+                        
                         </div>
                 </div>
             </div> 
