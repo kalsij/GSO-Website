@@ -73,17 +73,21 @@
                         </h3>
                         <p>
                             0.65$/100g
-                        </p>
-                        <button  type="button">+</button>
-                            1
-                        <button type="button">-</button>
+                        <button type="button" onclick="incrChicken()">+</button>
+                        <p id = "chickenamount" style="display: inline">1</p>
+                        <button type="button" onclick="decrChicken()">-</button>
+                        
                 
                         <div class="btn">
-                        <button type="submit">Add to cart</button>
+                        <button type="submit" onclick="chickenAdder()">Add to cart</button>
                         </div>
                         <br/>
+                        <p id = "chickentotal"></p>
                         <div style="padding-top: 20px;">
-                            <button class="dropbtn">Product Description</button>
+                            <button type = "button" button class="dropbtn">Product Description</button>
+                            <div class="content">
+                                <p> Free range, whole fed Chicken ready for grilling. Perfect for a hot summer night </p>
+                                <script type="text/javascript" src="Javascript/script.js"></script>
                         </div>
                 </div>
             </div> 
