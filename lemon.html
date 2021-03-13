@@ -77,13 +77,18 @@
                         
                         
                         
-                        <button type="button">+</button>
-                                1
-                        <button type="button">-</button>
+                       <button  onclick="incrementLemon()">+</button>
+                        <p id="quantity" style="display: inline;" >1</p>
+                        <button  onclick="decrementLemon()">-</button>
                         
                         <div class="btn">
-                            <button type="submit">Add to cart</button>
+                            <button type="submit" onclick="addLemonCart()">Add to cart</button>
                         </div>
+                        <div>
+                            <p id="lemonPrice"></p>
+                            <p id = "totalLemon"></p>
+                        </div>
+                    
                         <br/>
                         <div style="padding-top: 20px;">
                             <button class="dropbtn">Product Description</button>
