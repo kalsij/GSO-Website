@@ -74,16 +74,23 @@
                         <p>
                             0.88$/100g
                         </p>
-                        <button  type="button">+</button>
-                            1
-                        <button type="button">-</button>
-                
-                        <div class="btn">
-                        <button type="submit">Add to cart</button>
-                        </div>
-                        <br/>
-                        <div style="padding-top: 20px;">
-                            <button class="dropbtn">Product Description</button>
+                       <button type="button" onclick="incrSteak()">+</button>
+                <p id = "steakamount" style="display: inline">1</p>
+                <button type="button" onclick="decrSteak()">-</button>
+
+                <div class="btn">
+                    
+                    <button type="submit" onclick="steakAdder()">Add to cart</button>
+                </div>
+                <br/>
+                <p id = "steaktotal"></p>
+                <div style="padding-top: 20px;">
+                    <button type="button" class="dropbtn">Product Description</button>
+                    <div class="content">
+                        <p> With cattle raised free on the grounds of Australia, enjoy a succulent and tender steak.
+                            Perfect for the barbeque.
+                        </p>
+                        <script type="text/javascript" src="Javascript/script.js"></script>
                         </div>
                 </div>
             </div> 
