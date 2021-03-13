@@ -76,16 +76,21 @@
                         <p>
                             0.50$/100g
                         </p>
-                        <button  type="button">+</button>
-                            1
-                        <button type="button">-</button>
+                           <button type="button" onclick="incrBacon()">+</button>
+                        <p id = "baconamount" style="display: inline">1</p>
+                        <button type="button" onclick="decrBacon()">-</button>
+                        
                 
                         <div class="btn">
-                        <button type="submit">Add to cart</button>
+                        <button type="submit" onclick="baconAdder()">Add to cart</button>
                         </div>
                         <br/>
+                        <p id = "bacontotal"></p>
                         <div style="padding-top: 20px;">
-                            <button class="dropbtn">Product Description</button>
+                            <button type = "button" button class="dropbtn">Product Description</button>
+                            <div class="content">
+                                <p> Free range, whole fed, perfect for grilling. </p>
+                                <script type="text/javascript" src="Javascript/script.js"></script>
                         </div>
                 </div>
             </div> 
