@@ -352,3 +352,30 @@ function addOrangeCart(){
     document.getElementById("orangePrice").innerHTML = "<br />Item has been added to your shopping cart. Thank you!";
     document.getElementById("totalOrange").innerHTML = "<strong>Total: </strong>$"+ total ;
 }
+
+//SPAGHETTI PAGE (40175335 <Julie Trinh>)
+//-----------------------------------------------
+
+var spaghetti = 1;
+
+function incrementSpaghetti() {
+    
+    spaghetti++;
+    document.getElementById('quantity').innerHTML = spaghetti;
+}
+
+function decrementSpaghetti(){
+
+    if(spaghetti>1){
+        orange--;
+    }
+        document.getElementById('quantity').innerHTML = spaghetti;
+}
+
+function addSpaghettiCart(){
+    var total = 0;
+    total = spaghetti*1.66;
+    total = total.toFixed(2);
+    document.getElementById("spaghettiPrice").innerHTML = "<br />Item has been added to your shopping cart. Thank you!";
+    document.getElementById("totalSpaghetti").innerHTML = "<strong>Total: </strong>$"+ total ;
+}
