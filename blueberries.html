@@ -77,12 +77,17 @@
                         <p>
                             2.75$/100g
                         </p>
-                        <button  type="button">+</button>
-                            1
-                        <button type="button">-</button>
+                        <button  onclick="incrementBerry()">+</button>
+                        <p id="quantity" style="display: inline;" >1</p>
+                        <button  onclick="decrementBerry()">-</button>
                 
+                        
                         <div class="btn">
-                        <button type="submit">Add to cart</button>
+                        <button type="submit" onclick="addBerryCart()">Add to cart</button>
+                        </div>
+                        <div>
+                            <p id="berryPrice"></p>
+                            <p id = "totalBerry"></p>
                         </div>
                         <br/>
                         <div style="padding-top: 20px;">
