@@ -74,13 +74,19 @@
                           5.50$/EA
                     </p>
                     
-                    <button type="button">+</button>
-                        1
-                    <button type="button">-</button>
+                     <button  onclick="incrementOrange()">+</button>
+                    <p id="quantity" style="display: inline;" >1</p>
+                    <button  onclick="decrementOrange()">-</button>
             
+                    
                     <div class="btn">
-                    <button type="submit">Add to cart</button>
+                    <button type="submit" onclick="addOrangeCart()">Add to cart</button>
                     </div>
+                    <div>
+                        <p id="orangePrice"></p>
+                        <p id = "totalOrange"></p>
+                    </div>
+                        
                     <br/>
                     <div class="dropdown" style="padding-top: 20px;">
                     <button class="dropbtn">Product description</button>
