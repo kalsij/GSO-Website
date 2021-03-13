@@ -75,13 +75,19 @@
                             3.75$/100g
                         </p>
                     
-                        <button type="button">+</button>
-                        1
-                        <button type="button">-</button>
+                        <button  onclick="incrementTomato()">+</button>
+                        <p id="quantity" style="display: inline;" >1</p>
+                        <button  onclick="decrementTomato()">-</button>
                 
+                        
                         <div class="btn">
-                        <button type="submit">Add to cart</button>
+                        <button type="submit" onclick="addTomatoCart()">Add to cart</button>
                         </div>
+                        <div>
+                            <p id="tomatoPrice"></p>
+                            <p id = "totalTomato"></p>
+                        </div>
+                    
                         <br/>
                         <div  style="padding-top: 20px;">
                         <button type = "button" class="dropbtn">Product Description</button>
