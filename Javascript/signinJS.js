@@ -10,26 +10,49 @@ function setPasswordVisible() {
 
 //reset password email verification
 function sendEmail() {
-
+    var prob = false;
     var node = document.getElementById("aFeed");
     node.innerHTML = "";
+    var br1 = document.createElement("br");
     var email = document.getElementById("email2");
+    var pass1 = document.getElementById("pass2");
+    var pass2 = document.getElementById("pass3");
     var feedback = document.createElement("p");
-    feedback.style.color = "black";
+    feedback.style.color = "red";
     feedback.style.textAlign = "center";
+    var feedback2 = document.createElement("p");
+    feedback2.style.color = "red";
+    feedback2.style.textAlign = "center";
+    var feedback3 = document.createElement("p");
+    feedback3.style.color = "red";
+    feedback3.style.textAlign = "center";
 
     if (email.value.search(/^[0-9A-Za-z.]+\@[a-z]+\.[a-z]{3}$/) == -1) {
-
-        feedback.style.color = "red";
-        feedback.textContent = "The email you entered is invalid. Please try again.";
-    }
-    else {
-
-        feedback.textContent = "The reset password email has been sent."
+        feedback.textContent = "The email you entered is invalid.";
+        prob = true;
+        node.appendChild(feedback);
     }
 
+    if (pass1.value.length < 8) {
 
-    node.appendChild(feedback);
+        feedback2.textContent = "Your password is too short.";
+        prob = true;
+        node.appendChild(feedback2);
+    }
+
+    if (pass2.value.length < 8 || pass2.value !== pass1.value) {
+
+        feedback3.textContent = "Your confirm password entry is wrong.";
+        prob = true;
+        node.appendChild(feedback3);
+    }
+
+    if (!prob) {
+        feedback.style.color = "black";
+        feedback.textContent = "Your password has been reset.";
+        node.appendChild(feedback);
+    }
+
 }
 
 //clearing reset password elements and unbluring the sign in
@@ -51,6 +74,12 @@ function forgot() {
     var nodeP = document.getElementById("aForg");
     var space = document.getElementById("space");
     var initial = document.getElementById("blur");
+    var br5 = document.createElement("br");
+    var br6 = document.createElement("br");
+    var br7 = document.createElement("br");
+    var br8 = document.createElement("br");
+    var br9 = document.createElement("br");
+    var br10 = document.createElement("br");
 
     nodeP.innerHTML = "";
     space.innerHTML = "";
@@ -66,19 +95,47 @@ function forgot() {
     var line = document.createElement("h2");
     line.textContent = "-----------------------------------------";
     var text = document.createElement("p");
-    text.textContent = "Please enter your email address in the box below and we will send you all the details to reset your password.";
+    text.textContent = "Please enter your email address and your new password in the boxes below to reset your password.";
     text.style.textAlign = "center";
+    var labelE = document.createElement("p");
+    labelE.style.display = "inline";
+    labelE.textContent = "Email: ";
+    var labelP1 = document.createElement("p");
+    labelP1.style.display = "inline";
+    labelP1.textContent = "New Password: ";
+    var labelP2 = document.createElement("p");
+    labelP2.style.display = "inline";
+    labelP2.textContent = "Confirm New Password: ";
     var inEmail = document.createElement("input");
     inEmail.type = "text";
     inEmail.placeholder = "Your email";
     inEmail.id = "email2";
+    var newPass = document.createElement("input");
+    newPass.type = "password";
+    newPass.placeholder = "Your new password";
+    newPass.id = "pass2";
+    var newPass2 = document.createElement("input");
+    newPass2.type = "password";
+    newPass2.placeholder = "Your new password";
+    newPass2.id = "pass3";
     var but = document.createElement("input");
     but.type = "button";
-    but.value = "Send Email";
+    but.value = "Reset Password";
     but.addEventListener("click", sendEmail);
     var centered = document.createElement("div");
     centered.style.textAlign = "center";
+    centered.appendChild(labelE);
     centered.appendChild(inEmail);
+    centered.appendChild(br5);
+    centered.appendChild(br6);
+    centered.appendChild(labelP1);
+    centered.appendChild(newPass);
+    centered.appendChild(br7);
+    centered.appendChild(br8);
+    centered.appendChild(labelP2);
+    centered.appendChild(newPass2);
+    centered.appendChild(br9);
+    centered.appendChild(br10);
     centered.appendChild(but);
     var br1 = document.createElement("br");
     var br2 = document.createElement("br");
