@@ -598,3 +598,120 @@ function addColaToCart()
     document.getElementById("addedCola").innerHTML=colaString;
     document.getElementById("totalCola").innerHTML=totalCola;
 }
+
+
+// PENNE PAGE  40176279 <Alice Chen>
+//-----------------------------------------
+var penne;
+
+function incrementPenne() 
+{
+    penne = parseInt(document.getElementById("quantityPenne").innerText);
+    penne += 1;
+    document.getElementById("quantityPenne").innerText = penne;
+}
+
+function decrementPenne()
+{
+    penne = parseInt(document.getElementById("quantityPenne").innerText);
+    
+    if(penne != '0') 
+    {
+        penne -= 1;
+        document.getElementById("quantityPenne").innerText = penne;
+    }
+}
+
+function addPenneCart()
+{
+    penne = parseInt(document.getElementById("quantityPenne").innerText);
+    
+    if(penne != '0') 
+    {
+        document.getElementById("PennePrice").innerText="This item has been added to your shopping cart. Thank you for shopping at GSO!";
+        document.getElementById("totalPenne").innerHTML="<b>Total:</b> " + "$" + (penne*1.66).toFixed(2);    
+    }
+    else if(document.getElementById("totalPenne") != 0)
+    {
+        document.getElementById("PennePrice").innerText="";
+        document.getElementById("totalPenne").innerHTML="";    
+    }
+}
+
+
+// MACARONI PAGE  40176279 <Alice Chen>
+//-----------------------------------------
+var macaroni;
+
+function incrementMacaroni() 
+{
+    macaroni = parseInt(document.getElementById("quantityMacaroni").innerText);
+    macaroni += 1;
+    document.getElementById("quantityMacaroni").innerText = macaroni;
+}
+
+function decrementMacaroni()
+{
+    macaroni = parseInt(document.getElementById("quantityMacaroni").innerText);
+    
+    if(macaroni != '0') 
+    {
+        macaroni -= 1;
+        document.getElementById("quantityMacaroni").innerText = macaroni;
+    }
+}
+
+function addMacaroniCart()
+{
+    macaroni = parseInt(document.getElementById("quantityMacaroni").innerText);
+    
+    if(macaroni != '0') 
+    {
+        document.getElementById("MacaroniPrice").innerText="This item has been added to your shopping cart. Thank you for shopping at GSO!";
+        document.getElementById("totalMacaroni").innerHTML="<b>Total:</b> " + "$" + (macaroni*1.66).toFixed(2);    
+    }
+    else if (document.getElementById("totalMacaroni") !='0')
+    {
+        document.getElementById("MacaroniPrice").innerText="";
+        document.getElementById("totalMacaroni").innerHTML="";    
+    }
+}
+
+
+// BUTTER PAGE  40176279 <Alice Chen>
+//-----------------------------------------
+var butter;
+
+function incrementButter() 
+{
+    butter = parseInt(document.getElementById("quantityButter").innerText);
+    butter += 1;
+    document.getElementById("quantityButter").innerText = butter;
+}
+
+function decrementButter()
+{
+    butter = parseInt(document.getElementById("quantityButter").innerText);
+    
+    if(butter != '0') 
+    {
+        butter -= 1;
+        document.getElementById("quantityButter").innerText = butter;
+    }
+}
+
+function addButterCart()
+{
+    butter = parseInt(document.getElementById("quantityButter").innerText);
+    
+    if(butter != '0') 
+    {
+        document.getElementById("ButterPrice").innerText="This item has been added to your shopping cart. Thank you for shopping at GSO!";
+        document.getElementById("totalButter").innerHTML="<b>Total:</b> " + "$" + (butter*2.50).toFixed(2);    
+    }
+    else if (document.getElementById("totalButter") !='0')
+    {
+        document.getElementById("ButterPrice").innerText="";
+        document.getElementById("totalButter").innerHTML="";    
+    }
+}
