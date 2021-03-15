@@ -7,10 +7,10 @@ for (i = 0; i < coll.length; i++) {
     coll[i].addEventListener("click", function () {
         
         var content = this.nextElementSibling;
-        if (content.style.display === "block") {
-            content.style.display = "none";
+         if (content.style.display === "block") { //if it is displaying
+            content.style.display = "none"; //does not display
         } else {
-            content.style.display = "block";
+            content.style.display = "block"; //display the content
         }
     });
 }
