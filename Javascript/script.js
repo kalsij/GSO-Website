@@ -379,3 +379,98 @@ function addSpaghettiCart(){
     document.getElementById("spaghettiPrice").innerHTML = "<br />Item has been added to your shopping cart. Thank you!";
     document.getElementById("totalSpaghetti").innerHTML = "<strong>Total: </strong>$"+ total ;
 }
+// email checking frontpage (40177866 <fatema akther>)
+//-----------------------------------------
+function checkSub(){
+    if(document.getElementById('emailSub').value.search(/^[0-9A-Za-z.]+\@[a-z]+\.[a-z]{3}$/)==0)
+    return true;
+    else 
+    return false; 
+    }
+//bread aisle descriptions (40177866 <fatema akther>)
+//------------pita-------------------------
+    var pita = 1;
+    function addPita() {
+        pita++;
+        document.getElementById('amountPita').innerHTML = pita;
+    }
+    
+    function minusPita(){
+        if(pita>1){
+            pita--;
+        }
+            document.getElementById('amountPita').innerHTML = pita;
+    }
+
+    function addCartPita(){
+        var total =pita*3.5; 
+        document.getElementById("pitatotal").innerHTML = "This item had been added to your cart.";
+        document.getElementById("pitaprice").innerHTML = "<strong>Total: </strong>$"+ total ;
+    }
+//------------ciabatta-------------------------
+var ciabatta = 1;
+function addCiabatta() {
+    ciabatta++;
+    document.getElementById('amountCiabatta').innerHTML = ciabatta;
+}
+
+function minusCiabatta(){
+    if(ciabatta>1){
+        ciabatta--;
+    }
+        document.getElementById('amountCiabatta').innerHTML = ciabatta;
+}
+
+function addCartCiabatta(){
+    var total = ciabatta*5.5; 
+    document.getElementById("ciabattaTotal").innerHTML = "This item had been added to your cart.";
+    document.getElementById("ciabattaPrice").innerHTML = "<strong>Total: </strong>$"+ total ;
+}
+//------------brown bread------------------------
+var BB = 1;
+function addBB() {
+    BB++;
+    document.getElementById('amountBB').innerHTML = BB;
+}
+
+function minusBB(){
+    if(BB>1){
+        BB--;
+    }
+        document.getElementById('amountBB').innerHTML = BB;
+}
+
+function addCartBB(){
+    var total = BB*5.0; 
+    document.getElementById("totalBB").innerHTML = "This item had been added to your cart.";
+    document.getElementById("priceBB").innerHTML = "<strong>Total: </strong>$"+ total ;
+}
+//------------white bread------------------------
+var WB = 1;
+function addWB() {
+    WB++;
+    document.getElementById('amountWB').innerHTML = WB;
+}
+
+function minusWB(){
+    if(WB>1){
+        WB--;
+    }
+        document.getElementById('amountWB').innerHTML = WB;
+}
+
+function addCartWB(){
+    var total = WB*4.5; 
+    document.getElementById("totalWB").innerHTML = "This item had been added to your cart.";
+    document.getElementById("priceWB").innerHTML = "<strong>Total: </strong>$"+ total ;
+}
+
+//---------description shower------------(40177866 <fatema akther>)
+function showBread() {
+    var x = document.getElementById('contentbread');
+    if (x.style.display == 'none') {
+        x.style.display = 'block';
+    } else {
+        x.style.display = 'none';
+    }
+}
