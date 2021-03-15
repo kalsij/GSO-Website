@@ -3,10 +3,7 @@
             rgb(221, 221, 221), white 60%, rgb(221, 221, 221) 80%, white);
 }
 
-footer{
-  position: relative; 
-  bottom: -100px;
-}
+
 
 /*-------navigation bar-------*/
 nav ul li ul{
