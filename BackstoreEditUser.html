@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Add/Edit User</title>
+    <title>Edit User</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -16,6 +16,9 @@
     
     //Style
     <link rel="stylesheet" type="text/css" href="Styles/BackstoreStyle.css"/>
+
+    //javascript
+    <script type = "text/javascript" src="Javascript/EditUser.js"></script>
 
 </head>
 
@@ -43,31 +46,38 @@
 
             <div class="col-sm-8 text-left">       
                 <div class="right">
-                    <h2 style="font-style: italic;">Add/Edit User</h2>
+                    <h2 style="font-style: italic;">Edit User</h2>
                     <br/>
 
                     <!-- Edit part -->
-                    <form>
-                      <input type = "button" value = "Save" class="btn btn-primary" style="float:right;"/>
-                      <input type = "button" value = "Cancel" class="btn btn-secondary" style="float:right; margin-right: 5px;"/>
+                    <form action="">
+                      <input type = "button" value = "Save" onclick="save()" class="btn btn-primary" style="float:right;"/>
+                      <input type = "reset" value = "Cancel" class="btn btn-secondary" style="float:right; margin-right: 5px;"/>
                       <br/>
- 
+                      <!-- text emplacement for the errors of each input-->
+                        <p id="correctionFirst"></p>
+                        <p id="correctionLast"></p>
+                        <p id="correctionPostal"></p>
+                        <p id="correctionEmail"></p>
+                        <p id="correctionPassword"></p>
+                        <p id="correct"></p>
+
+                        
                           <div class="form-row">
+                             
                                 <div class="form-group col-md-6">
                                   <label for="firstName">First Name</label>
-                                  <input type="text" class="form-control">
+                                  <input id="firstname" type="text" value="Micheal" class="form-control">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="lastName">Last Name</label>
-                                    <input type="text" class="form-control">
+                                    <input id="lastname" type="text" value="Scott" class="form-control">
                                 </div>
                                 <div>
                                   <label for="gender">Gender</label><br/>
                                   <label><input type="radio" name="section" style="margin: 0 10px 0 2px;"/>Female</label> 
-                                  <label><input type="radio" name="section"style="margin: 0 10px 0 30px;"/>Male</label>
+                                  <label><input type="radio" name="section"style="margin: 0 10px 0 30px;" checked/>Male</label>
                                 </div>
-                                
-
                           </div>
 
 
@@ -75,7 +85,7 @@
                           
                           <div class="form-group col-md-6">
                             <label for="postalCode">Postal Code</label>
-                            <input type="text" class="form-control">
+                            <input type="text" id="postCode" value="P4T 3T4" class="form-control">
                           </div>
                         </div>
 
@@ -83,38 +93,24 @@
                           
                             <div class="form-group col-md-6">
                               <label for="email">Email</label>
-                              <input type="text" class="form-control">
+                              <input type="text" id="emailAddress" value="Michaelscott@hotmail.com" class="form-control">
                             </div>
-                            <div class="form-group col-md-6">
-                                <label for="email">Confirm Email</label>
-                                <input type="text" class="form-control">
-                              </div>
+                            
                         </div>
         
                         <div class="form-row">
                           
                             <div class="form-group col-md-6">
                               <label for="password">Password</label>
-                              <input type="password" class="form-control">
+                              <input type="text" id="password" value="Potato11" class="form-control">
                             </div>
-                            <div class="form-group col-md-6">
-                                <label for="password">Confirm Password</label>
-                                <input type="password" class="form-control">
-                              </div>
+                            
                         </div>
 
-                        <div class="form-group">
-                          <label for="exampleFormControlFile1">Add picture</label>
-                          <input type="file" class="form-control-file" id="exampleFormControlFile1"> 
-                        </div> 
-               
-                      
                     </form>  
                     <br/><br/>
         </div>
     </div>
-
-
 
     <!-- Footer -->
     <footer class="container py-4">
