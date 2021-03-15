@@ -16,11 +16,13 @@
     
     //Style
     <link rel="stylesheet" type="text/css" href="Styles/BackstoreStyle.css"/>
+    
+    //JavaScript
+    <script type="text/javascript" src="Javascript/ProductList.js"></script>
 
 </head>
 
-<body>
-    <!-- Nav Bar -->
+<body >
     <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top" style="background-color: blue; position:fixed;">
             <h1 style="margin-top:0mm;color:white; font-size:50px;font-style:italic; font-weight:bold; margin-right:1cm;">
                 GSO</h1>
@@ -55,10 +57,10 @@
                             Filter
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="">Fruits & Vegetables</a>
-                            <a class="dropdown-item" href="">Dairy</a>
-                            <a class="dropdown-item" href="">Meat</a>
-                            <a class="dropdown-item" href="">Bread</a>
+                            <a class="dropdown-item" >Fruits & Vegetables</a>
+                            <a class="dropdown-item" >Dairy</a>
+                            <a class="dropdown-item" >Meat</a>
+                            <a class="dropdown-item" >Bread</a>
                             </div>
                         </div>
                         <div class="input-group-prepend">
@@ -84,8 +86,8 @@
                                 </tr>
                             </thead>
                             
-                            <tr>
-                                <td><input type="checkbox" name="product1"/></td>
+                            <tr class="fruits">
+                                <td><input type="checkbox"/></td>
                                 <td><img alt= "Blueberries" src="Media/Blueberries(veeterzy_WOg_unsplash).jpg" width="90" height= "75"></td>
                                 <td>Blueberries</td>
                                 <td>Fruits & Vegetables</td>
@@ -94,8 +96,8 @@
                                 <td>5.50$</td>
                                 
                             </tr>
-                            <tr>
-                                <td><input type="checkbox" name="product2"/></td>
+                            <tr class="fruits">
+                                <td><input type="checkbox" /></td>
                                 <td><img alt= "Oranges" src="Media/oranges.jpg" width="90" height= "75"></td>
                                 <td>Oranges</td>
                                 <td>Fruits & Vegetables</td>
@@ -104,8 +106,8 @@
                                 <td>5.50$</td>
                                 
                             </tr>
-                            <tr>
-                                <td><input type="checkbox" name="product3"/></td>
+                            <tr class="fruits">
+                                <td><input type="checkbox" /></td>
                                 <td><img alt= "Lemons" src="Media/Lemons(daniel_kim_unsplash).jpg" width="90" height= "75"></td>
                                 <td>Lemons</td>
                                 <td>Fruits & Vegetables</td>
@@ -114,8 +116,8 @@
                                 <td>1.00$</td>
                                 
                             </tr>
-                            <tr>
-                                <td><input type="checkbox" name="product4"/></td>
+                            <tr class="fruits">
+                                <td><input type="checkbox" /></td>
                                 <td><img alt= "Tomatoes" src="Media/Tomatoes(vince_lee_unsplash).jpg" width="90" height= "75"></td>
                                 <td>Tomatoes</td>
                                 <td>Fruits & Vegetables</td>
@@ -124,8 +126,8 @@
                                 <td>1.50$</td>
                                 
                             </tr>
-                            <tr>
-                                <td><input type="checkbox" name="product5"/></td>
+                            <tr class="dairy"> 
+                                <td><input type="checkbox" /></td>
                                 <td><img alt= "Yogurt" src="Media/yogurt.jpg" width="90" height= "75"></td>
                                 <td>Yogurt</td>
                                 <td>Dairy</td>
@@ -134,8 +136,8 @@
                                 <td>5.00$</td>
                                 
                             </tr>
-                            <tr>
-                                <td><input type="checkbox" name="product6"/></td>
+                            <tr class="dairy">
+                                <td><input type="checkbox" /></td>
                                 <td><img alt= "Milk" src="Media/milk.jpg" width="90" height= "75"></td>
                                 <td>Milk</td>
                                 <td>Dairy</td>
@@ -144,8 +146,8 @@
                                 <td>4.00$</td>
                                 
                             </tr>
-                            <tr>
-                                <td><input type="checkbox" name="product7"/></td>
+                            <tr class="dairy">
+                                <td><input type="checkbox" /></td>
                                 <td><img alt= "Butter" src="Media/butter.jpg" width="90" height= "75"></td>
                                 <td>Butter</td>
                                 <td>Dairy</td>
@@ -154,8 +156,8 @@
                                 <td>2.50$</td>
                                 
                             </tr>
-                            <tr>
-                                <td><input type="checkbox" name="product8"/></td>
+                            <tr class="dairy">
+                                <td><input type="checkbox" /></td>
                                 <td><img alt= "Cheese" src="Media/cheese.jpg" width="90" height= "75"></td>
                                 <td>Cheese</td>
                                 <td>Dairy</td>
@@ -164,8 +166,8 @@
                                 <td>10.50$</td>
                                 
                             </tr>
-                            <tr>
-                                <td><input type="checkbox" name="product9"/></td>
+                            <tr class="meat">
+                                <td><input type="checkbox" /></td>
                                 <td><img alt= "Lamb" src="Media/lamb.jpg" width="90" height= "75"></td>
                                 <td>Rack of Lamb</td>
                                 <td>Meat</td>
@@ -174,8 +176,8 @@
                                 <td>55.00$</td>
                             
                             </tr>
-                            <tr>
-                                <td><input type="checkbox" name="product10"/></td>
+                            <tr class="meat">
+                                <td><input type="checkbox" /></td>
                                 <td><img alt= "Chicken" src="Media/chicken.png" width="90" height= "75"></td>
                                 <td>Chicken</td>
                                 <td>Meat</td>
@@ -184,8 +186,8 @@
                                 <td>12.50$</td>
                                 
                             </tr>
-                            <tr>
-                                <td><input type="checkbox" name="product11"/></td>
+                            <tr class="meat">
+                                <td><input type="checkbox" /></td>
                                 <td><img alt= "Bacon" src="Media/bacon.jpg" width="90" height= "75"></td>
                                 <td>Bacon</td>
                                 <td>Meat</td>
@@ -194,8 +196,8 @@
                                 <td>5.50$</td>
                             
                             </tr>
-                            <tr>
-                                <td><input type="checkbox" name="product12"/></td>
+                            <tr class="meat">
+                                <td><input type="checkbox" /></td>
                                 <td><img alt= "Steak" src="Media/steak.jpg" width="90" height= "75"></td>
                                 <td>Steak</td>
                                 <td>Meat</td>
@@ -204,18 +206,18 @@
                                 <td>20.00$</td>
                                 
                             </tr>
-                            <tr>
-                                <td><input type="checkbox" name="product13"/></td>
+                            <tr class="bread">
+                                <td><input type="checkbox" /></td>
                                 <td><img alt= "Pita" src="Media/pita.jpg" width="90" height= "75"></td>
                                 <td>Pita</td>
-                                <td>100</td>
+                                <td>Bread</td>
                                 <td>95</td>
                                 <td>Boulart</td>
                                 <td>3.50$</td>
                                 
                             </tr>
-                            <tr>
-                                <td><input type="checkbox" name="product14"/></td>
+                            <tr class="bread">
+                                <td><input type="checkbox" /></td>
                                 <td><img alt= "BrownBread" src="Media/brown-bread.jpg" width="90" height= "75"></td>
                                 <td>Brown Bread</td>
                                 <td>Bread</td>
@@ -224,8 +226,8 @@
                                 <td>5.00$</td>
                                 
                             </tr>
-                            <tr>
-                                <td><input type="checkbox" name="product15"/></td>
+                            <tr class="bread">
+                                <td><input type="checkbox" /></td>
                                 <td><img alt= "Ciabatta" src="Media/ciabatta.jpg" width="90" height= "75"></td>
                                 <td>Ciabatta</td>
                                 <td>Bread</td>
@@ -234,8 +236,8 @@
                                 <td>5.50$</td>
                                 
                             </tr>
-                            <tr>
-                                <td><input type="checkbox" name="product16"/></td>
+                            <tr class="bread">
+                                <td><input type="checkbox"/></td>
                                 <td><img alt= "WhiteBread" src="Media/white-bread.jpg" width="90" height= "75"></td>
                                 <td>White Bread</td>
                                 <td>Bread</td>
@@ -244,15 +246,77 @@
                                 <td>4.50$</td>
                                 
                             </tr>
+                            <tr class="drinks">
+                                <td><input type="checkbox" /></td>
+                                <td><img alt= "Water" src="Media/water.jpg" width="90" height= "75"></td>
+                                <td>Water</td>
+                                <td>Drinks</td>
+                                <td>100</td>
+                                <td>Nestle</td>
+                                <td>1.25$</td>
+                                
+                            </tr>
+                            <tr class="drinks">
+                                <td><input type="checkbox" /></td>
+                                <td><img alt= "Coca-cola" src="Media/pexels-pixabay-50593.jpg" width="90" height= "75"></td>
+                                <td>Coca-Cola</td>
+                                <td>Drinks</td>
+                                <td>300</td>
+                                <td>Coca-Cola</td>
+                                <td>1.74$</td>
+                                
+                            </tr>
+                            <tr class="drinks">
+                                <td><input type="checkbox" /></td>
+                                <td><img alt= "RedBull" src="Media/redbull.jpg" width="90" height= "75"></td>
+                                <td>RedBull</td>
+                                <td>Drinks</td>
+                                <td>200</td>
+                                <td>Voss</td>
+                                <td>1.99$</td>
+                                
+                            </tr>
+                            <tr class="pastas">
+                                <td><input type="checkbox" /></td>
+                                <td><img alt= "macaroni" src="Media/pexels-klaus-nielsen-6287380.jpg" width="90" height= "75"></td>
+                                <td>Macaroni</td>
+                                <td>Pasta</td>
+                                <td>150</td>
+                                <td>Bulk</td>
+                                <td>1.66$</td>
+                                
+                            </tr>
+                            <tr class="pastas">
+                                <td><input type="checkbox" /></td>
+                                <td><img alt= "spaghetti" src="Media/spaghetti.jpg.jpg" width="90" height= "75"></td>
+                                <td>Spaghetti</td>
+                                <td>Pasta</td>
+                                <td>300</td>
+                                <td>Bulk</td>
+                                <td>1.66$</td>
+                                
+                            </tr>
+                            <tr class="pastas">
+                                <td><input type="checkbox" /></td>
+                                <td><img alt= "penne" src="Media/pexels-klaus-nielsen-6287336.jpg" width="90" height= "75"></td>
+                                <td>Penne</td>
+                                <td>Pasta</td>
+                                <td>200</td>
+                                <td>Bulk</td>
+                                <td>1.66$</td>
+                                
+                            </tr>
 
                         </table>
                 
                         <!-- Delete button -->
-                        <input type = "button" value = "Delete" class="btn btn-primary" style="float:right;"/>
+                        <input type = "button" value = "Delete" onclick=deleteElement() class="btn btn-primary" style="float:right; margin-right: 5px;"/>
 
                         <!-- Edit Product button -->
-                        <a href="BackstoreEditProduct.html" class="btn btn-primary" style="float: right;margin-right: 5px;">Edit</a>
-
+                        <input type = "button" value = "Edit" onclick=editElements() class="btn btn-primary" style="float:right; margin-right: 5px;"/>
+                        
+                        <!-- Add empty product -->
+                        <input type = "button" value = "Add" onclick=addElement() class="btn btn-primary" style="float:right; margin-right: 5px;"/>
                     </form>  
         </div>
     </div>
