@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>RedBull</title>
+    <title>Coca-cola</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
  
@@ -14,9 +14,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
  
     <link rel="stylesheet" type="text/css" href="Styles/newStyle.css" />
+    
 </head>
 
     <body>
+        
+
         <!--nav bar-->
         <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top" style="background-color: blue;">
             <h1 style="margin-top:0mm;color:white; font-size:50px;font-style:italic; font-weight:bold; margin-right:1cm;">
@@ -61,55 +64,43 @@
         <div class="container shadow-lg " >
             <div class="row">
                 <div class="col-md-6 " >
-                    <img class="picture" src="Media/redbull.jpg" alt="Red-bull" style="width:90%; display: block; margin: 0 auto; margin-bottom: 20px;">
+                    <img class="picture" src="Media/pexels-pixabay-50593.jpg" alt="Coca-cola" style="width:90%; display: block; margin: 0 auto; margin-bottom: 20px;">
                 </div>
 
                 <div class=" col-md-5 " style = " margin-right: 50px">
-                    <h4 ><b>RedBull</b></h4>
+                    <h4 ><b>Coca-cola</b></h4>
                         <br/>
                         
                         <h3  style="color:red">
-                            CAD 1.99$/unit
+                            CAD 1.74$/unit
                         </h3>
                         <p>
-                            (8.4 oz)
+                            (355 mL)
                         </p>
-                        <button  type="button" onclick="incrementRedbull()">+</button>
-                        <span id="numOfRedbull">1</span>   
-                        <button type="button" onclick="decrementRedbull()">-</button>
+                        <button  type="button" onclick="incrementCola()">+</button>
+                         <span id="numOfCola">1</span>   
+                        <button type="button" onclick="decrementCola()">-</button>
+                
                         <div class="btn">
-                        <button type="submit" onclick="addRedbullToCart()">Add to cart</button>
+                        <button type="submit" onclick="addColaToCart()">Add to cart</button>
                         </div>
                         <br/>
-                        <p id="addedRedBull"></p>
-                        <p id="totalRedBull"></p>
+                        <p id="addedCola"></p>
+                        <p id="totalCola"></p>
                         <div style="padding-top: 20px;">
-                            <button class="dropbtn" onclick="showRedbullDescription()">Product Description</button>
-                            <p id="redbullDescription" style="visibility:hidden;">The special formula for the RedBull energy drink contains nothing but ingredients of great quality. Cafeine, taurine and sugar. RedBull cans are made from aluminium and are 100% recyclable.</p>
+                            <button class="dropbtn" onclick="showColaDescription()">Product Description</button>
+                            <p id="colaDescription" style="visibility:hidden;">Get the authentic, delicious and refreshing taste of coca-cola. No artificial flavors. </p>
                         </div>
                         <!-- JavaScript -->
                         <script type = "text/javascript" src="Javascript/script.js"></script>
                 </div>
             </div> 
         </div>
-
         
 
         <!--Display of other products from same aisle-->
         <h1>Other related items</h1>
         <div class=" justify-content-md-center row">
-            
-            <div class="col-md-auto">
-                <div class="white-bread">
-                    <a href="coca-cola.html">
-                        <img src="Media/pexels-pixabay-50593.jpg" alt="coca-cola" style="width:100%; max-height:200px;">
-                    </a>
-                    <h1 style="margin-top: auto; color:rgb(75, 75, 75);">Coca-Cola</h1>
-                    <p class="price" style="color:rgb(75, 75, 75);">$1.74<br/>(355 mL)</p>
-                 
-    
-                </div>
-            </div>
             <div class="col-md-auto">
                 <div class="water">
                     <a href="water.html">
@@ -118,6 +109,16 @@
                     <h1 style="margin-top: auto; color:rgb(75, 75, 75);">Water</h1>
                     <p class="price" style="color:rgb(75, 75, 75);">$1.25<br/>(1.5 L)</p>
                 
+                </div>
+            </div>
+            <div class="col-md-auto">
+                <div class="redbull">
+                    <a href="redbull.html">
+                        <img src="Media/redbull.jpg" alt="RedBull" style="width:100%">
+                    </a>
+                    <h1 style="margin-top: auto; color:rgb(75, 75, 75);">Red-Bull</h1>
+                    <p class="price" style="color:rgb(75, 75, 75);">$1.99<br/>(8.4 oz)</p>
+                    
     
                 </div>
             </div>
