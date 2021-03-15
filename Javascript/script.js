@@ -46,6 +46,7 @@ function milkAddToCart() {
     var aSum = document.getElementById("aSummary");
     aSum.innerHTML = "";
     var total = getNbrMilk() * 4.00;
+    total = total.toFixed(2);
     var text = document.createElement("p");
     text.innerHTML = `The product has been added to your shopping cart.<br /><div style='font-weight: bold; display: inline;'>Total: </div>${total}$`;
     aSum.appendChild(text);
@@ -94,6 +95,7 @@ function yogAddToCart() {
     var aSum = document.getElementById("aSummary");
     aSum.innerHTML = "";
     var total = getNbrYog() * 5.00;
+    total = total.toFixed(2);
     var text = document.createElement("p");
     text.innerHTML = `The product has been added to your shopping cart.<br /><div style='font-weight: bold; display: inline;'>Total: </div>${total}$`;
     aSum.appendChild(text);
@@ -142,6 +144,7 @@ function cheeseAddToCart() {
     var aSum = document.getElementById("aSummary");
     aSum.innerHTML = "";
     var total = getNbrCheese() * 10.50;
+    total = total.toFixed(2);
     var text = document.createElement("p");
     text.innerHTML = `The product has been added to your shopping cart.<br /><div style='font-weight: bold; display: inline;'>Total: </div>${total}$`;
     aSum.appendChild(text);
@@ -177,6 +180,7 @@ function steakAdder(){
     var p = document.getElementById("steakamount");
     var newAmt = parseInt(p.textContent, 10);
     var total = (newAmt*20.00);
+    total = total.toFixed(2);
     d.innerHTML =  "Thank you! This product has been added to your shopping cart. <br/> <strong> Total: </strong> $" + total.toString();
 }
 
@@ -199,6 +203,7 @@ function chickenAdder(){
     var p = document.getElementById("chickenamount");
     var newAmt = parseInt(p.textContent, 10);
     var total = (newAmt*12.50);
+    total = total.toFixed(2);
     d.innerHTML =  "Thank you! This product has been added to your shopping cart. <br/> <strong> Total: </strong> $" + total.toString();
 }
 
@@ -221,6 +226,7 @@ function rackoflambAdder(){
     var p = document.getElementById("rackoflambamount");
     var newAmt = parseInt(p.textContent, 10);
     var total = (newAmt*55.00);
+    total = total.toFixed(2);
     d.innerHTML =  "Thank you! This product has been added to your shopping cart. <br/> <strong> Total: </strong> $" + total.toString();
 }
 
@@ -243,6 +249,7 @@ function baconAdder(){
     var p = document.getElementById("baconamount");
     var newAmt = parseInt(p.textContent, 10);
     var total = (newAmt*5.50);
+    total = total.toFixed(2);
     d.innerHTML =  "Thank you! This product has been added to your shopping cart. <br/> <strong> Total: </strong> $" + total.toString();
 }
 
@@ -404,6 +411,7 @@ function checkSub(){
 
     function addCartPita(){
         var total =pita*3.5; 
+        total = total.toFixed(2);
         document.getElementById("pitatotal").innerHTML = "This item had been added to your cart.";
         document.getElementById("pitaprice").innerHTML = "<strong>Total: </strong>$"+ total ;
     }
@@ -423,6 +431,7 @@ function minusCiabatta(){
 
 function addCartCiabatta(){
     var total = ciabatta*5.5; 
+    total = total.toFixed(2);
     document.getElementById("ciabattaTotal").innerHTML = "This item had been added to your cart.";
     document.getElementById("ciabattaPrice").innerHTML = "<strong>Total: </strong>$"+ total ;
 }
@@ -442,6 +451,7 @@ function minusBB(){
 
 function addCartBB(){
     var total = BB*5.0; 
+    total = total.toFixed(2);
     document.getElementById("totalBB").innerHTML = "This item had been added to your cart.";
     document.getElementById("priceBB").innerHTML = "<strong>Total: </strong>$"+ total ;
 }
@@ -461,6 +471,7 @@ function minusWB(){
 
 function addCartWB(){
     var total = WB*4.5; 
+    total = total.toFixed(2);
     document.getElementById("totalWB").innerHTML = "This item had been added to your cart.";
     document.getElementById("priceWB").innerHTML = "<strong>Total: </strong>$"+ total ;
 }
