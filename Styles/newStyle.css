@@ -861,11 +861,27 @@ color: white;
 }
   
  /*-------List of Items - shopping cart-------*/
+ 
+ .ShoppingCartTitle {
+    margin-top:2.5cm;
+    text-align: center; 
+    font-size:25px; 
+    color:rgb(134, 134, 134);
+  
+ }
  .shoppingCart {
   display: flex; 
   flex-wrap: nowrap; 
   margin-right: 10px;
-  margin-top: 20px;
+  margin-left: -15px;
+
+}
+
+.shoppingCart .row {
+  display:flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
 }
 
 .qtyItems {
@@ -880,7 +896,6 @@ color: white;
   border: none;
   outline: 0;
   color: white;
-  
   background-color: rgb(219, 11, 11);
   cursor: pointer;
   width: 100%;
@@ -890,15 +905,17 @@ color: white;
   opacity: 0.7;
 }
 
-.delete-trash button {
+.delete-trash {
   margin: auto;
   border: none;
   outline: 0;
   cursor: pointer;
-  background-color:#ffffff;   
+  background-color:gray;  
+  width: fit-content; 
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-.delete-trash button:hover {
+.delete-trash :hover {
   opacity: 0.7;
 }
 
