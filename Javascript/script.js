@@ -475,7 +475,7 @@ function addCartWB(){
     document.getElementById("totalWB").innerHTML = "This item had been added to your cart.";
     document.getElementById("priceWB").innerHTML = "<strong>Total: </strong>$"+ total ;
 }
-//---------description shower---------------
+//---------description show---------------
 function showBread() {
     var x = document.getElementById('contentbread');
     if (x.style.display == 'none') {
@@ -484,7 +484,12 @@ function showBread() {
         x.style.display = 'none';
     }
 }
-
+//------user delete------
+function deleteUser(btn) {
+    var row = btn.parentNode.parentNode;
+    row.parentNode.removeChild(row);
+  }
+//--------end for (Fatema )-----------------------
 
 // description pages for the drinks category
 
