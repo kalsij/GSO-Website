@@ -1,7 +1,5 @@
-var incrementButtonShoppingCart = document.getElementsByClassName('incrementButton');
-var decrementButtonShoppingCart = document.getElementsByClassName('decrementButton');
-
 //increment button
+var incrementButtonShoppingCart = document.getElementsByClassName('incrementButton');
 for(var i = 0; i < incrementButtonShoppingCart.length; i++) {
     var button = incrementButtonShoppingCart[i];
     button.addEventListener('click', function(event){
@@ -16,6 +14,7 @@ for(var i = 0; i < incrementButtonShoppingCart.length; i++) {
     })
 }
 //decrement button
+var decrementButtonShoppingCart = document.getElementsByClassName('decrementButton');
 for(var i = 0; i < decrementButtonShoppingCart.length; i++) {
     var button = decrementButtonShoppingCart[i];
     button.addEventListener('click', function(event){
@@ -38,7 +37,7 @@ for (var i = 0; i < removeItem.length; i++) {
     var button = removeItem[i]
     button.addEventListener('click', function(event) {
         var buttonClicked = event.target
-        buttonClicked.parentElement.parentElement.remove()
+        buttonClicked.parentElement.parentElement.parentElement.parentElement.remove()
         updateTotalQuantityShoppingCart()
         updateTotalPriceShoppingCart()
         
@@ -86,9 +85,9 @@ function updateTotalPriceShoppingCart() {
     QSTtaxe = (0.09975*subTotal)
 
     total = (subTotal+GSTtaxe+QSTtaxe)
- 
-    document.getElementsByClassName("subtotalPrice")[0].innerText = '$ ' + Number(Math.round(subTotal+'e2')+'e-2')
-    document.getElementsByClassName("GSTPrice")[0].innerText = '$ ' + Number(Math.round(GSTtaxe+'e2')+'e-2')
-    document.getElementsByClassName("QSTPrice")[0].innerText = '$ ' + Number(Math.round(QSTtaxe+'e2')+'e-2')
-    document.getElementsByClassName("totalPrice")[0].innerText = '$ ' + Number(Math.round(total+'e2')+'e-2')
+    
+    document.getElementsByClassName("subtotalPrice")[0].innerText = '$ ' + subTotal.toFixed(2)
+    document.getElementsByClassName("GSTPrice")[0].innerText = '$ ' + GSTtaxe.toFixed(2)
+    document.getElementsByClassName("QSTPrice")[0].innerText = '$ ' + QSTtaxe.toFixed(2)
+    document.getElementsByClassName("totalPrice")[0].innerText = '$ ' + total.toFixed(2)
 }
