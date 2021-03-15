@@ -14,6 +14,8 @@
 
     //Style
     <link rel="stylesheet" type="text/css" href="Styles/newStyle.css"/>
+    <script src="shoppingCart.js" async></script>
+
 </head>
 
 <body>
@@ -54,43 +56,43 @@
                 style="float:right"></a>
     </nav>
 
-    <h1>My Shopping Cart</h1>
+    <h1 class="ShoppingCartTitle">My Shopping Cart</h1>
     <div class="container-fluid">
         <div class="shoppingCart row">
 
             <!-- List of items in shopping cart -->
-            <div class="col-md-8">
+            <div class="Cart col-md-8 ">
                 <h3>MY CART</h3>
                 <hr></br>
 
-
-                <div class="justify-content-between align-items-center listMyCart row">
-                    <div class="col-md-4"><img src="Media/Tomatoes(vince_lee_unsplash).jpg" alt="tomato" style="width: 105px;"></div>
+                <div class="listMyCart justify-content-between align-items-center  row">
+                    <div class="col-md-4"><img src="Media/Tomatoes(vince_lee_unsplash).jpg" alt="lemon" style="width: 105px;"></div>
 
                     <div class="col-md-3"><h6>Tomatoes</br>(40g avg)</h6></div>
 
                     <!-- Button to change the quantity of the item -->
                     <div class="col-md-2">
                         <div class="qtyItems">
-                            <button type="button">+</button>
-                            1
-                            <button type="button">-</button>
+                            <button class="incrementButton" type="button">+</button>
+                            <span class="quantityProduct">1</span> 
+                            <button class="decrementButton" type="button">-</button>
                         </div>
                     </div>
 
-                    <div class="col-md-2"><h6>$ 1.50</h6></div>
+                    <div class="priceItem col-md-2 "><h6>$ 1.50</h6></div>
 
                     <!-- Button to delete the item -->
                     <div class="col-md-1">
                         <div class="delete-trash">
-                            <button type="button"><img src="Media/TrashCan(Flaticon).png" alt="trash can" style="height:25px; width: 25px;"></button>
+                           REMOVE
                         </div>
                     </div>
-
+                
                 </div>
-                </br><hr></br>
 
-                <div class="justify-content-between align-items-center listMyCart row">
+                </br>
+
+                <div class="listMyCart justify-content-between align-items-center  row">
                     <div class="col-md-4"><img src="Media/Lemons(daniel_kim_unsplash).jpg" alt="lemon" style="width: 105px;"></div>
 
                     <div class="col-md-3"><h6>Lemons</br>(80g avg)</h6></div>
@@ -98,25 +100,26 @@
                     <!-- Button to change the quantity of the item -->
                     <div class="col-md-2">
                         <div class="qtyItems">
-                            <button type="button">+</button>
-                            1
-                            <button type="button">-</button>
+                            <button class="incrementButton" type="button">+</button>
+                            <span class="quantityProduct">10</span> 
+                            <button class="decrementButton" type="button">-</button>
                         </div>
                     </div>
 
-                    <div class="col-md-2"><h6>$ 1.00</h6></div>
+                    <div class="priceItem col-md-2"><h6>$ 1.00</h6></div>
 
                     <!-- Button to delete the item -->
                     <div class="col-md-1">
                         <div class="delete-trash">
-                            <button type="button"><img src="Media/TrashCan(Flaticon).png" alt="trash can" style="height:25px; width: 25px;"></button>
+                           REMOVE
                         </div>
                     </div>
-
+                
                 </div>
-                </br><hr></br>
+           
+                </br>
 
-                <div class="justify-content-between align-items-center listMyCart row">
+                <div class="listMyCart justify-content-between align-items-center  row">
                     <div class="col-md-4"><img src="Media/Blueberries(veeterzy_WOg_unsplash).jpg" alt="blueberries" style="width: 105px;"></div>
 
                     <div class="col-md-3"><h6>Blueberries</br>(200g avg)</h6></div>
@@ -124,29 +127,27 @@
                     <!-- Button to change the quantity of the item -->
                     <div class="col-md-2">
                         <div class="qtyItems">
-                            <button type="button">+</button>
-                            1
-                            <button type="button">-</button>
+                            <button class="incrementButton" type="button">+</button>
+                            <span class="quantityProduct">50</span> 
+                            <button class="decrementButton" type="button">-</button>
                         </div>
                     </div>
 
-                    <div class="col-md-2"><h6>$ 5.50</h6></div>
+                    <div class="priceItem col-md-2"><h6>$ 5.50</h6></div>
 
                     <!-- Button to delete the item -->
                     <div class="col-md-1">
-                        <div class="delete-trash">
-                            <button type="button"><img src="Media/TrashCan(Flaticon).png" alt="trash can" style="height:25px; width: 25px;"></button>
+                        <div class="delete-trash">REMOVE
                         </div>
                     </div>
-
+               
                 </div>
-                </br><hr>
-
+                 </br><hr></br>
 
             </div>
 
             <!-- Summary of the items (number of items, subtotal, QST, GST and total)-->
-            <div class="summaryItems col-md-4">
+            <div class="summaryItems col-md-4" style="left: 10px;">
                 <div class="listSummary">
 
                     <h3>SUMMARY LIST</h3>
@@ -154,30 +155,30 @@
 
                     <div class="justify-content-between row">
                         <div class="col-md-auto">Qty of Items</div>
-                        <div class="col-md-auto" >3</div>
+                        <div class="totalItems col-md-auto" >61</div>
                     </div>
                     <hr></br>
 
                     <div class="justify-content-between row">
                         <div class="col-md-auto">Subtotal</div>
-                        <div class="col-md-auto">$ 8.00</div>
+                        <div class="subtotalPrice col-md-auto">$ 8.00</div>
                     </div>
                     <hr></br>
 
                     <div class="justify-content-between row">
                         <div class="col-md-auto">GST</div>
-                        <div class="col-md-auto">$ 0.80</div>
+                        <div class="GSTPrice col-md-auto">$ 0.80</div>
                     </div>
 
                     <div class="justify-content-between row">
                         <div class="col-md-auto">QST</div>
-                        <div class="col-md-auto">$ 0.44</div>
+                        <div class="QSTPrice col-md-auto">$ 0.44</div>
                     </div>
                     <hr></br>
 
                     <div class="justify-content-between row">
                         <div class="col-md-auto">Total</div>
-                        <div class="col-md-auto">$ 9.24</div>
+                        <div class="totalPrice col-md-auto">$ 9.24</div>
                     </div>
                     </br><hr>
 
