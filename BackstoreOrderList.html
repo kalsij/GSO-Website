@@ -6,7 +6,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    //Bootstrap
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -14,7 +13,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     
-    //Style
     <link rel="stylesheet" type="text/css" href="Styles/BackstoreStyle.css"/>
 
 </head>
@@ -61,6 +59,7 @@
                         <table class="table" id="UserTable">
                             <thead id = "UserHead">
                                 <tr>
+                                  <th id=check><p>Checkboxes</p></th>
                                     <th id=Order><p>Order #</p></th>
                                     <th id=Date><p>Purchased on</p></th>
                                     <th id=name><p>Bill to name</p></th>
@@ -72,49 +71,54 @@
                             </thead>
                             
                             <tr>
+                                <td><input name = "checkbox"  type="checkbox"> </td>
                                 <td>#12345AB</td>
                                 <td>2021-02-18</td>
                                 <td>Victor Jones</td>
                                 <td>$45.00</td>
                                 <td>$37.00</td>
-                                <td>Completed</td>
-                                <td><a href="1JonesEditOrderProfile.html" class="btn btn-primary">View</a>  <input type = "button" value = "Ship" class="btn btn-primary" style="margin-top:1px"></td>
+                                <td name = "status">Completed</td>
+                                <td><a href="1JonesEditOrderProfile.html" class="btn btn-primary">View</a>  <input type = "button" value = "Ship" class="btn btn-primary" onclick="ship1()" style="margin-top:1px"></td>
                                 
                             </tr>
                             <tr>
+                              <td><input name = "checkbox"  type="checkbox"></td>
                               <td>#54321BA</td>
                               <td>2021-02-18</td>
                               <td>Victor Jones</td>
                               <td>$145.00</td>
                               <td>$127.00</td>
-                              <td>Completed</td>
-                              <td><a href="2JonesEditOrderProfile.html" class="btn btn-primary">View</a>  <input type = "button" value = "Ship" class="btn btn-primary" style="margin-top:1px"></td>
+                              <td name = "status">Completed</td>
+                              <td><a href="2JonesEditOrderProfile.html" class="btn btn-primary">View</a>  <input type = "button" value = "Ship" class="btn btn-primary" onclick="ship2()" style="margin-top:1px"></td>
                               
                           </tr>
                           <tr>
-                            <td>##83745VD</td>
+                            <td><input name = "checkbox" type="checkbox"></td>
+                            <td>#83745VD</td>
                             <td>2021-02-18</td>
                             <td>Victor Jones</td>
                             <td>$64.00</td>
                             <td>$25.00</td>
-                            <td>Pending</td>
-                            <td><a href="3JonesEditOrderProfile.html" class="btn btn-primary">View</a>  <input type = "button" value = "Ship" class="btn btn-primary" style="margin-top:1px"></td>
+                            <td name = "status">Pending</td>
+                            <td><a href="3JonesEditOrderProfile.html" class="btn btn-primary">View</a>  <input type = "button" value = "Ship" class="btn btn-primary" onclick="ship3()" style="margin-top:1px"></td>
                             
                         </tr>
                         <tr>
+                          <td><input name = "checkbox" type="checkbox"></td>
                           <td>#00012HT</td>
                           <td>2021-02-18</td>
                           <td>John Doe</td>
                           <td>$66.00</td>
                           <td>$21.00</td>
-                          <td>Pending</td>
-                          <td><a href="4DoeEditOrderProfile.html" class="btn btn-primary">View</a>  <input type = "button" value = "Ship" class="btn btn-primary" style="margin-top:1px"></td>
+                          <td name = "status">Pending</td>
+                          <td><a href="4DoeEditOrderProfile.html" class="btn btn-primary">View</a>  <input type = "button" value = "Ship" class="btn btn-primary" onclick="ship4()" style="margin-top:1px"></td>
                           
                       </tr>
-                          
+                      <script type="text/javascript" src="Javascript/OrderList.js"></script>
 
                             
                         </table>
+                         <button class="btn btn-primary" type="button" onclick="deleteOrder()">Delete</button>
                     </form>  
         </div>
     </div>
@@ -149,7 +153,7 @@
       <div class="col-6 col-md">
         <h5>About</h5>
         <ul class="list-unstyled text-small">
-          <li><a href="Contact Us.html" a class="text-muted">Contact us</a></li>
+          <li><a class="text-muted">Contact us</a></li>
           <li><a class="text-muted">Our story</a></li>
           <li><a class="text-muted">FAQ</a></li>
         </ul>
@@ -158,3 +162,4 @@
   </footer>
 </body>
 </html> 
+
