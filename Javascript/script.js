@@ -464,8 +464,7 @@ function addCartWB(){
     document.getElementById("totalWB").innerHTML = "This item had been added to your cart.";
     document.getElementById("priceWB").innerHTML = "<strong>Total: </strong>$"+ total ;
 }
-
-//---------description shower------------(40177866 <fatema akther>)
+//---------description shower---------------
 function showBread() {
     var x = document.getElementById('contentbread');
     if (x.style.display == 'none') {
