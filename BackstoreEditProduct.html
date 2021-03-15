@@ -16,6 +16,9 @@
     
     //Style
     <link rel="stylesheet" type="text/css" href="Styles/BackstoreStyle.css"/>
+    //Script
+    <script type="text/javascript" src="Javascript/EditProduct.js"></script>
+ 
 
 </head>
 
@@ -27,7 +30,7 @@
     </nav>
      
     
-    <div class="container-fluid text-center">    
+        <div class="container-fluid text-center">    
         <div class="row content">
 
             <!-- Side Bar -->
@@ -47,37 +50,39 @@
                     <br/>
 
                     <!-- Edit part -->
-                    <form>
-                      <input type = "button" value = "Save" class="btn btn-primary" style="float:right;"/>
-                      <input type = "button" value = "Cancel" class="btn btn-secondary" style="float:right; margin-right: 5px;"/>
+                    <form id="myform">
+                      <input type = "button" value = "Save" onclick="save()" class="btn btn-primary" style="float:right;"/>
+                      <input type = "button" value = "Cancel" onclick="resetForm()" class="btn btn-secondary" style="float:right; margin-right: 5px;"/>
                       <br/>
-                          <div class="form-row">
-                                <div class="form-group col-md-6">
+                          <div class="form-row" name="firstRow">
+                                <div class="form-group col-md-6" name="firstColumn">
                                   <label for="supplier">Title</label>
-                                  <input type="text" class="form-control">
+                                  <input type="text" name="title" id="title" class="form-control">
                                 </div>
                                 <div>
                                   <label for="category">Category</label><br/>
-                                  <label><input type="radio" name="section" style="margin-left: 10px;"/>Fruits & Vegetables</label> 
-                                  <label><input type="radio" name="section"style="margin-left: 30px;"/>Dairy</label>
-                                  <label><input type="radio" name="section"style="margin-left: 30px;"/>Meat</label>
-                                  <label><input type="radio" name="section"style="margin-left: 30px;"/>Bread</label>
+                                  <label><input type="radio" name="section" id="fruits" style="margin-left: 10px;"/>Fruits & Vegetables</label> 
+                                  <label><input type="radio" name="section" id="dairy" style="margin-left: 30px;"/>Dairy</label>
+                                  <label><input type="radio" name="section" id="meats" style="margin-left: 30px;"/>Meat</label>
+                                  <label><input type="radio" name="section" id="bread" style="margin-left: 30px;"/>Bread</label>
+                                  <label><input type="radio" name="section" id="drinks" style="margin-left: 30px;"/>Drinks</label>
+                                  <label><input type="radio" name="section" id="pasta" style="margin-left: 30px;"/>Pasta</label>
                                 </div>
                           </div>
 
-                          <div class="form-row">
-                            <div class="col-md-6 mb-3">
+                          <div class="form-row" >
+                            <div class="col-md-6 mb-3" >
                               <label for="validationDefault03">Supplier</label>
-                              <input type="text" class="form-control">
+                              <input type="text" id="supplier" class="form-control">
                             </div>
-                            <div class="col-md-3 mb-3">
+                            <div class="col-md-3 mb-3" name="thirdColumn">
                               <label for="validationDefault04">Quantity</label>
-                              <input type="text" class="form-control">
+                              <input type="text" id="quantity" class="form-control">
                             </div>
-                            <div class="col-md-3 mb-3">
+                            <div class="col-md-3 mb-3" >
                               <label for="validationDefault05">Price/Unit</label>
-                              <div class="input-group-append">
-                                <input type="text" class="form-control">
+                              <div class="input-group-append" >
+                                <input type="text"  id="price" class="form-control">
                                 <span class="input-group-text">$</span>
                               </div>
                             </div>
@@ -85,12 +90,12 @@
         
                         <div class="form-group">
                           <label for="exampleFormControlTextarea1">Description</label>
-                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="7"></textarea>
+                          <textarea class="form-control"  id="description" rows="7"></textarea>
                         </div>
 
                         <div class="form-group">
                           <label for="exampleFormControlFile1">Add picture</label>
-                          <input type="file" class="form-control-file" id="exampleFormControlFile1"> 
+                          <input type="file" class="form-control-file" id="picture"> 
                         </div> 
                         
                     </form>  
