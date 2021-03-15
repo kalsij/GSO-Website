@@ -1,19 +1,18 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Brown Bread</title>
+    <title>Ciabatta</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     //Bootstrap
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     //Style
     <link rel="stylesheet" type="text/css" href="Styles/newStyle.css" />
+    <script type = "text/javascript" src="Javascript/script.js"></script>
 </head>
 
     <body>
@@ -39,7 +38,6 @@
                             <li><a href="Bread.html">Bread</a></li>
                             <li><a href="drinks.html">Drinks</a></li>
                             <li><a href="pasta.html">Pasta</a></li>
-                         
                             </a>
 
 
@@ -77,16 +75,23 @@
                         <p>
                             0.55$/100g
                         </p>
-                        <button  type="button">+</button>
-                            1
-                        <button type="button">-</button>
+                        <button onclick="addCiabatta()">+</button>
+                        <p id="amountCiabatta" style="display: inline;" >1</p>
+                        <button onclick="minusCiabatta()">-</button>
                 
                         <div class="btn">
-                        <button type="submit">Add to cart</button>
+                        <button type="submit" onclick="addCartCiabatta()">Add to cart</button>
+                        </div>
+                        <div>
+                            <p id = "ciabattaTotal"></p>
+                            <p id="ciabattaPrice"></p>
                         </div>
                         <br/>
                         <div style="padding-top: 20px;">
-                            <button class="dropbtn">Product Description</button>
+                            <button onclick="showBread()">Product Description</button>
+                            <div id="contentbread" style="display:none;">
+                                <p>A very chewy bread with a slightly crispy crust. Ciabatta has a unique moist texture and one-of-a-kind flavor.</p>
+                            </div>
                         </div>
                 </div>
             </div> 
@@ -113,7 +118,7 @@
                     </a>
                     <h1 style="margin-top: auto; color:rgb(75, 75, 75);">White Bread</h1>
                     <p class="price" style="color:rgb(75, 75, 75);">$4.50<br/>(942g avg)</p>
-                   
+                    
     
                 </div>
             </div>
