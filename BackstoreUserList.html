@@ -7,13 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!----bootstrap--->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    
+    <script type = "text/javascript" src="Javascript/script.js"></script>
     <!----Style--->
     <link rel="stylesheet" type="text/css" href="Styles/BackstoreStyle.css"/>
 
@@ -67,6 +65,8 @@
                                 <td>Michael Scott</td>
                                 <td>Michael54@gmail.com</td>
                                 <td>18/02/2021</td>
+                                <td><input type = "button" value = "Delete" class="btn btn-primary" onclick="deleteUser(this)" style="float:right;"/></td>
+                                <td><a href="BackstoreEditUser.html" class="btn btn-primary" style="float: right;margin-right: 5px;">Edit</a></td>
                             </tr>    
                             <tr>
                               <td><input type="checkbox" name="user1"/></td>
@@ -74,6 +74,8 @@
                               <td>Bob Builder</td>
                               <td>Bob.b@hotmail.com</td>
                               <td>10/02/2021</td>
+                              <td> <input type = "button" value = "Delete" class="btn btn-primary" onclick="deleteUser(this)" style="float:right;"/></td>
+                              <td><a href="BackstoreEditUser.html" class="btn btn-primary" style="float: right;margin-right: 5px;">Edit</a></td>
                           </tr>
                           <tr>
                             <td><input type="checkbox" name="user1"/></td>
@@ -81,15 +83,11 @@
                             <td>Anne Perkins</td>
                             <td>Anne.P@gmail.com</td>
                             <td>29/01/2021</td>
+                            <td><input type = "button" value = "Delete" class="btn btn-primary" onclick="deleteUser(this)"style="float:right;"/></td>
+                            <td><a href="BackstoreEditUser.html" class="btn btn-primary" style="float: right;margin-right: 5px;">Edit</a></td>
                         </tr>
                         </table>
                 
-                        <!-- Delete button -->
-                        <input type = "button" value = "Delete" class="btn btn-primary" style="float:right;"/>
-
-                        <!-- Edit User button -->
-                        <a href="BackstoreEditUser.html" class="btn btn-primary" style="float: right;margin-right: 5px;">Edit</a>
-
                     </form>  
         </div>
     </div>
