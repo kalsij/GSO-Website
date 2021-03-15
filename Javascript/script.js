@@ -484,3 +484,112 @@ function showBread() {
         x.style.display = 'none';
     }
 }
+
+
+// description pages for the drinks category
+
+//REDBULL PAGE     40175034 <Georgia Pitic>
+//-----------------------------------------
+var redbull;
+function incrementRedbull()
+{
+    redbull=parseInt(document.getElementById("numOfRedbull").innerHTML);
+    document.getElementById("numOfRedbull").innerHTML=redbull+1;
+    redbull=redbull+1;
+}
+function decrementRedbull()
+{
+    redbull=parseInt(document.getElementById("numOfRedbull").innerHTML);
+    if(redbull>0){
+        document.getElementById("numOfRedbull").innerHTML=--redbull;
+    }
+}
+function showRedbullDescription()
+{
+    redbull=parseInt(document.getElementById("numOfRedbull").innerHTML);
+    redbullDesc = document.getElementById("redbullDescription").style;  
+    if (redbullDesc.visibility == "visible")
+        redbullDesc.visibility = "hidden";
+     else
+        redbullDesc.visibility = "visible";  
+}
+function addRedbullToCart()
+{
+    redbull=parseInt(document.getElementById("numOfRedbull").innerHTML);
+    var redbullString= "This item has been added to your shopping cart. Thank you for shopping at GSO!";
+    var totalRedBull="<b>Total:</b> "+"$"+redbull*1.99 ;
+    document.getElementById("addedRedBull").innerHTML=redbullString;
+    document.getElementById("totalRedBull").innerHTML=totalRedBull;
+}
+
+
+// WATER PAGE      40175034 <Georgia Pitic>
+//-----------------------------------------
+var water;
+function incrementWater()
+{
+    water=parseInt(document.getElementById("numOfWater").innerHTML);
+    document.getElementById("numOfWater").innerHTML=water+1;
+    water=water+1;
+}
+function decrementWater()
+{
+    water=parseInt(document.getElementById("numOfWater").innerHTML);
+    if(water>0){
+        document.getElementById("numOfWater").innerHTML=water-1;
+        water=water-1;
+    }
+}
+function showWaterDescription()
+{
+    water=parseInt(document.getElementById("numOfWater").innerHTML);
+    waterDesc = document.getElementById("waterDescription").style;  
+    if (waterDesc.visibility == "visible")
+       waterDesc.visibility = "hidden";
+     else
+        waterDesc.visibility = "visible";  
+}
+function addWaterToCart()
+{
+    water=parseInt(document.getElementById("numOfWater").innerHTML);
+    var waterString= "This item has been added to your shopping cart. Thank you for shopping at GSO!";
+    var totalWater="<b>Total:</b> "+"$"+water*1.25 ;
+    document.getElementById("addedWater").innerHTML=waterString;
+    document.getElementById("totalWater").innerHTML=totalWater;
+}
+
+
+// COCA-COLA PAGE  40175034 <Georgia Pitic>
+//-----------------------------------------
+var cola;
+function incrementCola()
+{
+    cola=parseInt(document.getElementById("numOfCola").innerHTML);
+    document.getElementById("numOfCola").innerHTML=cola+1;
+    cola=cola+1;
+}
+function decrementCola()
+{
+    cola=parseInt(document.getElementById("numOfCola").innerHTML);
+    if(cola>0){
+        document.getElementById("numOfCola").innerHTML=cola-1;
+        cola=cola-1;
+    }
+}
+function showColaDescription()
+{
+    cola=parseInt(document.getElementById("numOfCola").innerHTML);
+    colaDesc = document.getElementById("colaDescription").style;  
+    if (colaDesc.visibility == "visible")
+        colaDesc.visibility = "hidden";
+     else
+        colaDesc.visibility = "visible";  
+}
+function addColaToCart()
+{
+    cola=parseInt(document.getElementById("numOfCola").innerHTML);
+    var colaString= "This item has been added to your shopping cart. Thank you for shopping at GSO!";
+    var totalCola="<b>Total:</b> "+"$"+cola*1.74 ;
+    document.getElementById("addedCola").innerHTML=colaString;
+    document.getElementById("totalCola").innerHTML=totalCola;
+}
