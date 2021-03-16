@@ -374,7 +374,7 @@ function incrementSpaghetti() {
 function decrementSpaghetti(){
 
     if(spaghetti>1){
-        orange--;
+        spaghetti--;
     }
         document.getElementById('quantity').innerHTML = spaghetti;
 }
