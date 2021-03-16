@@ -16,7 +16,8 @@
     
     //Style
     <link rel="stylesheet" type="text/css" href="Styles/BackstoreStyle.css"/>
-
+    //JS
+    <script type = "text/javascript" src="Javascript/EditOrderProfile.js"></script>
 </head>
 
 <body>
@@ -26,7 +27,6 @@
             GSO</h1>
     </nav>
  
-    
     <div class="container-fluid text-center">  
         <div class="row content">
             
@@ -35,7 +35,7 @@
             <br/>
             <p><a href="GroceryStore-1.html">Grocery Store</a></p>
             <p><a href="BackstoreProductList.html">Product List</a></p>
-            <p><a href="BackstoreOrderList.html">Order List</a></p>
+            <p><a href="BackstoreOrderList.html"></a>Order List</p>
             <p> <a href="BackstoreUserList.html">User List</a></p>
             <p style="font-weight:bold;"><a href="GroceryStore-1.html">Log Out</a></p>
             </div>
@@ -45,15 +45,17 @@
                 <div class="right">
                     <h2 style="font-style: italic;">Order Details</h2>
                     <p style="color: gray; border-bottom: 1px solid lightgray;">Edit Order &#8725; Order &#35;54321BA</p>
-                    <form>
-                        <!-- Button to save the edits -->
-                        <input type = "button" value = "Save" class="btn btn-primary" style="float: right;"/>
-                        <input type = "button" value = "Cancel" class="btn btn-secondary" style="float: right; margin-right: 5px;"/>
-                        <br/>
+                    
+                    <div id="missingInfo"></div>
+                    <form action="" id="formOrderEdit">
+                        <!-- Button to save/cancel the edits -->
+                        <input type = "button" value = "Save" onclick="checkEditOrderFields()" class="btn btn-primary" style="float: right;"/>
+                        <input type = "reset" value = "Cancel" onclick="resetEditOrder()" class="btn btn-secondary" style="float: right; margin-right: 5px;"/>
+                        <br/><br/><br/>
 
                         <label for="start">Date</label>
                         <input type="date" name="order purchase date" value="2021-02-18"/>
-                        </br></br>
+                        <hr>
 
                         <!-- Add/Edit the client's information -->
                         <h5>Customer Contact</h5>
@@ -61,57 +63,43 @@
                         <div class="form-row">                    
                             <div class="form-group col-md-6">
                                 <label for="firstName">First Name</label>
-                                <input type="text" class="form-control" value="Victor" placeholder="First Name"/>
+                                <input type="text" id="firstName" class="form-control" value="Victor" placeholder="First Name"/>
                             </div>
 
                             <div class="form-group col-md-6">
                                 <label for="lastName">Last Name</label>
-                                <input type="text" class="form-control" value="Jones" placeholder="Last Name"/>
+                                <input type="text" class="form-control" id="lastName" value="Jones" placeholder="Last Name"/>
                             </div>
                         </div>
 
                         <div class="form-row">
                             <label for="emailAddress">Email</label>
-                            <input type="text" class="form-control" value="VictorJones@gmail.ca" placeholder="Email"/>
+                            <input type="text" class="form-control" id="email" value="VictorJones@gmail.ca" placeholder="gso@example.ca" />
                         </div></br>
                         
                         <h5>Shipping Address</h5>
 
                         <div class="form-row">            
                             <label for="address">Address</label>
-                            <input type="text" class="form-control" value="123 Home Street" placeholder="Address"/>
+                            <input type="text" class="form-control" id="address" value="123 Home Street" placeholder="Address"/>
                         </div></br>    
 
                         <div class="form-row">                    
                             <div class="form-group col-md-6">
                                 <label for="postalCode">Postal Code</label>
-                                <input type="text" class="form-control" value="H1A 2B3" placeholder="Postal Code"/>
+                                <input type="text" class="form-control" id="postalCode"  value="H1A 2B3" placeholder="Postal Code"/>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="city">City</label>
-                                <input type="text" class="form-control" value="Montreal" placeholder="City"/>
+                                <input type="text" class="form-control" id="city" value="Montreal" placeholder="City"/>
                             </div>
                         </div></br>
 
                         <!-- Add/Edit the produce(s) of the customer's order -->
-                        <h5>Add a Product</h5>
-                        <div class="form-row align-items-center">
-
-                            <div class="col-auto">
-                                <label class="sr-only" for="SearchProduct">Search a Product</label>
-                                <input type="search" class="form-control" id="SearchProduct" placeholder="Search a Product"/>
-                            </div>
-                            
-                            <div class="col-auto">
-                                <button type="submit" class="btn btn-outline-primary">Search</button>
-                            </div>
-                            
-                        </div></br>
-                        
 
                         <h5>Product(s)</h5>
-                        <div class="table-responsive-lg">
-                            <table class="table">
+                        <div class="table-responsive-md">
+                            <table class="table" id="tableItem0">
 
                                 <thead>
                                     <tr>
@@ -128,83 +116,93 @@
                                 <tr>
                                     
                                     <td>
-                                        <img alt="product" src="Media/yogurt.jpg" style="width: 45px; height: 40px;"/>
+                                        <img alt="product" src="Media/yogurt.jpg" style="width: 45px; height: 40px;">
                                     </td>
 
                                     <td>
                                         <div class="input-group">
                                             <label class="sr-only" for="ProductName">Product Name</label>
-                                            <input type="text" class="form-control form-control-sm" value="Yogurt" placeholder="product"/>
+                                            <input type="text" id="productName" class="form-control form-control-sm productName" value="Yogurt" placeholder="product"/>
                                         </div>      
                                     </td>
 
                                     <td>
                                         <div class="input-group">
                                             <label class="sr-only" for="Quantity">Quantity</label>
-                                            <input type="text" class="form-control form-control-sm" value="13" placeholder="&#35;"/>
+                                            <input type="text" id="quantity" class="form-control form-control-sm quantity" value="13" placeholder=&#35; />
                                         </div>
                                     </td>
                                     
                                     <td>
                                         <div class="input-group">
                                             <label class="sr-only" for="PriceUnit">PriceUnit</label>
-                                            <input type="text" class="form-control form-control-sm" value="5.00&#36; &#8725; unit" placeholder="&#36;"/>
+                                            <input type="text" id="priceUnit" class="form-control form-control-sm priceUnit" value="5.00 $" placeholder="&#36"/>
                                         </div> 
 
                                     <td>
                                         <div class="input-group">
                                             <label class="sr-only" for="Total">Total</label>
-                                            <input type="text" class="form-control form-control-sm" value="65.00&#36" placeholder="&#36;"/>
+                                            <input type="text" id="total" class="form-control form-control-sm total" value="65.00 $" placeholder=&#36; />
                                         </div>
                                     </td>
 
-                                    <td><button type="button" class="btn btn-danger"><img src="Media/TrashCan(Flaticon).png" alt="trash can" style="height:15px; width:14px;"/></button></td>
+                                     <!-- Delete an item in client's order -->
+                                    <td style="margin-left: 0px; padding-left: 0px;"><button type="button" onclick=deleteItem(this) class="btn btn-danger"><img src="Media/TrashCan(Flaticon).png" alt="trash can" style="height:15px; width:14px;"></button></td>
+                                    
                                 </tr>
 
                                 <!-- 2nd Item -->
                                 <tr>
                                     
                                     <td>
-                                        <img alt="product" src="Media/chicken.png" style="width: 45px; height: 40px;"/>
+                                        <img alt="product" src="Media/chicken.png" style="width: 45px; height: 40px;">
                                     </td>
 
                                     <td>
                                         <div class="input-group">
                                             <label class="sr-only" for="ProductName">Product Name</label>
-                                            <input type="text" class="form-control form-control-sm" value="Chicken" placeholder="product"/>
+                                            <input type="text" id="productName" class="form-control form-control-sm productName" value="Chicken" placeholder="product"/>
                                         </div>      
                                     </td>
 
                                     <td>
                                         <div class="input-group">
                                             <label class="sr-only" for="Quantity">Quantity</label>
-                                            <input type="text" class="form-control form-control-sm" value="4" placeholder="&#36;"/>
+                                            <input type="text" id="quantity" class="form-control form-control-sm quantity" value="4" placeholder=&#35; />
                                         </div>
                                     </td>
                                     
                                     <td>
                                         <div class="input-group">
                                             <label class="sr-only" for="PriceUnit">PriceUnit</label>
-                                            <input type="text" class="form-control form-control-sm" value="20.00&#36; &#8725; unit" placeholder="&#36;"/>
+                                            <input type="text" id="priceUnit" class="form-control form-control-sm priceUnit" value="20.00 $" placeholder="&#36"/>
                                         </div> 
 
                                     <td>
                                         <div class="input-group">
                                             <label class="sr-only" for="Total">Total</label>
-                                            <input type="text" class="form-control form-control-sm" value="80.00&#36;" placeholder="&#36;"/>
+                                            <input type="text" id="total" class="form-control form-control-sm total" value="80.00 $" placeholder=&#36; />
                                         </div>
                                     </td>
 
-                                    <td><button type="button" class="btn btn-danger"><img src="Media/TrashCan(Flaticon).png" alt="trash can" style="height:15px; width:14px;"/></button></td>
+                                     <!-- Delete an item in client's order -->
+                                    <td style="margin-left: 0px; padding-left: 0px;"><button type="button" onclick=deleteItem(this) class="btn btn-danger"><img src="Media/TrashCan(Flaticon).png" alt="trash can" style="height:15px; width:14px;"></button></td>
+                                    
                                 </tr>
-
+                               
                             </table>
-                        </div></br>
+                            
+                            <!-- Add an item in client's order -->
+                            <button type="button" onclick=addItem() class="btn btn-primary">Add</button>
+                        </br></br>
+                        </div>
+                    
 
                         <!-- Summary of the order -->
                         <div class="summaryOrder">
+                            </br>
                             <h5>Summary</h5>
-                            <hr>
+                            <hr></br>
                             
                             <div class="justify-content-between row">
                                 <div class="col-md-6">
@@ -212,10 +210,10 @@
                                 </div>
                                 <div class="col-md-6 input-group">
                                     <label class="sr-only" for="Quantity">Quantity</label>
-                                    <input type="text" class="form-control" value="17" placeholder="&#35;"/>
+                                    <input type="text" class="form-control" id="qtyItemsSummary" value="17" placeholder=&#35; />
                                 </div>
                             </div>
-                            <hr></br>
+                            </br>
 
                             <div class="justify-content-between row">
                                 <div class="col-md-6">
@@ -223,10 +221,10 @@
                                 </div>
                                 <div class="col-md-6 input-group">
                                     <label class="sr-only" for="Subtotal">Subtotal</label>
-                                    <input type="text" class="form-control" value="145.00 &#36;" placeholder="&#36;"/>
+                                    <input type="text" class="form-control" id="SubtotalSummary" value="145.00 $" placeholder=&#36; />
                                 </div>
                             </div>
-                            <hr></br>
+                            </br>
                             
                             <div class="justify-content-between row">
                                 <div class="col-md-6">
@@ -234,10 +232,10 @@
                                 </div>
                                 <div class="col-md-6 input-group">
                                     <label class="sr-only" for="GST">GST</label>
-                                    <input type="text" class="form-control" value="7.25 &#36;" placeholder="&#36;"/>
+                                    <input type="text" class="form-control" id="GSTSummary" value="7.25 $" placeholder=&#36; />
                                 </div>
                             </div>
-                            <hr></br>
+                            </br>
 
                             <div class="justify-content-between row">
                                 <div class="col-md-6">
@@ -245,10 +243,10 @@
                                 </div>
                                 <div class="col-md-6 input-group">
                                     <label class="sr-only" for="QST">QST</label>
-                                    <input type="text" class="form-control" value="14.46 &#36;" placeholder="&#36;"/>
+                                    <input type="text" class="form-control" id="QSTSummary" value="14.49 $" placeholder=&#36; />
                                 </div>
                             </div>
-                            <hr></br>
+                            </br>
 
                             <div class="justify-content-between row">
                                 <div class="col-md-6">
@@ -256,31 +254,27 @@
                                 </div>
                                 <div class="col-md-6 input-group">
                                     <label class="sr-only" for="Total">Total</label>
-                                    <input type="text" class="form-control" value="166.71 &#36;" placeholder="&#36;"/>
+                                    <input type="text" class="form-control" id="TotalSummary" value="166.71 $" placeholder=&#36; />
                                 </div>
                             </div>
-                            <hr></br>
+                            </br>
 
-                            <div class="justify-content-between row">
+                            <div class="justify-content-between form-row">
                                 <div class="col-md-6">
-                                    Payment Status
+                                    <label for="Payment Status">Payment Status</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="dropdown">
-                                        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-toggle="dropdown" style="margin-right: 5px;">Completed</button>
-                                        <div class="dropdown-menu">
-                                            <div class="dropdown-item">Completed</div>
-                                            <div class="dropdown-item">Pending</div>
-                                            <div class="dropdown-item">Cancelled</div>
-                                        </div>
-                                    </div>
+                                    <label><input type="radio" name="paymentStatus" id="Completed" style="margin-left: 10px;" checked/>Completed</label> 
+                                    <label><input type="radio" name="paymentStatus" id="Pending" style="margin-left: 30px;"/>Pending</label>
+                                    <label><input type="radio" name="paymentStatus" id="Cancelled" style="margin-left: 30px;"/>Cancelled</label>
                                 </div>
                             </div>
-                        </div><hr><hr>
+                        </div>
+                        </br>
 
                         <div class="form-row">            
                             <label for="income">Income</label>
-                            <input type="text" class="form-control" value="&#36;127.00" placeholder="&#36;"/>
+                            <input type="text" class="form-control" id="income" value="127.00 $" placeholder="&#36;" />
                         </div></br> 
 
                         <div class="form-group">
@@ -289,50 +283,51 @@
                         </div></br>
 
                     </form>
+                    <script type = "text/javascript"  src = "Javascript/script.js"></script>
+
                 </div>
             </div>
 
         </div>
     </div>     
 
-    <!-- Footer -->
-    <footer class="container py-4">
+     <!---------footer----------->
+     <footer class="container py-4">
         <div class="row">
-          <div class="col-12 col-md">
-            <small class="d-block mb-3 text-muted">&copy; 2021-2022 </br> </small>
+            <div class="col-12 col-md">
+                <small class="d-block mb-3 text-muted">&copy; 2021-2022 </br> </small>
             <ul class="list-unstyled text-small">
                 <li><a href="BackstoreProductList.html"class="text-muted">Backstore</a></li></ul>
+            </div>
+            <div class="col-6 col-md">
+                <h5>Team</h5>
+                <ul class="list-unstyled text-small">
+                <li><a class="text-muted">Fatema Akther</a></li>
+                <li><a class="text-muted">Julie Trinh</a></li>
+                <li><a class="text-muted">Jasmit Kalsi</a></li>
+                <li><a class="text-muted">Dzmitry Fiodarau</a></li>
+                <li><a class="text-muted">Alice Chen</a></li>
+                <li><a class="text-muted">Georgia Pitic</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-md">
+                <h5>Promotions</h5>
+                <ul class="list-unstyled text-small">
+                <li><a class="text-muted">Newsletter</a></li>
+                <li><a class="text-muted">Gift cards</a></li>
+                <li><a class="text-muted">Contests</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-md">
+                <h5>About</h5>
+                <ul class="list-unstyled text-small">
+                <li><a href="Contact Us.html" class="text-muted">Contact us</a></li>
+                <li><a class="text-muted">Our story</a></li>
+                <li><a class="text-muted">FAQ</a></li>
+                </ul>
+            </div>
         </div>
-          
-          <div class="col-6 col-md">
-            <h5>Team</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="text-muted">Fatema Akther</a></li>
-              <li><a class="text-muted">Julie Trinh</a></li>
-              <li><a class="text-muted">Jasmit Kalsi</a></li>
-              <li><a class="text-muted">Dzmitry Fiodarau</a></li>
-              <li><a class="text-muted">Alice Chen</a></li>
-              <li><a class="text-muted">Georgia Pitic</a></li>
-            </ul>
-          </div>
-          <div class="col-6 col-md">
-            <h5>Promotions</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="text-muted">Newsletter</a></li>
-              <li><a class="text-muted">Gift cards</a></li>
-              <li><a class="text-muted">Contests</a></li>
-            </ul>
-          </div>
-          <div class="col-6 col-md">
-            <h5>About</h5>
-            <ul class="list-unstyled text-small">
-              <li><a class="text-muted">Contact us</a></li>
-              <li><a class="text-muted">Our story</a></li>
-              <li><a class="text-muted">FAQ</a></li>
-            </ul>
-          </div>
-        </div>
-      </footer>   
+    </footer>
 
 </body>
 
