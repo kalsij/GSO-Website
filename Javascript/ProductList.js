@@ -146,9 +146,8 @@ function changeElement(tr, image, title, category, supplier, quantity, price)
 
 
 // function called by the Add button at the bottom adds a row with each section
-function addElement(title,category,supplier, quantity, price, description, image)
+function addElement()
 {  
-
     var table=document.getElementById("productTable");
    
     var td1=document.createElement("td");
@@ -160,17 +159,16 @@ function addElement(title,category,supplier, quantity, price, description, image
     var td7=document.createElement("td");
 
     var img1= document.createElement("img");
-    img1.setAttribute("src", "Media/"+image);
     img1.setAttribute("width", 90);
     img1.setAttribute("height", 75);
 
     td1.innerHTML="<input type=\"checkbox\" name=\"newProduct\"/>";
     td2.appendChild(img1);
-    td3.innerHTML=title;
-    td4.innerHTML=category;
-    td5.innerHTML=quantity;
-    td6.innerHTML=supplier;
-    td7.innerHTML=price;
+    td3.innerHTML="title";
+    td4.innerHTML="category";
+    td5.innerHTML="1";
+    td6.innerHTML="supplier";
+    td7.innerHTML="1.00$";
 
     var tr=document.createElement("tr");
     
@@ -183,6 +181,4 @@ function addElement(title,category,supplier, quantity, price, description, image
     tr.appendChild(td7);
 
     table.appendChild(tr);
-    // calls method that will make each item in the row editable
-    makeEditableProduct(tr);
 }
