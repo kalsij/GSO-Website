@@ -865,111 +865,94 @@ color: white;
  /*-------List of Items - shopping cart-------*/
  
  .ShoppingCartTitle {
-    margin-top:2.5cm;
-    text-align: center; 
-    font-size:25px; 
-    color:rgb(134, 134, 134);
-  
- }
- .shoppingCart {
-  display: flex; 
-  flex-wrap: nowrap; 
-  margin-right: 10px;
-  margin-left: -15px;
+  margin-top:2.5cm;
+  text-align: center; 
+  font-size:25px; 
+  color:rgb(134, 134, 134);
+
+}
+.shoppingCart {
+display: flex; 
+flex-wrap: nowrap; 
+margin-right: 10px;
+margin-left: -15px;
 
 }
 
 .shoppingCart .row {
-  display:flex;
-  flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
+display:flex;
+flex-wrap: wrap;
+margin-right: -15px;
+margin-left: -15px;
 }
 
 .qtyItems {
-  width: 60px;
-  text-align: center;
-  margin: auto;
-  font-size: 15px; 
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+width: 60px;
+text-align: center;
+margin: auto;
+font-size: 15px; 
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .qtyItems button {
-  border: none;
-  outline: 0;
-  color: white;
-  background-color: rgb(219, 11, 11);
-  cursor: pointer;
-  width: 100%;
+border: none;
+outline: 0;
+color: white;
+background-color: rgb(219, 11, 11);
+cursor: pointer;
+width: 100%;
 }
 
 .qtyItems button:hover {
-  opacity: 0.7;
+opacity: 0.7;
 }
 
-.delete-trash {
-  margin: auto;
-  border: none;
-  outline: 0;
-  cursor: pointer;
-  background-color:gray;  
-  width: fit-content; 
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+.delete-trash button {
+margin: auto;
+border: none;
+outline: 0;
+cursor: pointer;
+background-color:#ffffff;   
 }
 
-.delete-trash :hover {
-  opacity: 0.7;
+.delete-trash button:hover {
+opacity: 0.7;
 }
 
 .listMyCart {
- text-align: center;
+text-align: center;
 }
+ /*------- End List of Items - shopping cart-------*/
 
 /*-------Summary of items - shopping cart-------*/
 .summaryItems {
-  background-color:gainsboro;
-  margin-bottom: auto; 
-  margin-left: 10px; 
-  text-align: center;
+background-color:gainsboro;
+margin-bottom: auto; 
+text-align: center;
 }
 
 .continue button {
-  border: none;
-  outline: 0;
-  padding: 5px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+border: none;
+outline: 0;
+padding: 5px;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .continue button:hover {
-  opacity: 0.7;
+opacity: 0.7;
 }
 
 .donate button {
-  border: none;
-  outline: 0;
-  padding: 5px;
-  cursor: pointer;
-  color: #ffffff;
-  background-color:rgb(241, 85, 85);
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+border: none;
+outline: 0;
+padding: 5px;
+cursor: pointer;
+color: #ffffff;
+background-color:rgb(241, 85, 85);
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .donate button:hover {
-  opacity: 0.7;
+opacity: 0.7;
 }
-/*contact us page*/ 
-.contactcontainer{
-  padding-top: 50px;
-  padding-bottom: 125px;
-  margin-right: auto;
-  margin-left: auto;
-/*contact us page*/
-}
-.contactuspage{
-  padding-left: 15%;
-  padding-right: 15%;
-}
-.formnames{
-  margin-bottom:0rem;
-
-}
+/*-------End Summary of items - shopping cart-------*/
