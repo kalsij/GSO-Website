@@ -11,7 +11,7 @@ function checkorder(){
 function checkusername(){
     var username = document.getElementById('username');
     if (username.value.search(/^\w+[\w-\.]*\@\w+((-\w+)|(\w*))\.[a-z]{2,3}$/)==-1)
-         alert("Please enter a correct email addresss");
+         alert("Please enter a correct user name(email)");
     else
     return true;
 }
