@@ -7,11 +7,11 @@ function deleteElement()
     for(var i=0;i<products.length;i++){
         var chk=products[i].cells[0].firstChild;
         if(chk.checked){
-            toRemove.push(products[i])
+            toRemove.push(products[i]);
         }
     }
     for(var i=0;i<toRemove.length;i++){
-        toRemove[i].parentElement.removeChild(toRemove[i])
+        toRemove[i].parentElement.removeChild(toRemove[i]);
     }
 }
 
@@ -20,9 +20,9 @@ function editElements()
 {
     var products=document.getElementsByTagName("tr");
     for(var i=0;i<products.length;i++){
-        var product = products[i]
+        var product = products[i];
         if(product.cells[0].firstChild.checked) {
-            makeEditableProduct(product)
+            makeEditableProduct(product);
         }
     }
 
@@ -37,7 +37,7 @@ function makeEditableProduct(product) {
         
         if (element.firstChild.nodeName == "INPUT"){
            // removing checkbox and adding "Done" button instead
-            element.removeChild(element.firstChild)
+            element.removeChild(element.firstChild);
             element.innerHTML = '<input type="button" value="Done">';
            
             // function called when clicking on "done" which checks for pattern mismatch
@@ -66,13 +66,13 @@ function makeEditableProduct(product) {
                     } else if(quantity==""){
                         window.alert("Please enter Quantity!");
                     } else if(price==""){
-                        window.alert("Please enter Price!")
+                        window.alert("Please enter Price!");
                     } else if(title.search(/[a-zA-z]+/)) {
                         window.alert("Title mismatch!");
                     }else if(category!="Fruits & Vegetables" && category!="Pasta" && category!="Drinks" && category!="Bread" && category!="Dairy" && category!="Meat") {
                         window.alert("Category mismatch!");
                     }else if(supplier.search(/[a-zA-z]+/)) {
-                        window.alert("Supplier mismatch!")
+                        window.alert("Supplier mismatch!");
                     }else if(quantity.search(/\d+/)) {
                         window.alert("Quantity mismatch!");
                     }else if(price.search(/\d+\.\d\d\$/)) {
@@ -80,10 +80,12 @@ function makeEditableProduct(product) {
                     } else{
                         var answer= confirm("Do you want to make the changes?");
                         if(answer){
-                            window.location.replace("BackstoreProductList.html");
+                            const p = element.parentElement;
+                            cleanItem(p);
+                            changeElement(p, image, title, category, supplier, quantity, price);
                         } else{
                             window.location.replace("BackstoreProductList.html");
-                        }  
+                        }   
                     }
                 }
                 
@@ -93,22 +95,59 @@ function makeEditableProduct(product) {
             element.removeChild(element.firstChild);
             element.innerHTML = '<input type="file" id="imageFile" class="form-control-file"></input>';
         } else {
-            element.removeChild(element.firstChild)
+            element.removeChild(element.firstChild);
             element.innerHTML = '<input type="text" style="width:80px;"' + 'value='+value+'>';
         }
     }
 }
+// removes the edit part of the item
+function cleanItem(item)
+{ 
+    var toRemove = [];
+    for(var i=0;i<item.cells.length;i++){
+        toRemove.push(item.cells[i]);
+    }
+    for(var i=0;i<toRemove.length;i++){
+        toRemove[i].parentElement.removeChild(toRemove[i]);
+    }
+}
+// saves the new built product in the table as a new row
+function changeElement(tr, image, title, category, supplier, quantity, price)
+{
+    var td1=document.createElement("td");
+    var td2=document.createElement("td");
+    var td3=document.createElement("td");
+    var td4=document.createElement("td");
+    var td5=document.createElement("td");
+    var td6=document.createElement("td");
+    var td7=document.createElement("td");
+
+    var img1= document.createElement("img");
+    img1.setAttribute("src", "Media/"+image);
+    img1.setAttribute("width", 90);
+    img1.setAttribute("height", 75);
+
+    td1.innerHTML="<input type=\"checkbox\" name=\"newProduct\"/>";
+    td2.appendChild(img1);
+    td3.innerHTML=title;
+    td4.innerHTML=category;
+    td5.innerHTML=quantity;
+    td6.innerHTML=supplier;
+    td7.innerHTML=price;
+    
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+    tr.appendChild(td3);
+    tr.appendChild(td4);
+    tr.appendChild(td5);
+    tr.appendChild(td6);
+    tr.appendChild(td7);
+}
+
 
 // function called by the Add button at the bottom adds a row with each section
-function addElement()
-{   
-    var title="   ";
-    var category="   ";
-    var supplier="   ";
-    var quantity="   ";
-    var price="   ";
-    var description="   ";
-    var image="   ";
+function addElement(title,category,supplier, quantity, price, description, image)
+{  
 
     var table=document.getElementById("productTable");
    
