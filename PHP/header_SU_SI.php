@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title><?php $title?></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    //Bootstrap
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    //Style
+    <link rel="stylesheet" type="text/css" href="../Styles/newStyle.css" />
+
+    <script type="text/javaScript" src="../Javascript/signinJS.js"></script>
+</head>
+
+<body class="gradient">
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top" style="background-color: blue;">
+        <h1 style="margin-top:0mm;color:white; font-size:50px;font-style:italic; font-weight:bold; margin-right:1cm;">
+            GSO</h1>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li><a href="GroceryStore-1.html">Home</a></li>
+
+                <li><a href="#">Aisles</a>
+                    <ul>
+
+                        <li><a href="../Fruits and vegetables.html">Fruits and Vegetables</a></li>
+                        <li><a href="../Meat.html">Meat</a></li>
+                        <li><a href="../Dairy.html">Dairy</a></li>
+                        <li><a href="../Bread.html">Bread</a></li>
+                        <li><a href="../drinks.html">Drinks</a></li>
+                        <li><a href="../pasta.html">Pasta</a></li>
+                        </a>
+                </li>
+            </ul>
+
+            <li><a href="#">Account</a>
+                <ul>
+                    <li><a href="SignUp.php">Sign up</a></li>
+                    <li><a href="SignIn.php">Sign in</a></li>
+                </ul>
+            </li>
+        </div>
+
+        <a href="../ShoppingCart.html"><img src="../Media/cart_logo.png" alt="Shopping Cart" width="50px" height="50px"
+                style="float:right"></a>
+    </nav>
