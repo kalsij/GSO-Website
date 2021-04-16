@@ -91,7 +91,7 @@ function verif() {
     }
 
     //email1 verif
-    if (email1.value.search(/^[0-9A-Za-z.]+\@[a-z]+\.[a-z]{3}$/) == -1) {
+    if (email1.value.search(/^[0-9A-Za-z.]+\@[a-z]+\.[a-z]{2,3}$/) == -1) {
         var elem4 = document.createElement("p");
         elem4.style.color = "red";
         elem4.style.display = "inline";
@@ -101,7 +101,7 @@ function verif() {
     }
 
     //email2 verif
-    if (email2.value !== email1.value || email2.value.search(/^[0-9A-Za-z.]+\@[a-z]+\.[a-z]{3}$/) == -1) {
+    if (email2.value !== email1.value || email2.value.search(/^[0-9A-Za-z.]+\@[a-z]+\.[a-z]{2,3}$/) == -1) {
         var elem5 = document.createElement("p");
         elem5.style.color = "red";
         elem5.style.display = "inline";
@@ -148,13 +148,14 @@ function verif() {
         elem0.textContent = "Your form needs to be revised, it contains errors";
         nodeAnnounce.appendChild(elem0);
     }
+
     //general message if all inputs are correct
     else {
         var elemF = document.createElement("p");
         elemF.style.color = "black";
         elemF.style.textAlign = "center";
-        elemF.textContent = "Your form was successfully submitted. You should receive an email shortly.";
         nodeS.appendChild(elemF);
+
     }
 
 }

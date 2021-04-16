@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title><?php $title?></title>
+    <title><?php print $title?></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     //Bootstrap
@@ -13,7 +13,7 @@
     //Style
     <link rel="stylesheet" type="text/css" href="../Styles/newStyle.css" />
 
-    <script type="text/javaScript" src="../Javascript/signinJS.js"></script>
+    <script type="text/javaScript" src="<?php print $js_file ?>"></script>
 </head>
 
 <body class="gradient">
@@ -27,17 +27,17 @@
 
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
-                <li><a href="GroceryStore-1.html">Home</a></li>
+                <li><a href="GroceryStore-1.php">Home</a></li>
 
                 <li><a href="#">Aisles</a>
                     <ul>
 
-                        <li><a href="../Fruits and vegetables.html">Fruits and Vegetables</a></li>
-                        <li><a href="../Meat.html">Meat</a></li>
-                        <li><a href="../Dairy.html">Dairy</a></li>
-                        <li><a href="../Bread.html">Bread</a></li>
-                        <li><a href="../drinks.html">Drinks</a></li>
-                        <li><a href="../pasta.html">Pasta</a></li>
+                        <li><a href="Fruits and vegetables.php">Fruits and Vegetables</a></li>
+                        <li><a href="Meat.php">Meat</a></li>
+                        <li><a href="Dairy.php">Dairy</a></li>
+                        <li><a href="Bread.php">Bread</a></li>
+                        <li><a href="drinks.php">Drinks</a></li>
+                        <li><a href="pasta.php">Pasta</a></li>
                         </a>
                 </li>
             </ul>
@@ -50,6 +50,6 @@
             </li>
         </div>
 
-        <a href="../ShoppingCart.html"><img src="../Media/cart_logo.png" alt="Shopping Cart" width="50px" height="50px"
+        <a href="../ShoppingCart.php"><img src="../Media/cart_logo.png" alt="Shopping Cart" width="50px" height="50px"
                 style="float:right"></a>
     </nav>

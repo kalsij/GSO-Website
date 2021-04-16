@@ -110,13 +110,16 @@ function forgot() {
     inEmail.type = "text";
     inEmail.placeholder = "Your email";
     inEmail.id = "email2";
+    inEmail.name = "email2";
     var newPass = document.createElement("input");
     newPass.type = "password";
     newPass.placeholder = "Your new password";
     newPass.id = "pass2";
+    newPass.name = "pass2";
     var newPass2 = document.createElement("input");
     newPass2.type = "password";
     newPass2.placeholder = "Your new password";
+    newPass2.id = "pass3";
     newPass2.id = "pass3";
     var but = document.createElement("input");
     but.type = "button";
