@@ -1,6 +1,7 @@
 <?php
 include("functions.php");
 
+//NO SUBMIT INFO YET OR RESET BUTTON PRESSED
 if(empty($_POST[signupSubmit])||$_POST[signupSubmit]=="Reset"){
     session_start();
     $_SESSION[firstName] = "";
@@ -21,6 +22,7 @@ if(empty($_POST[signupSubmit])||$_POST[signupSubmit]=="Reset"){
     include("footer.php");
 }
 
+//CREATE ACCOUNT BUTTON PRESSED
 else if($_POST[signupSubmit]=="Create Account"){
     session_start();
     $fN = $_POST[firstName];
@@ -63,23 +65,24 @@ else if($_POST[signupSubmit]=="Create Account"){
 
     $app = approve();
 
+    //IF ENTERED VALUES APPROVED
     if($app){
         $filename = "../Data/users.txt";
         $allinfo = file($filename);
         $already_exists = FALSE;
+
+        //verification that no account with the entered email already exists
         foreach($allinfo as $value){
             $userinfo = preg_split("/[\s]/", $value);
+
             if($userinfo[4]==$_SESSION[signupEmail]){
                 echo "<p style=\"text-align: center; color: red;\">An account under this email already exists. Please try again.</p>";
                 $already_exists = TRUE;
             }
-            
-            //print_r($userinfo);
-            //print nl2br("\n");
         }
 
+        //ACCOUNT WITH ENTERED EMAIL ALREADY EXISTS
         if($already_exists){
-
             $title = "Sign Up";
             $js_file = "../Javascript/signupJS.js";
             include("header_SU_SI.php");
@@ -88,9 +91,12 @@ else if($_POST[signupSubmit]=="Create Account"){
             echo "<p style=\"text-align:center; color: red;\">An account with the email you entered already exists. </br>Please try again with a different email.</br></br><p>";
             include("footer.php");
         }
+        //ACCOUNT WITH ENTERED EMAIL DOES NOT EXIST YET
         else{
             $towrite = fopen($filename, "a+");
             $post = $_SESSION[postalCode];
+
+            //formatting postal code to have the same number of spaces for each user in the textfile
             if(preg_match("/^[A-Z]\d[A-Z]\d[A-Z]\d$/", $post)==0){
                 $post = strtoupper($post);
                 $array = explode(" ", $post);
@@ -100,14 +106,18 @@ else if($_POST[signupSubmit]=="Create Account"){
                 }
                 $_SESSION[postalCode] = $post;
             }
+
+            //writing the user to the textfile users.txt
             fputs($towrite,"\n");
             fputs($towrite, $_SESSION[firstName]." ".$_SESSION[lastName]." ".$_SESSION[gend]." ".$_SESSION[postalCode]." ".$_SESSION[signupEmail]." ".$_SESSION[signupPassword]." ");
             fclose($towrite);
-            header("Location:redirect.php");
+
+            header("Location:redirect.php"); //redirection
             exit();
         }
 
     }
+    //IF ENTERED VALUES NOT APPROVED
     else{
     $title = "Sign Up";
     $js_file = "../Javascript/signupJS.js";
