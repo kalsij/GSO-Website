@@ -62,11 +62,12 @@
             <h1>Have some questions? <br/> Please fill out the information below:</h1>
             
             <!--information-->
+            <form action = "Contact.php" method = "POST" >
             <div class="form-column">
               <div class=" justify-content-md-center">
                 <div class="form-group contactuspage">
                     <p class = "formnames">User Name:</p>
-                  <input style="background-color:white" id ="username" type="text" class="form-control" placeholder='User Name' >
+                  <input style="background-color:white" name ="username" id ="username" type="text" class="form-control" placeholder='User Name' >
                 </div>
                 <div class="form-group contactuspage">
                   <p class = "formnames">Item Name:</p>
@@ -74,16 +75,18 @@
                 </div>
                 <div class="form-group contactuspage">
                   <p class = "formnames">Order Number</p>
-                    <input style="background-color:white" id="ordernumber" type="text" class="form-control" placeholder = "Order Number">
+                    <input style="background-color:white" name="ordernumber" id="ordernumber" type="text" class="form-control" placeholder = "Order Number">
                     <div class="form-group">
                       <p class = "formnames">Questions:</p>
                     <textarea class="form-control" rows="5" spellcheck="false"></textarea>
                 </div>
-                <button class="btn btn-outline-primary" onclick="checked();">Submit</button>
+                <button class="btn btn-outline-primary" name = "submit" type = "submit"  onclick="checked();">Submit</button>
              </div>
             </div>
+            </form>
           </div>
           </div>
+
               <!--footer--> 
               <?php include("footer.php") ?>
         </body>
