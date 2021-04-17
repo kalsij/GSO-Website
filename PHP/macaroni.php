@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-
+// session_unset();
 ?>
 
 <!DOCTYPE html>
@@ -82,21 +82,21 @@ session_start();
                     <br/>
 
                     <!-- Add to Cart Button-->
-                        
+                   
                         <form action = "ShoppingCart.php" method = "POST">
                         <input class = "product-quantity ml-2 mr-2" min = "1"type = "number" name = "quantity" id="totalMacaroni" value="1" style="width:20%;">
                         <!-- <p id="quantityMacaroni" name="quantity" style="display: inline;"  > 1</p> -->
                         <div class="btn"  >
-                            <input type="submit" name ="submit" value="Add to cart" style = "background-color: black; color : white" >
+                        <input type="submit" name ="submit" value="Add to cart" style = "background-color: black; color : white" >
                         </div>
                         
                         <?php
-                         
-                        $_SESSION["ProductName"]="Macaroni";
-                        $_SESSION["ImageSrc"]="../Media/pexels-klaus-nielsen-6287380.jpg";
-                        $_SESSION["price"]="CAD 1.66$";
-                        $_SESSION["pricePerUnit"]="0.11$/10g";
-                         
+
+                        $_SESSION["productName"]="Macaroni";
+                        $_SESSION["imageSrc"]="../Media/pexels-klaus-nielsen-6287380.jpg";
+                        $_SESSION["price"]="1.66$";
+                        $_SESSION["pricePerUnit"]="10g avg";
+                        
                         ?>
                     </form>
 
@@ -109,7 +109,7 @@ session_start();
                     </div>
                     <script type = "text/javascript" src="../Javascript/script.js"></script>
                 </div>
-                </div>
+            </div>
             </div> 
         </div>
         
