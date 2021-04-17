@@ -13,7 +13,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
  
     <link rel="stylesheet" type="text/css" href="../Styles/newStyle.css" />
-    <script type="text/javascript" src="Javascript/Contact Us.js"></script>
+    <script type="text/javascript" src="../Javascript/Contact Us.js"></script>
 </head>
 
     <body>
@@ -62,7 +62,7 @@
             <h1>Have some questions? <br/> Please fill out the information below:</h1>
             
             <!--information-->
-            <form action = "Contact.php" method = "POST" >
+            <form action = "Contact.php" method = "POST" onsubmit= "return checked()" >
             <div class="form-column">
               <div class=" justify-content-md-center">
                 <div class="form-group contactuspage">
@@ -80,7 +80,7 @@
                       <p class = "formnames">Questions:</p>
                     <textarea class="form-control" rows="5" spellcheck="false"></textarea>
                 </div>
-                <button class="btn btn-outline-primary" name = "submit" type = "submit"  onclick="checked();">Submit</button>
+                <button class="btn btn-outline-primary" name = "submit" type = "submit" value = "1" >Submit</button>
              </div>
             </div>
             </form>
