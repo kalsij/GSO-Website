@@ -82,18 +82,21 @@ session_start();
                     <br/>
 
                     <!-- Add to Cart Button-->
-                    <form action = "ShoppingCart.php" method = "POST">
-                        <input class = "product-quantity ml-2 mr-2" type = "number" name = "quantity" id="totalMacaroni" value="1">
+                        
+                        <form action = "ShoppingCart.php" method = "POST">
+                        <input class = "product-quantity ml-2 mr-2" min = "1"type = "number" name = "quantity" id="totalMacaroni" value="1" style="width:20%;">
                         <!-- <p id="quantityMacaroni" name="quantity" style="display: inline;"  > 1</p> -->
                         <div class="btn"  >
-                            <button type="submit" name ="submit" value="item" onclick="addMacaroniCart()">Add to cart</button>
+                            <input type="submit" name ="submit" value="Add to cart" style = "background-color: black; color : white" >
                         </div>
                         
                         <?php
+                         
                         $_SESSION["ProductName"]="Macaroni";
                         $_SESSION["ImageSrc"]="../Media/pexels-klaus-nielsen-6287380.jpg";
                         $_SESSION["price"]="CAD 1.66$";
                         $_SESSION["pricePerUnit"]="0.11$/10g";
+                         
                         ?>
                     </form>
 
