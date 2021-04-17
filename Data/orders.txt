@@ -1,0 +1,4 @@
+#12345AB	2021-02-18	Victor Jones	$45.00	$37.00	Completed
+#54321BA	2021-02-18	Victor Jones	$145.00	$127.00	Completed
+#83745VD	2021-02-18	Victor Jones	$64.00	$25.00	Pending
+#00012HT	2021-02-18	John Doe	$66.00	$21.00	Pending

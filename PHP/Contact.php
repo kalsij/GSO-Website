@@ -56,40 +56,48 @@
             <a href="ShoppingCart.html"><img src="/Media/cart_logo.png" alt="Shopping Cart" width="50px" height="50px"
                     style="float:right"></a>
         </nav>
-        <!--title-->
-        <h1 class="ProductTitle">Contact Us</h1>
-        <div class="container shadow-lg " >
-            <h1>Have some questions? <br/> Please fill out the information below:</h1>
-            
-            <!--information-->
-            <form action = "Contact.php" method = "POST" onsubmit= "return checked()" >
-            <div class="form-column">
-              <div class=" justify-content-md-center">
-                <div class="form-group contactuspage">
-                    <p class = "formnames">User Name:</p>
-                  <input style="background-color:white" name ="username" id ="username" type="text" class="form-control" placeholder='User Name' >
-                </div>
-                <div class="form-group contactuspage">
-                  <p class = "formnames">Item Name:</p>
-                    <input style="background-color:white" type="text" class="form-control" placeholder='Item Name' >
-                </div>
-                <div class="form-group contactuspage">
-                  <p class = "formnames">Order Number</p>
-                    <input style="background-color:white" name="ordernumber" id="ordernumber" type="text" class="form-control" placeholder = "Order Number">
-                    <div class="form-group">
-                      <p class = "formnames">Questions:</p>
-                    <textarea class="form-control" rows="5" spellcheck="false"></textarea>
-                </div>
-                <button class="btn btn-outline-primary" name = "submit" type = "submit" value = "1" >Submit</button>
-             </div>
-            </div>
-            </form>
-          </div>
-          </div>
+        <h1 class="ProductTitle">Order Details</h1>
+        <div class="container shadow-lg ">
+<?php
+if ($_POST['submit']) {
+    $file1 = file('../Data/users.txt');
+    $file2 = file('../Data/orders.txt');
+    $U = $_POST["username"];
+    $O = $_POST["ordernumber"];
+    $line = "";
+    foreach ($file1 as $line1) {
+        $pos = strstr($line1, $U);
+        if (strstr($line1, $U)) {
+            $found1 = true;
+            break;
+        } 
+    }
+    if($found1 == 0) {
+        header("Location: SignUp.php");
+    }
 
-              <!--footer--> 
-              <?php include("footer.php") ?>
-        </body>
-    
-    </html>
-    
+    foreach ($file2 as $line2) {
+        if (strstr($line2, $O)) {
+            $line = $line2;
+            $found2 = true;
+            break;
+        }
+    }
+    if($found2 == 0){
+        echo "Order number does not exist"."\n";
+    }
+    if($found2 && empty($line)){
+            echo "empty";        
+    }
+    $info = explode("\t",$line);
+    echo "<pre>";
+    echo "Order number: ".$info[0]."\n";
+    echo "Date: ".$info[1]."\n";
+    echo "Total before tax: ".$info[4]."\n";
+    echo "Items Ordered: ".$info[6]."\n";
+    echo "Status: ".$info[7]."\n";
+    echo "</pre>";
+
+}
+?>
+        </div>
