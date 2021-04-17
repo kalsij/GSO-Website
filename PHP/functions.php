@@ -65,4 +65,22 @@ function signinVerif(){
     return TRUE;
 }
 
+function resetVerif(){
+    $_resEm = $_POST[resetEmail];
+    $_resPass = $_POST[resetPassword];
+    $_resPass2 = $_POST{resetPassword2};
+
+    if(preg_match("/^[0-9A-Za-z.]+\@[a-z]+\.[a-z]{2,3}$/", $_resEm)==0){
+        return FALSE;
+    }
+
+    if(strlen($_resPass)<8){
+        return FALSE;
+    }
+    if(strlen($_resPass2)<8||$_resPass!=$_resPass2){
+        return FALSE;
+    }
+    return TRUE;
+}
+
 ?>

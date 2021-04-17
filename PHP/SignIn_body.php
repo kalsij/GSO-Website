@@ -2,7 +2,7 @@
         <h1 style="margin-top: 2.5cm;">Log Into Your Account</h1>
         <h2>-------------------------------------</h2>
 
-        <form action="" method="post" class="justify-content-center">
+        <form method="post" class="justify-content-center">
             <fieldset id="field">
                 <br />
                 <div id="aAnnounce"></div>
@@ -24,18 +24,20 @@
             <br />
             <div id="sub"></div>
             <div style="text-align:center">
-                <input type="submit" name="signinSubmit" value="Sign In" />
+                <input type="submit" name="submit" value="Sign In" />
                 <br />
                 <a href="" onclick="forgot(); return false;" style="font-size:14px">Forgot password?</a>
             </div>
         </form>
-    </div>
-    <br />
+        <br />
+        <p style="text-align:center; color:red;">
+        <?php print $msg?>
+        </p>
+</div>
+
     <div id="space">
         <br />
         <br />
     </div>
-    <form id="aForg" acion="" method="" style="position:relative"></form>
+    <form id="aForg" method="post" style="position:relative"></form>
     <div id="feedback"></div>
-
-<?php include("footer.php")?>

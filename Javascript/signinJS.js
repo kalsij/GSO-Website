@@ -10,7 +10,6 @@ function setPasswordVisible() {
 
 //reset password email verification
 function sendEmail() {
-    var prob = false;
     var node = document.getElementById("aFeed");
     node.innerHTML = "";
     var br1 = document.createElement("br");
@@ -27,31 +26,23 @@ function sendEmail() {
     feedback3.style.color = "red";
     feedback3.style.textAlign = "center";
 
-    if (email.value.search(/^[0-9A-Za-z.]+\@[a-z]+\.[a-z]{3}$/) == -1) {
+    if (email.value.search(/^[0-9A-Za-z.]+\@[a-z]+\.[a-z]{2,3}$/) == -1) {
         feedback.textContent = "The email you entered is invalid.";
-        prob = true;
         node.appendChild(feedback);
     }
 
     if (pass1.value.length < 8) {
 
         feedback2.textContent = "Your password is too short.";
-        prob = true;
         node.appendChild(feedback2);
     }
 
     if (pass2.value.length < 8 || pass2.value !== pass1.value) {
 
         feedback3.textContent = "Your confirm password entry is wrong.";
-        prob = true;
         node.appendChild(feedback3);
     }
 
-    if (!prob) {
-        feedback.style.color = "black";
-        feedback.textContent = "Your password has been reset.";
-        node.appendChild(feedback);
-    }
 
 }
 
@@ -110,21 +101,21 @@ function forgot() {
     inEmail.type = "text";
     inEmail.placeholder = "Your email";
     inEmail.id = "email2";
-    inEmail.name = "email2";
+    inEmail.name = "resetEmail";
     var newPass = document.createElement("input");
     newPass.type = "password";
     newPass.placeholder = "Your new password";
     newPass.id = "pass2";
-    newPass.name = "pass2";
+    newPass.name = "resetPassword";
     var newPass2 = document.createElement("input");
     newPass2.type = "password";
     newPass2.placeholder = "Your new password";
     newPass2.id = "pass3";
-    newPass2.id = "pass3";
+    newPass2.name = "resetPassword2";
     var but = document.createElement("input");
-    but.type = "button";
+    but.type = "submit";
     but.value = "Reset Password";
-    but.addEventListener("click", sendEmail);
+    but.name = "submit";
     var centered = document.createElement("div");
     centered.style.textAlign = "center";
     centered.appendChild(labelE);
@@ -197,12 +188,6 @@ function verif() {
         elem0.textContent = "Your email or your password may be incorrect, please try again."
         nodeAnn.appendChild(elem0);
     }
-    else {
-        var elemF = document.createElement("p")
-        elemF.style.textAlign = "center";
-        elemF.textContent = "Your email and your password are valid. Wait a second while we are logging you in."
-        elemF.style.color = "black";
-        nodeSub.appendChild(elemF);
-    }
+
 
 }
