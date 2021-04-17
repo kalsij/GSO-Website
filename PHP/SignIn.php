@@ -1,47 +1,43 @@
 <?php 
+include("functions.php");
+
+if(empty($_POST[signinSubmit])){
+session_start();
+$_SESSION[signinEmail] = "";
+$_SESSION[signinPassword] = "";
+
 $title = "Sign In";
 $js_file = "../Javascript/signinJS.js";
 include("header_SU_SI.php");
+require("SignIn_body.php");
+include("footer");
+}
+
+else if($_POST[signinSubmit]=="Sign In"){
+    session_start();
+    $email = $_POST[signinEmail];
+    $password = $_POST[signinPassword];
+    if($email){ $_SESSION[signinEmail] = $email;}
+    else {$_SESSION[signinEmail] = "";}
+    if($password){ $_SESSION[signinPassword] = $password;}
+    else { $_SESSION[signinPassword] = "";}
+
+    $app = signinVerif();
+    if($app){
+        $filename = "../Data/users.txt";
+        $allinfo = file($filename);
+        $exists = FALSE;
+
+        foreach($allinfo)
+    }
+    else{
+        $title = "Sign In";
+        $js_file = "../Javascript/signinJS.js";
+        include("header_SU_SI.php");
+        require("SignIn_body.php");
+        echo '<script type="text/javascript"> verif()</script>';
+        include("footer");  
+    }
+}
+
 ?>
-
-<div id="blur">
-        <h1 style="margin-top: 2.5cm;">Log Into Your Account</h1>
-        <h2>-------------------------------------</h2>
-
-        <form action="" class="justify-content-center">
-            <fieldset id="field">
-                <br />
-                <div id="aAnnounce"></div>
-                <label>Username (Email):</label>
-                <br />
-                <input type="text" name="signin_email" id="email" placeholder="Your email" />
-                <span id="aE"></span>
-                <br /><br />
-                <label>Password:</label>
-                <br />
-                <input name="signin_password" type="password" id="password" placeholder="Your password" />
-                <span id="aP"></span>
-                <br />
-                <input type="checkbox" name="Password Visibility" onclick="setPasswordVisible()" />
-                <p style="display: inline;">Show Password</p>
-                <br />
-                <br />
-            </fieldset>
-            <br />
-            <div id="sub"></div>
-            <div style="text-align:center">
-                <input type="submit" name="Submit" value="Sign In" onclick="verif(); return false;" />
-                <br />
-                <a href="" onclick="forgot(); return false;" style="font-size:14px">Forgot password?</a>
-            </div>
-        </form>
-    </div>
-    <br />
-    <div id="space">
-        <br />
-        <br />
-    </div>
-    <form id="aForg" acion="" method="" style="position:relative"></form>
-    <div id="feedback"></div>
-
-<?php include("footer.php")?>

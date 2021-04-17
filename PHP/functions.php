@@ -50,4 +50,19 @@ function approve(){
     return TRUE;
 }
 
+function signinVerif(){
+    $_inE = $_POST[signinEmail];
+    $_inP = $_POST[signinPassword];
+
+    //email
+    if (preg_match("/^[0-9A-Za-z.]+\@[a-z]+\.[a-z]{2,3}$/", $_inE) == 0) {
+        return FALSE;
+    }
+    //password
+    if (strlen($_inP) < 8) {
+        return FALSE;
+    }
+    return TRUE;
+}
+
 ?>

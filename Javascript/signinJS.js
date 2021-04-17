@@ -173,7 +173,7 @@ function verif() {
     nodeE.innerHTML = "";
     nodeSub.innerHTML = "";
 
-    if (email.value.search(/^[0-9A-Za-z.]+\@[a-z]+\.[a-z]{3}$/) == -1) {
+    if (email.value.search(/^[0-9A-Za-z.]+\@[a-z]+\.[a-z]{2,3}$/) == -1) {
         var elem1 = document.createElement("p");
         elem1.style.color = "red";
         elem1.textContent = "*";
