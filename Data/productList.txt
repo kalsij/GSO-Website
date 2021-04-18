@@ -1,22 +1,22 @@
-001;Media/Blueberries(veeterzy_WOg_unsplash).jpg;Blueberries;Fruits & Vegetables;150;globalmjl;5.50$;These blueberries from Saguenay are incredibly sweet. Each of them are carefully picked to offer you the best blueberries you will ever taste.;2.75$/100g
-002;Media/oranges.jpg;Oranges;Fruits & Vegetables;200;globalmjl;5.50$;Start your morning with some freshly pressed oranges! These seedless oranges from Florida are delicious and a must to your diet.;5.50$/EA
-003;Media/Lemons(daniel_kim_unsplash).jpg;Lemons;Fruits & Vegetables;150;globalmjl;1.00$;These lemons are the perfect complement to your smoked salmon or just for a simple but delicious lemonade. Produced in Quebec, it is the best way to encourage local!;1.00$/EA
-004;Media/Tomatoes(vince_lee_unsplash).jpg;Tomatoes;Fruits & Vegetables;6kg;globalmjl;1.50$;Tomato freshly imported from Italy. They are juicy and would be perfect for your tomato sauce!;3.75$/100g
-005;Media/yogurt.jpg;Yogurt;Dairy;100;Lactalis;5.00$;Natural yogurt made with locally produced milk. It is a healthy option for your breakfast that would allow you to start your day the best way.;0.50$/mL
-006;Media/milk.jpg;Milk;Dairy;200;Lactalis;4.00$;Fresh milk delivered directly from the local farms where cows are treated with respect and are fed with hormone-free food.;0.20$/100mL
-007;Media/butter.jpg;Butter;Dairy;115;Lactalis;2.50$;Enjoy the 100% pure butter from Canadian farms. It can be used in baking as well as in cooking.;0.50$/g
-008;Media/cheese.jpg;Cheese;Dairy;75;Lactalis;10.50$;Local cheese of the greatest quality. It is perfect to accompany a glass of white wine whether it is for a big reception or for a romantic dinner.;1.09$/100g
-009;Media/lamb.jpg;Rack of Lamb;Meat;60;Distrobec;55.00$;Beautiful juicy and tender A5 quality racks of lamb from Australia.;2.00$/100g
-010;Media/chicken.png;Chicken;Meat;50;Distrobec;12.50$;Free range, whole fed Chicken ready for grilling. Perfect for a hot summer night;0.65$/100g
-011;Media/bacon.jpg;Bacon;Meat;80;Distrobec;5.50$;Free range, whole fed, perfect for grilling.;0.50$/100g
-012;Media/steak.jpg;Steak;Meat;30;Distrobec;20.00$;With cattle raised free on the grounds of Australia, enjoy a succulent and tender steak. Perfect for the barbeque.;0.88$/100g
-013;Media/pita.jpg;Pita;Bread;95;Boulart;3.50$;Flatbread that is soft, slightly chewy and extremely delicious!;0.50$/100g
-014;Media/brown-bread.jpg;Brown Bread;Bread;40;Boulart;5.00$;A type of dark, slightly sweet steamed bread, a healthier alternative to most breads.;0.50$/100g
-015;Media/ciabatta.jpg;Ciabatta;Bread;30;Boulart;5.50$;A very chewy bread with a slightly crispy crust. Ciabatta has a unique moist texture and one-of-a-kind flavor.;0.55$/100g
-016;Media/white-bread.jpg;White Bread;Bread;100;Boulart;4.50$;The classic loaf of bread.;0.53$/100g
-017;Media/water.jpg;Water;Drinks;100;Nestle;1.25$;Nestle Pure Life water offers a unique refreshing experience to anyone who gets a taste. No sugar added.;(1.5 L)
-018;Media/pexels-pixabay-50593.jpg;Coca-Cola;Drinks;300;Coca-Cola;1.74$;Get the authentic, delicious and refreshing taste of coca-cola. No artificial flavors.;(355 mL)
-019;Media/redbull.jpg;RedBull;Drinks;200;Voss;1.99$;The special formula for the RedBull energy drink contains nothing but ingredients of great quality. Cafeine, taurine and sugar. RedBull cans are made from aluminium and are 100% recyclable.;(8.4 oz)
-020;Media/pexels-klaus-nielsen-6287380.jpg;Macaroni;Pasta;150;Bulk;1.66$;Made from Italy's No.1 durum, these macaroni go perfectly with one of the most famous Canadian dishes, macaroni & cheese.;0.11$/10g
-021;Media/spaghetti.jpg;Spaghetti;Pasta;300;Bulk;1.66$;Spaghetti is a must and an easy meal to make. Just boil these noodles, add your own sauce and it is ready to eat!;0.10$/10g
-022;Media/pexels-klaus-nielsen-6287336.jpg;Penne;Pasta;200;Bulk;1.66$;Penne is one of the most popular Italian pasta shape. It could easily be eaten in soups, salads, casseroles and much more! Coming fresh from Italy, add it to your grocery list.;0.11$/10g
+1;Media/Blueberries(veeterzy_WOg_unsplash).jpg;Blueberries;Fruits & Vegetables;150;globalmjl;5.50$;These blueberries from Saguenay are incredibly sweet. Each of them are carefully picked to offer you the best blueberries you will ever taste.;2.75$/100g
+2;Media/oranges.jpg;Oranges;Fruits & Vegetables;200;globalmjl;5.50$;Start your morning with some freshly pressed oranges! These seedless oranges from Florida are delicious and a must to your diet.;5.50$/EA
+3;Media/Lemons(daniel_kim_unsplash).jpg;Lemons;Fruits & Vegetables;150;globalmjl;1.00$;These lemons are the perfect complement to your smoked salmon or just for a simple but delicious lemonade. Produced in Quebec, it is the best way to encourage local!;1.00$/EA
+4;Media/Tomatoes(vince_lee_unsplash).jpg;Tomatoes;Fruits & Vegetables;6kg;globalmjl;1.50$;Tomato freshly imported from Italy. They are juicy and would be perfect for your tomato sauce!;3.75$/100g
+5;Media/yogurt.jpg;Yogurt;Dairy;100;Lactalis;5.00$;Natural yogurt made with locally produced milk. It is a healthy option for your breakfast that would allow you to start your day the best way.;0.50$/mL
+6;Media/milk.jpg;Milk;Dairy;200;Lactalis;4.00$;Fresh milk delivered directly from the local farms where cows are treated with respect and are fed with hormone-free food.;0.20$/100mL
+7;Media/butter.jpg;Butter;Dairy;115;Lactalis;2.50$;Enjoy the 100% pure butter from Canadian farms. It can be used in baking as well as in cooking.;0.50$/g
+8;Media/cheese.jpg;Cheese;Dairy;75;Lactalis;10.50$;Local cheese of the greatest quality. It is perfect to accompany a glass of white wine whether it is for a big reception or for a romantic dinner.;1.09$/100g
+9;Media/lamb.jpg;Rack of Lamb;Meat;60;Distrobec;55.00$;Beautiful juicy and tender A5 quality racks of lamb from Australia.;2.00$/100g
+10;Media/chicken.png;Chicken;Meat;50;Distrobec;12.50$;Free range, whole fed Chicken ready for grilling. Perfect for a hot summer night;0.65$/100g
+11;Media/bacon.jpg;Bacon;Meat;80;Distrobec;5.50$;Free range, whole fed, perfect for grilling.;0.50$/100g
+12;Media/steak.jpg;Steak;Meat;30;Distrobec;20.00$;With cattle raised free on the grounds of Australia, enjoy a succulent and tender steak. Perfect for the barbeque.;0.88$/100g
+13;Media/pita.jpg;Pita;Bread;95;Boulart;3.50$;Flatbread that is soft, slightly chewy and extremely delicious!;0.50$/100g
+14;Media/brown-bread.jpg;Brown Bread;Bread;40;Boulart;5.00$;A type of dark, slightly sweet steamed bread, a healthier alternative to most breads.;0.50$/100g
+15;Media/ciabatta.jpg;Ciabatta;Bread;30;Boulart;5.50$;A very chewy bread with a slightly crispy crust. Ciabatta has a unique moist texture and one-of-a-kind flavor.;0.55$/100g
+16;Media/white-bread.jpg;White Bread;Bread;100;Boulart;4.50$;The classic loaf of bread.;0.53$/100g
+17;Media/water.jpg;Water;Drinks;100;Nestle;1.25$;Nestle Pure Life water offers a unique refreshing experience to anyone who gets a taste. No sugar added.;(1.5 L)
+18;Media/pexels-pixabay-50593.jpg;Coca-Cola;Drinks;300;Coca-Cola;1.74$;Get the authentic, delicious and refreshing taste of coca-cola. No artificial flavors.;(355 mL)
+19;Media/redbull.jpg;RedBull;Drinks;200;Voss;1.99$;The special formula for the RedBull energy drink contains nothing but ingredients of great quality. Cafeine, taurine and sugar. RedBull cans are made from aluminium and are 100% recyclable.;(8.4 oz)
+20;Media/pexels-klaus-nielsen-6287380.jpg;Macaroni;Pasta;150;Bulk;1.66$;Made from Italy's No.1 durum, these macaroni go perfectly with one of the most famous Canadian dishes, macaroni & cheese.;0.11$/10g
+21;Media/spaghetti.jpg;Spaghetti;Pasta;300;Bulk;1.66$;Spaghetti is a must and an easy meal to make. Just boil these noodles, add your own sauce and it is ready to eat!;0.10$/10g
+22;Media/pexels-klaus-nielsen-6287336.jpg;Penne;Pasta;200;Bulk;1.66$;Penne is one of the most popular Italian pasta shape. It could easily be eaten in soups, salads, casseroles and much more! Coming fresh from Italy, add it to your grocery list.;0.11$/10g
