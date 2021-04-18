@@ -143,7 +143,7 @@
                                      echo "<p id=\"totalCola\"></p>";
                                     echo "<div style=\"padding-top: 20px;\">";
                                         echo "<button class=\"dropbtn\" onclick=\"showColaDescription()\">Product Description</button>";
-                                        echo "<p id=\"colaDescription\" style=\"visibility:hidden;\">$elements[7]</p>";
+                                        echo "<p id=\"colaDescription\" >$elements[7]</p>";
                                         echo "</div>";
                                         // <!-- JavaScript -->
                                     echo "<script type = \"text/javascript\" src=\"../Javascript/script.js\"></script>";
