@@ -1,25 +1,12 @@
 <!--Retrieve data from items -->
 <?php
-    
-    //just for now to visual data: transfering data from product page -> shopping cart, BUT should be remove in final version
-    //session_destroy();
-
     //click ctrl shift I to see the print text in the Elements section of the body
     session_start();
-
-    echo "the post data (only contains the qty): ";
-    print_r ($_POST);
-
-    echo "the session data (contains every info except qty: ";
-    print_r ($_SESSION);
-
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        echo "The method is POST";
-    }
-    else {
-        echo "the method is not a POST";
-    }
-    ?>
+    // session_unset();
+    // echo"elements in the session: \n";
+    // print_r($_SESSION);
+?>
+    
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,15 +16,15 @@
     <meta chartset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    //Bootstrap
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-    //Style
+    <!-- Style -->
     <link rel="stylesheet" type="text/css" href="../Styles/newStyle.css"/>
-    //Javascript
+    <!-- Javascript -->
     <script type="text/javaScript" src="../Javascript/shoppingCart.js" async></script>
 
 </head>
@@ -88,151 +75,190 @@
             <div class="Cart col-md-8 ">
                 <h3>MY CART</h3>
                 <hr></br>
-
-                <div class="listMyCart justify-content-between align-items-center  row">
-                    <div class="col-md-4"><img src="../Media/Tomatoes(vince_lee_unsplash).jpg" alt="lemon" style="width: 105px;"></div>
-
-                    <div class="col-md-3"><h6>Tomatoes</br>(40g avg)</h6></div>
-
-                    <!-- Button to change the quantity of the item -->
-                    <div class="col-md-2">
-                        <div class="qtyItems">
-                            <button class="incrementButton" type="button">+</button>
-                            <span class="quantityProduct">1</span> 
-                            <button class="decrementButton" type="button">-</button>
-                        </div>
-                    </div>
-
-                    <div class="priceItem col-md-2 "><h6>$ 1.50</h6></div>
-
-                    <!-- Button to delete the item -->
-                    <div class="col-md-1">
-                        <div class="delete-trash">
-                            <button type="button"><img src="../Media/TrashCan(Flaticon).png" alt="trash can" style="height:25px; width: 25px;"></button>
-                        </div>
-                    </div>
                 
-                </div>
+                <?php
 
-                </br>
+                    if(array_key_exists('checkoutButton', $_POST)) {
+                        checkoutButton1();
+                    }
+                    function checkoutButton1() {
+                        // //read userFile
+                        // $handleUserFile = @fopen("../Data/users.txt", "r");
+                        // if($handleUserFile){
+                        //     while(($buffer = fgets($handleUserFile))!== false) {
+                        //         $userLineArray = explode(" ", $buffer);
+                        
+                        //to change
+                        //$userFullName = $_SESSION["userFullName"];
+                        $userFullName = "nameFromSession";
+                        $currentDate = date("Y-m-d");
+                        $orderNumber = "#".date(m).date(d).date(h).date(i).date(s);
+                        //to change
+                        // $income = round(0.3*$_SESSION["finalPrice"],2);
+                        $income = "incomeFromPOST";
+                        
+                        // write to file
+                        $orderFile = fopen("../Data/ordersListClients.txt", "a");
+                        $outputOrder = $orderNumber."\t".$currentDate."\t".$userFullName."\t $".$_SESSION["finalPrice"]."\t $".$income;
+                        fputs($orderFile, $outputOrder);
+                        fputs($orderFile, "\r\n");
+                        fclose($orderFile);
+                    }
 
-                <div class="listMyCart justify-content-between align-items-center  row">
-                    <div class="col-md-4"><img src="../Media/Lemons(daniel_kim_unsplash).jpg" alt="lemon" style="width: 105px;"></div>
+                    $_SESSION["quantity"] = $_POST["quantity"];
 
-                    <div class="col-md-3"><h6>Lemons</br>(80g avg)</h6></div>
+                    // write to file
+                    $sessionFile = fopen("../Data/productOrder.txt", "a");
+                    fputs($sessionFile, session_encode());
+                    fputs($sessionFile, "\r\n");
+                    fclose($sessionFile);
 
-                    <!-- Button to change the quantity of the item -->
-                    <div class="col-md-2">
-                        <div class="qtyItems">
-                            <button class="incrementButton" type="button">+</button>
-                            <span class="quantityProduct">10</span> 
-                            <button class="decrementButton" type="button">-</button>
-                        </div>
-                    </div>
+                    //read file
+                    $handle = @fopen("../Data/productOrder.txt", "r");
+                    if($handle){
+                        while(($buffer = fgets($handle))!== false) {
+                            $lineContentsArray = explode(";", $buffer);
+                            
+                            //product Qty
+                            $product = explode(":", $lineContentsArray[0]);
+                            $productQty = str_replace("\"", "", $product[2]);
+                            $totalQty=$totalQty + $productQty;
+                            // echo "reading the product name: ".$productQty;
 
-                    <div class="priceItem col-md-2"><h6>$ 1.00</h6></div>
+                            //product Name
+                            $product = explode(":", $lineContentsArray[1]);
+                            $productName = str_replace("\"", "", $product[2]);
+                            // echo "reading the product name: ".$productName;
 
-                    <!-- Button to delete the item -->
-                    <div class="col-md-1">
-                        <div class="delete-trash">
-                            <button type="button"><img src="../Media/TrashCan(Flaticon).png" alt="trash can" style="height:25px; width: 25px;"></button>
-                        </div>
-                    </div>
+                            //product Image
+                            $product = explode(":", $lineContentsArray[2]);
+                            $productImg = str_replace("\"", "", $product[2]);
+                            // echo "reading the product img: ".$productImg;
+
+                            //product Price
+                            $product = explode(":", $lineContentsArray[3]);
+                            $productPrice = str_replace("\"", "", $product[2]);
+                            $subTotalPrice = $subTotalPrice + ($productQty*$productPrice);
+                            // echo "reading the product price: ".$productPrice;
+
+                            //product Unit
+                            $product = explode(":", $lineContentsArray[4]);
+                            $productUnit = str_replace("\"", "", $product[2]);
+                            // echo "reading the product unit: ".$productUnit; 
+                            
+                            echo("
+                                <div class='listMyCart justify-content-between align-items-center  row'>
+                                    <div class='col-md-4'><img src=$productImg alt='lemon' style='width: 105px;'></div>
+
+                                    <div class='col-md-3'><h6>$productName</br>$productUnit</h6></div>
+
+                                    <!-- Button to change the quantity of the item -->
+                                    <div class='col-md-2'>
+                                        <div class='qtyItems'>
+                                            <button class='incrementButton' type='button'>+</button>
+                                            <span class='quantityProduct'>$productQty</span> 
+                                            <button class='decrementButton' type='button'>-</button>
+                                        </div>
+                                    </div>
+
+                                    <div class='priceItem col-md-2 '><h6>$productPrice</h6></div>
+
+                                    <!-- Button to delete the item -->
+                                    <div class='col-md-1'>
+                                        <div class='delete-trash'>
+                                            <button type='button'><img src='../Media/TrashCan(Flaticon).png' alt='trash can' style='height:25px; width: 25px;'></button>
+                                        </div>
+                                    </div>
+                            
+                                </div>
+                                </br></br>
+                            ");
+                        }
+                        if(!feof($handle)){
+                            echo "read error\n";
+                        }
+                        fclose($handle);
+                        $GSTTax = round($subTotalPrice*0.05,2);
+                        $QSTTax = round($subTotalPrice*0.09975,2);
+                        $finalTotal = round($subTotalPrice+$GSTTax+$QSTTax, 2); 
+                        // $_SESSION["finalPrice"] = $finalTotal;
+                    }
+                    
+                 echo("</br></br>
                 
-                </div>
-           
-                </br>
-
-                <div class="listMyCart justify-content-between align-items-center  row">
-                    <div class="col-md-4"><img src="../Media/Blueberries(veeterzy_WOg_unsplash).jpg" alt="blueberries" style="width: 105px;"></div>
-
-                    <div class="col-md-3"><h6>Blueberries</br>(200g avg)</h6></div>
-
-                    <!-- Button to change the quantity of the item -->
-                    <div class="col-md-2">
-                        <div class="qtyItems">
-                            <button class="incrementButton" type="button">+</button>
-                            <span class="quantityProduct">50</span> 
-                            <button class="decrementButton" type="button">-</button>
-                        </div>
-                    </div>
-
-                    <div class="priceItem col-md-2"><h6>$ 5.50</h6></div>
-
-                    <!-- Button to delete the item -->
-                    <div class="col-md-1">
-                        <div class="delete-trash">
-                            <button type="button"><img src="../Media/TrashCan(Flaticon).png" alt="trash can" style="height:25px; width: 25px;"></button>
-                        </div>
-                    </div>
-               
-                </div>
-                 </br><hr></br>
-
             </div>
-
+            
             <!-- Summary of the items (number of items, subtotal, QST, GST and total)-->
-            <div class="summaryItems col-md-4" style="left: 10px;">
-                <div class="listSummary">
+<div class='summaryItems col-md-4' style='left: 10px;'>
+                <div class='listSummary'>
 
                     <h3>SUMMARY LIST</h3>
                     <hr></br>
 
-                    <div class="justify-content-between row">
-                        <div class="col-md-auto">Qty of Items</div>
-                        <div class="totalItems col-md-auto" >61</div>
+                    <div class='justify-content-between row'>
+                        <div class='col-md-auto'>Qty of Items</div>
+                        <div class='totalItems col-md-auto' >$totalQty</div>
                     </div>
                     <hr></br>
 
-                    <div class="justify-content-between row">
-                        <div class="col-md-auto">Subtotal</div>
-                        <div class="subtotalPrice col-md-auto">$ 286.50</div>
+                    <div class='justify-content-between row'>
+                        <div class='col-md-auto'>Subtotal</div>
+                        <div class='subtotalPrice col-md-auto'>$ $subTotalPrice </div>
                     </div>
                     <hr></br>
 
-                    <div class="justify-content-between row">
-                        <div class="col-md-auto">GST</div>
-                        <div class="GSTPrice col-md-auto">$ 14.33</div>
+                    <div class='justify-content-between row'>
+                        <div class='col-md-auto'>GST</div>
+                        <div class='GSTPrice col-md-auto'>$ $GSTTax</div>
                     </div>
 
-                    <div class="justify-content-between row">
-                        <div class="col-md-auto">QST</div>
-                        <div class="QSTPrice col-md-auto">$ 28.58</div>
+                    <div class='justify-content-between row'>
+                        <div class='col-md-auto'>QST</div>
+                        <div class='QSTPrice col-md-auto'>$ $QSTTax</div>
                     </div>
                     <hr></br>
 
-                    <div class="justify-content-between row">
-                        <div class="col-md-auto">Total</div>
-                        <div class="totalPrice col-md-auto">$ 329.40</div>
+                    <div class='justify-content-between row'>
+                        <div class='col-md-auto'>Total</div>
+                        <div class='totalPrice col-md-auto'>$ $finalTotal</div>
                     </div>
                     </br><hr>
 
                     <!-- Button to continue shopping -->
-                    <div class="justify-content-center row">
-                        <div class="continue">
+                    <div class='justify-content-center row'>
+                        <div class='continue'>
 
-                            <a href="GroceryStore-1.html"><button type="button">CONTINUE SHOPPING</button></a>
+                            <button type='button' onclick='checkout()'>CONTINUE SHOPPING</button>
                             <hr>
 
-                            <a href="CheckOut.html"><button type="button">CHECK OUT</button></a>
+                            <form method='post'>
+                                <input type='submit' name='checkoutButton' class='checkout' value='CHECK OUT' />  
+                            </form>
+
+
+                            <a href='../CheckOut.html'><button type='button' class='checkout'>CHECK OUT</button></a>
+                            
+                            </script>
                             <hr>
                             
                         </div>
                     </div>
 
-                    <div class="justify-content-center row">
-                        <div class="donate">
-                            <a href="https://www.canadahelps.org/en/donate-to-coronavirus-outbreak-response/"
-                            target="_blank"><button type="button">DONATION  |  HELP US </br>FIGHT AGAINST COVID-19</button></a>    
+                    <div class='justify-content-center row'>
+                        <div class='donate'>
+                            <a href='https://www.canadahelps.org/en/donate-to-coronavirus-outbreak-response/'
+                            target='_blank'><button type='button'>DONATION  |  HELP US </br>FIGHT AGAINST COVID-19</button></a>    
                         </div>
                     </div></br>
 
                 </div>   
-            </div>
+            </div>");
 
+            ?>
         </div>
     </div>
-
+<!--                          <a href='CheckOut.html' class='checkOutButton' ><button type='button'>CHECK OUT</button></a>
+ -->
      <!---------footer----------->
      <footer class="container py-4">
         <div class="row">
