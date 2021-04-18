@@ -204,7 +204,7 @@
                                         echo "</a>";
                                         echo "<h1 style=\"margin-top: auto; color:rgb(75, 75, 75);\">$elements[2]</h1>";
                                         echo "<p class=\"price\" style=\"color:rgb(75, 75, 75);\">$elements[6]<br/>($elements[8])</p>";
-                                        echo "<p><button style=\"color:white;\">Add to Cart</button></p>";
+                                       
                                     echo "</div>";
                                   echo "</div>";
                                   
