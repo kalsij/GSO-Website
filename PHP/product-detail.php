@@ -1,3 +1,7 @@
+<?php
+session_start();
+session_unset();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,15 +70,17 @@
             <?php
 
             $id = $_REQUEST["id"];
-                $myfile = fopen("productList.txt", "r") or die("Unable to open file!");
+                $myfile = fopen("../Data/productList.txt", "r") or die("Unable to open file!");
                                
                 while(!feof($myfile)) {
                     $line = fgets($myfile);
                     if (strlen($line) < 5){
                         break;
                     }
-                            
+                        
                     $elements = explode(";", $line);
+
+                    //goes through every line -> check if the first element in the line which is the index id -> corresponds with the $id passed -> if same # = print it
                     if (strcmp($id, $elements[0]) == 0) {
                         //echo "Id found" . $elements[3];
 
@@ -96,16 +102,25 @@
                                 echo "<p>";
                                     echo "(355 mL)";
                                 echo "</p>";
-                                echo "<button  type=\"button\" onclick=\"incrementCola()\">+</button>";
-                                 echo "<span id=\"numOfCola\">1</span>";   
-                                echo "<button type=\"button\" onclick=\"decrementCola()\">-</button>";
-                        
-                                echo "<div class=\"btn\">";
-                                echo "<button type=\"submit\" onclick=\"addColaToCart()\">Add to cart</button>";
-                                echo "</div>";
-                                echo "<br/>";
-                                echo "<p id=\"addedCola\"></p>";
-                                echo "<p id=\"totalCola\"></p>";
+
+                                echo "
+                                <form action = \"ShoppingCart.php\" method = \"POST\">
+                                <input class = \"product-quantity ml-2 mr-2\" min = \"1\"type = \"number\" name = \"quantity\" id=\"totalMacaroni\" value=\"1\" style=\"width:20%;\">
+                              
+                                <!-- <button  onclick=\"incrementCola()\">+</button>
+                                <p id=\"quantity\" style=\"display: inline;\" >1</p>
+                                <button  onclick=\"decrementCola()\">-</button> -->
+                                
+                                <div class=\"btn\">
+                                    <input type=\"submit\" onclick=\"addLemonCart()\" value=\"Add to cart\" style = \"background-color: black; color : white\">
+                                </div>
+                                <div>
+                                    <p id=\"addedCola\"></p>
+                                    <p id = \"totalCola\"></p>
+                                </div>
+                              
+                                </form>";
+
                                 echo "<div style=\"padding-top: 20px;\">";
                                     echo "<button class=\"dropbtn\" onclick=\"showColaDescription()\">Product Description</button>";
                                     echo "<p id=\"colaDescription\" style=\"visibility:hidden;\">$elements[7]</p>";
@@ -114,7 +129,10 @@
                                 echo "<script type = \"text/javascript\" src=\"../Javascript/script.js\"></script>";
                         echo "</div>";
                     echo "</div>"; 
-
+                        
+                    
+                        //pass elements in product page to shopping cart or other pages
+                        $_SESSION["elementsProduct"] = $elements;
                     }
                 }
 
@@ -129,7 +147,7 @@
         <h1>Other related items</h1>
         <div class=" justify-content-md-center row">
                             <?php 
-                                $myfile = fopen("productList.txt", "r") or die("Unable to open file!");
+                                $myfile = fopen("../Data/productList.txt", "r") or die("Unable to open file!");
                                 // Output one line until end-of-file
                                 while(!feof($myfile)) {
                                   $line = fgets($myfile);
