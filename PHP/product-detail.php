@@ -133,28 +133,24 @@
                                     echo "</p>";
 
                                     echo "
-                                    <form action = \"ShoppingCart.php\" method = \"POST\">
-                                    <input class = \"product-quantity ml-2 mr-2\" min = \"1\"type = \"number\" name = \"quantity\" id=\"totalMacaroni\" value=\"1\" style=\"width:20%;\">
+                                <form action = \"ShoppingCart.php\" method = \"POST\">";
+                                echo "<input class = \"product-quantity ml-2 mr-2\" min = \"1\" type = \"number\" name = \"quan\" id= \"quan\" value=\"1\" style= \"width:20%;\">";
+                                echo "<button  type=\"button\" onclick=\"incrementCola()\" style=\"visibility:hidden;\">+</button>";
+                                 echo "<span id=\"numOfCola\"style=\"visibility:hidden;\">1</span>";   
+                                echo "<input type=\"button\" id=\"test\"onclick=\"decrementCola()\ style=\"visibility:hidden;\" style= \"background-color:white; color:white; display:none;\"></input>";
+                        
+                               
+                                echo "<div class=\"btn\">";
                                 
-                                    <!-- <button  onclick=\"incrementCola()\">+</button>
-                                    <p id=\"quantity\" style=\"display: inline;\" >1</p>
-                                    <button  onclick=\"decrementCola()\">-</button> -->
+                                echo "<input type= \"submit\"  value=\"Add to cart\" style = \"background-color: black; color : white\">";
+                                echo "</div>"; 
+                              
+                                echo"</form>";
 
-                                    <div class=\"btn\">
-                                        <input type=\"submit\" onclick=\"addLemonCart()\" value=\"Add to cart\" style = \"background-color: black; color : white\">
-                                    </div>
-                                    <div>
-                                        <p id=\"addedCola\"></p>
-                                        <p id = \"totalCola\"></p>
-                                    </div>
-                                
-                                    </form>";
-
-                                    echo "<div style=\"padding-top: 20px;\">";
-                                        echo "<button class=\"dropbtn\" onclick=\"showColaDescription()\">Product Description</button>";
-                                        echo "<p id=\"colaDescription\" >$elements[7]</p>";
-                                        echo "<p id=\"colaDescription\" style=\"visibility:hidden;\">$elements[7]</p>";
-                                        echo "</div>";
+                                echo "<div style=\"padding-top: 20px;\">";
+                                    echo "<button class=\"dropbtn\" onclick=\"showColaDescription()\">Product Description</button>";
+                                    echo "<p id=\"colaDescription\" style=\"visibility:hidden;\">$elements[7]</p>";
+                                echo "</div>";
                                         // <!-- JavaScript -->
                                     echo "<script type = \"text/javascript\" src=\"../Javascript/script.js\"></script>";
                             echo "</div>";
