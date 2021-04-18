@@ -3,71 +3,72 @@
     //click ctrl shift I to see the print text in the Elements section of the body
     session_start();
     // session_unset();
-    // echo"elements in the session: \n";
-    // print_r($_SESSION);
-?>
+    if(empty($_POST[logout])){
+
+    }
+    else{
+    session_unset();
+    }
+    if(empty($_SESSION[fullName])){
+    $sign1 = "<li><a href=\"SignUp.php\">Sign up</a></li>";
+    $sign2 = "<li><a href=\"SignIn.php\">Sign in</a></li>";
+    }
+    else{
+        $sign1 = "<li><a href=\"\">".$_SESSION[fullName]."</a></li>";
+        $sign2 = "<li><div style=\"text-align:center;\"><form method=\"post\"><input type=\"submit\" value=\"Log Out\" style=\"outline:none;border:none;background-color:Transparent;color:rgb(226, 215, 215);font-size:20px;\" name=\"logout\"/></form></div></li>";
+    }
+    $js_file = "../Javascript/shoppingCart.js"." async";
+    $title = "ShoppingCart";
+    include("header.php");
+
+    //write to ordersListClients file
+    if(isset($_POST["checkoutButton"])){
+        checkoutButton1();
+
+    }
+    $cartElements = $_SESSION["elementsProduct"];
+    $cartElements[8] = str_replace("\n", '', $cartElements[8]);
+    $cartElements[9] = $_POST["quantity"];
+    $_SESSION["elementsProduct"] = $cartElements;
     
+    function checkoutButton1() {
+        $userFullName = $_SESSION["fullName"];
+        $userEmail = $_SESSION["signinEmail"];
+        $currentDate = date("Y-m-d");
+        $orderNumber = "#".date(m).date(d).date(h).date(i).date(s);
+        //to change
+        $income = round(0.3*$_SESSION["cartfinalTotalPrice"],2);
+        
+        // write to file
+        $orderFile = fopen("../Data/ordersListClients.txt", "a");
+        $outputOrder = $orderNumber."\t".$currentDate."\t".$userFullName."\t ".$userEmail."\t $".$_SESSION["cartfinalTotalPrice"]."\t $".$income;
+        fputs($orderFile, $outputOrder);
+        fputs($orderFile, "\r\n");
+        fclose($orderFile);
+        
+    }             
+    function readingConstructSessionCart() {
+    
+        $handle = @fopen("../Data/cartProducts.txt", "r") or die("Unable to open cartProducts file to read. Bye-bye!");
+        $i = 0;
+        if($handle){
+            while(($line = fgets($handle))!== false) {
+                //product Qty
+                $elements = explode(";", $line);
+    
+                $_SESSION["cart"][$i] = $elements;
+                $i=$i+1;
+            }
+        }
+        $countingN = count($_SESSION["cart"]);
+        if(!feof($handle)){
+            echo "read error\n";
+        }
+        fclose($handle);
+    }
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <title>My Shopping Cart</title>
-    <meta chartset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-    <!-- Style -->
-    <link rel="stylesheet" type="text/css" href="../Styles/newStyle.css"/>
-    <!-- Javascript -->
-    <script type="text/javaScript" src="../Javascript/shoppingCart.js" async></script>
-
-</head>
-
-<body>
-    <!-- Nav Bar -->
-    <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top" style="background-color: blue;">
-        <h1 style="margin-top:0mm;color:white; font-size:50px;font-style:italic; font-weight:bold; margin-right:1cm;">
-            GSO</h1>
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-            <ul class="navbar-nav">
-                <li><a href="GroceryStore-1.html">Home</a></li>
-
-                <li><a href="#">Aisles</a>
-                    <ul>
-                     
-                        <li><a href="Fruits and vegetables.html">Fruits and Vegetables</a></li>
-                        <li><a href="Meat.html">Meat</a></li>
-                        <li><a href="Dairy.html">Dairy</a></li>
-                        <li><a href="Bread.html">Bread</a></li>
-                
-                        </a>
-                </li>
-            </ul>
-
-            <li><a href="#">Account</a>
-                <ul>
-                    <li><a href="SignUp.html">Sign up</a></li>
-                    <li><a href="SignIn.html">Sign in</a></li>
-                </ul>
-            </li>
-        </div>
-
-        <a href="ShoppingCart.html"><img src="../Media/cart_logo.png" alt="Shopping Cart" width="50px" height="50px"
-                style="float:right"></a>
-    </nav>
-
-    <h1 class="ShoppingCartTitle">My Shopping Cart</h1>
+?>
+    <h1 class="ShoppingCartTitle">SHOPPING CART</h1>
     <div class="container-fluid">
         <div class="shoppingCart row">
 
@@ -77,111 +78,65 @@
                 <hr></br>
                 
                 <?php
+                    $finalTotal = 0;
 
-                    if(array_key_exists('checkoutButton', $_POST)) {
-                        checkoutButton1();
-                    }
-                    function checkoutButton1() {
-                        // //read userFile
-                        // $handleUserFile = @fopen("../Data/users.txt", "r");
-                        // if($handleUserFile){
-                        //     while(($buffer = fgets($handleUserFile))!== false) {
-                        //         $userLineArray = explode(" ", $buffer);
+                    // write to cartProducts file 
+                    if( isset($_POST["quantity"])  && isset($_SESSION["elementsProduct"])  ){
+                        $sessionFile = fopen("../Data/cartProducts.txt", "a") or die("Unable to open cartProducts file to write. Bye-bye!");
+                        for($i = 0; $i <10; $i++){
+                            $toPrintProduct = $toPrintProduct.$_SESSION["elementsProduct"][$i].";";
+                        }
+                        $toPrintProduct = substr($toPrintProduct, 0, -1);
                         
-                        //to change
-                        //$userFullName = $_SESSION["userFullName"];
-                        $userFullName = "nameFromSession";
-                        $currentDate = date("Y-m-d");
-                        $orderNumber = "#".date(m).date(d).date(h).date(i).date(s);
-                        //to change
-                        // $income = round(0.3*$_SESSION["finalPrice"],2);
-                        $income = "incomeFromPOST";
-                        
-                        // write to file
-                        $orderFile = fopen("../Data/ordersListClients.txt", "a");
-                        $outputOrder = $orderNumber."\t".$currentDate."\t".$userFullName."\t $".$_SESSION["finalPrice"]."\t $".$income;
-                        fputs($orderFile, $outputOrder);
-                        fputs($orderFile, "\r\n");
-                        fclose($orderFile);
+                        fputs($sessionFile, $toPrintProduct);
+                        fputs($sessionFile, "\r\n");
+                        fclose($sessionFile);
                     }
 
-                    $_SESSION["quantity"] = $_POST["quantity"];
+                    //read from cartProducts file
+                    readingConstructSessionCart();
 
-                    // write to file
-                    $sessionFile = fopen("../Data/productOrder.txt", "a");
-                    fputs($sessionFile, session_encode());
-                    fputs($sessionFile, "\r\n");
-                    fclose($sessionFile);
 
-                    //read file
-                    $handle = @fopen("../Data/productOrder.txt", "r");
-                    if($handle){
-                        while(($buffer = fgets($handle))!== false) {
-                            $lineContentsArray = explode(";", $buffer);
-                            
-                            //product Qty
-                            $product = explode(":", $lineContentsArray[0]);
-                            $productQty = str_replace("\"", "", $product[2]);
-                            $totalQty=$totalQty + $productQty;
-                            // echo "reading the product name: ".$productQty;
-
-                            //product Name
-                            $product = explode(":", $lineContentsArray[1]);
-                            $productName = str_replace("\"", "", $product[2]);
-                            // echo "reading the product name: ".$productName;
-
-                            //product Image
-                            $product = explode(":", $lineContentsArray[2]);
-                            $productImg = str_replace("\"", "", $product[2]);
-                            // echo "reading the product img: ".$productImg;
-
-                            //product Price
-                            $product = explode(":", $lineContentsArray[3]);
-                            $productPrice = str_replace("\"", "", $product[2]);
-                            $subTotalPrice = $subTotalPrice + ($productQty*$productPrice);
-                            // echo "reading the product price: ".$productPrice;
-
-                            //product Unit
-                            $product = explode(":", $lineContentsArray[4]);
-                            $productUnit = str_replace("\"", "", $product[2]);
-                            // echo "reading the product unit: ".$productUnit; 
-                            
-                            echo("
-                                <div class='listMyCart justify-content-between align-items-center  row'>
-                                    <div class='col-md-4'><img src=$productImg alt='lemon' style='width: 105px;'></div>
-
-                                    <div class='col-md-3'><h6>$productName</br>$productUnit</h6></div>
-
-                                    <!-- Button to change the quantity of the item -->
-                                    <div class='col-md-2'>
-                                        <div class='qtyItems'>
-                                            <button class='incrementButton' type='button'>+</button>
-                                            <span class='quantityProduct'>$productQty</span> 
-                                            <button class='decrementButton' type='button'>-</button>
-                                        </div>
-                                    </div>
-
-                                    <div class='priceItem col-md-2 '><h6>$productPrice</h6></div>
-
-                                    <!-- Button to delete the item -->
-                                    <div class='col-md-1'>
-                                        <div class='delete-trash'>
-                                            <button type='button'><img src='../Media/TrashCan(Flaticon).png' alt='trash can' style='height:25px; width: 25px;'></button>
-                                        </div>
-                                    </div>
-                            
-                                </div>
-                                </br></br>
-                            ");
-                        }
-                        if(!feof($handle)){
-                            echo "read error\n";
-                        }
-                        fclose($handle);
+                    //display product on shopping cart page
+                    foreach($_SESSION["cart"] as $index=>$value) {
+                        $imgProduct = "../".$value[1];
+                        $nameProduct = $value[2];
+                        $priceProduct = $value[6];
+                        $unitProduct = $value[8];
+                        $qtyProduct = $value[9];
+                        $totalQty = $totalQty+$qtyProduct;
+                        $subTotalPrice = $subTotalPrice+($priceProduct*$qtyProduct);
                         $GSTTax = round($subTotalPrice*0.05,2);
                         $QSTTax = round($subTotalPrice*0.09975,2);
                         $finalTotal = round($subTotalPrice+$GSTTax+$QSTTax, 2); 
-                        // $_SESSION["finalPrice"] = $finalTotal;
+                        $_SESSION["cartfinalTotalPrice"] = $finalTotal;
+
+                        echo("
+                        <div class='listMyCart justify-content-between align-items-center  row'>
+                            <div class='col-md-4'><img src=$imgProduct alt=$nameProduct style='width: 105px;'></div>
+
+                            <div class='col-md-3'><h6>$nameProduct</br>$unitProduct</h6></div>
+
+                            <!-- Button to change the quantity of the item -->
+                            <div class='col-md-2'>
+                                <div class='qtyItems'>
+                                    <button class='incrementButton' type='button'>+</button>
+                                    <span class='quantityProduct'>$qtyProduct</span> 
+                                    <button class='decrementButton' type='button'>-</button>
+                                </div>
+                            </div>
+
+                            <div class='priceItem col-md-2 '><h6>$priceProduct</h6></div>
+
+                            <!-- Button to delete the item -->
+                            <div class='col-md-1'>
+                                <div class='delete-trash'>
+                                    <button type='button'><img src='../Media/TrashCan(Flaticon).png' alt='trash can' style='height:25px; width: 25px;'></button>
+                                </div>
+                            </div>
+                    
+                        </div>
+                        </br></br>");
                     }
                     
                  echo("</br></br>
@@ -189,7 +144,7 @@
             </div>
             
             <!-- Summary of the items (number of items, subtotal, QST, GST and total)-->
-<div class='summaryItems col-md-4' style='left: 10px;'>
+            <div class='summaryItems col-md-4' style='left: 10px;'>
                 <div class='listSummary'>
 
                     <h3>SUMMARY LIST</h3>
@@ -227,18 +182,27 @@
                     <!-- Button to continue shopping -->
                     <div class='justify-content-center row'>
                         <div class='continue'>
-
-                            <button type='button' onclick='checkout()'>CONTINUE SHOPPING</button>
+                            <a href=\"GroceryStore-1.php\"><button type=\"button\">CONTINUE SHOPPING</button></a>
                             <hr>
 
                             <form method='post'>
                                 <input type='submit' name='checkoutButton' class='checkout' value='CHECK OUT' />  
                             </form>
+                                                    
+                            <script>
+                                var checkout = document.getElementsByClassName(\"checkout\")
+                                for (var i = 0; i < checkout.length; i++) {
+                                    var button = checkout[i]
+                                    button.addEventListener('click', function(event) {
+                                        var buttonClicked = event.target
+                                        console.log(buttonClicked)
 
-
-                            <a href='../CheckOut.html'><button type='button' class='checkout'>CHECK OUT</button></a>
-                            
+                                        alert(\"Checking out! Thank you for your purchase.\");
+                                        window.location.replace(\"window.location.href = 'Checkout.php'\");
+                                    })
+                                }
                             </script>
+                         
                             <hr>
                             
                         </div>
@@ -253,50 +217,11 @@
 
                 </div>   
             </div>");
-
+                    
             ?>
         </div>
     </div>
-<!--                          <a href='CheckOut.html' class='checkOutButton' ><button type='button'>CHECK OUT</button></a>
- -->
-     <!---------footer----------->
-     <footer class="container py-4">
-        <div class="row">
-            <div class="col-12 col-md">
-                <small class="d-block mb-3 text-muted">&copy; 2021-2022 </br> </small>
-            <ul class="list-unstyled text-small">
-                <li><a href="BackstoreProductList.html"class="text-muted">Backstore</a></li></ul>
-            </div>
-            <div class="col-6 col-md">
-                <h5>Team</h5>
-                <ul class="list-unstyled text-small">
-                <li><a class="text-muted">Fatema Akther</a></li>
-                <li><a class="text-muted">Julie Trinh</a></li>
-                <li><a class="text-muted">Jasmit Kalsi</a></li>
-                <li><a class="text-muted">Dzmitry Fiodarau</a></li>
-                <li><a class="text-muted">Alice Chen</a></li>
-                <li><a class="text-muted">Georgia Pitic</a></li>
-                </ul>
-            </div>
-            <div class="col-6 col-md">
-                <h5>Promotions</h5>
-                <ul class="list-unstyled text-small">
-                <li><a class="text-muted">Newsletter</a></li>
-                <li><a class="text-muted">Gift cards</a></li>
-                <li><a class="text-muted">Contests</a></li>
-                </ul>
-            </div>
-            <div class="col-6 col-md">
-                <h5>About</h5>
-                <ul class="list-unstyled text-small">
-                <li><a href="Contact Us.html" class="text-muted">Contact us</a></li>
-                <li><a class="text-muted">Our story</a></li>
-                <li><a class="text-muted">FAQ</a></li>
-                </ul>
-            </div>
-        </div>
-    </footer>
-
-</body>
-
-</html>
+    <!--footer-->        
+    <?php 
+include("footer.php");
+?>
