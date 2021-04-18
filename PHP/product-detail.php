@@ -91,7 +91,7 @@
                 </li>
             </div>
 
-            <a href="ShoppingCart.html"><img src="Media/cart_logo.png" alt="Shopping Cart" width="50px" height="50px"
+            <a href="ShoppingCart.php"><img src="../Media/cart_logo.png" alt="Shopping Cart" width="50px" height="50px"
                     style="float:right"></a>
     </nav>
         <!--product description sheet-->
@@ -131,25 +131,36 @@
                                     echo "<p>";
                                         echo "($elements[8])";
                                     echo "</p>";
-                                    echo "<button  type=\"button\" onclick=\"incrementCola()\">+</button>";
-                                    echo "<span id=\"numOfCola\">1</span>";   
-                                    echo "<button type=\"button\" onclick=\"decrementCola()\">-</button>";
-                            
-                                    echo "<div class=\"btn\">";
-                                    echo "<button type=\"submit\" onclick=\"addColaToCart()\">Add to cart</button>";
-                                    echo "</div>";
-                                    echo "<br/>";
-                                    echo "<p id=\"addedCola\"></p>";
-                                     echo "<p id=\"totalCola\"></p>";
+
+                                    echo "
+                                    <form action = \"ShoppingCart.php\" method = \"POST\">
+                                    <input class = \"product-quantity ml-2 mr-2\" min = \"1\"type = \"number\" name = \"quantity\" id=\"totalMacaroni\" value=\"1\" style=\"width:20%;\">
+                                
+                                    <!-- <button  onclick=\"incrementCola()\">+</button>
+                                    <p id=\"quantity\" style=\"display: inline;\" >1</p>
+                                    <button  onclick=\"decrementCola()\">-</button> -->
+
+                                    <div class=\"btn\">
+                                        <input type=\"submit\" onclick=\"addLemonCart()\" value=\"Add to cart\" style = \"background-color: black; color : white\">
+                                    </div>
+                                    <div>
+                                        <p id=\"addedCola\"></p>
+                                        <p id = \"totalCola\"></p>
+                                    </div>
+                                
+                                    </form>";
+
                                     echo "<div style=\"padding-top: 20px;\">";
                                         echo "<button class=\"dropbtn\" onclick=\"showColaDescription()\">Product Description</button>";
+                                        echo "<p id=\"colaDescription\" >$elements[7]</p>";
                                         echo "<p id=\"colaDescription\" style=\"visibility:hidden;\">$elements[7]</p>";
                                         echo "</div>";
                                         // <!-- JavaScript -->
                                     echo "<script type = \"text/javascript\" src=\"../Javascript/script.js\"></script>";
                             echo "</div>";
                         echo "</div>"; 
-
+                        //pass elements in product page to shopping cart or other pages
+                        $_SESSION["elementsProduct"] = $elements;
                     }
                 }
 
@@ -200,6 +211,7 @@
                                         echo "<p><button style=\"color:white;\">Add to Cart</button></p>";
                                     echo "</div>";
                                   echo "</div>";
+                                  
                                   }  
                                 }
                                 
