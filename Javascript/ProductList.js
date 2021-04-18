@@ -4,33 +4,60 @@ function deleteElement()
     var products=document.getElementsByTagName("tr");
 
     var toRemove = [];
+    var itemsToRemove = "";
     for(var i=0;i<products.length;i++){
         var chk=products[i].cells[0].firstChild;
         if(chk.checked){
             toRemove.push(products[i]);
+            itemsToRemove += (i-1).toString() + ',';
         }
     }
     for(var i=0;i<toRemove.length;i++){
         toRemove[i].parentElement.removeChild(toRemove[i]);
     }
+    deleteProducts(itemsToRemove.substr(0, itemsToRemove.length-1));
 }
 
 // function that is called by the edit button
 function editElements()
 {
     var products=document.getElementsByTagName("tr");
+    console.log(products.length);
     for(var i=0;i<products.length;i++){
         var product = products[i];
         if(product.cells[0].firstChild.checked) {
-            makeEditableProduct(product);
+            makeEditableProduct(i, product);
         }
     }
-
 }
 
 // function that makes each text column editable as well as the picture selection
-function makeEditableProduct(product) {
-    
+function makeEditableProduct(index, product) {
+    var row;
+    if (index == -1) {
+        row = product.parentElement.insertRow(-1);
+    }
+    else {
+        row = product.parentElement.insertRow(index);
+    }
+    row.innerHTML = '<td colspan="4"><input type="text" style="width:300px;"' + 'value=description'+'>' +"</td>";
+
+    if(index == -1) {
+        row.cells[0].firstChild.value = "product description";
+    }
+    else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                //console.log(this.responseText);
+                row.cells[0].firstChild.value = this.responseText;
+            }
+        };
+        xmlhttp.open("GET", "modifyProduct.php?q=" + (index-1).toString(), true);
+        //console.log((index-1-count).toString());
+        xmlhttp.send();
+    }
+        
     for(var y=0;y<product.cells.length;y++) {
         var element = product.cells[y];
         var value = element.firstChild.data;
@@ -83,6 +110,14 @@ function makeEditableProduct(product) {
                             const p = element.parentElement;
                             cleanItem(p);
                             changeElement(p, image, title, category, supplier, quantity, price);
+                            var desc = row.cells[0].firstChild.value;
+                            //console.log(desc);
+                            row.parentNode.removeChild(row);
+                            
+                            var product = "Media/" + image + ";" + title + ";" + category + ";" + quantity + ";" + supplier + ";" + price + ";" + desc + "\n";
+                            editProduct(index-1, product)
+
+
                         } else{
                             window.location.replace("BackstoreProductList.html");
                         }   
@@ -91,15 +126,30 @@ function makeEditableProduct(product) {
                 
             };
         } else if ( element.firstChild.nodeName == "IMG"){
-
             element.removeChild(element.firstChild);
             element.innerHTML = '<input type="file" id="imageFile" class="form-control-file"></input>';
         } else {
             element.removeChild(element.firstChild);
             element.innerHTML = '<input type="text" style="width:80px;"' + 'value='+value+'>';
         }
+
     }
 }
+
+function deleteProducts(itemsToRemove) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("POST", "modifyProduct.php?delete=" + itemsToRemove, true);
+    xmlhttp.send(); 
+}
+
+function editProduct(index, product){
+    var xmlhttp = new XMLHttpRequest();
+    var p = index.toString() + "--" + product;
+    console.log(p);
+    xmlhttp.open("POST", "modifyProduct.php?edit="+btoa(p), true);
+    xmlhttp.send();
+}
+
 // removes the edit part of the item
 function cleanItem(item)
 { 
@@ -123,7 +173,7 @@ function changeElement(tr, image, title, category, supplier, quantity, price)
     var td7=document.createElement("td");
 
     var img1= document.createElement("img");
-    img1.setAttribute("src", "Media/"+image);
+    img1.setAttribute("src", "../Media/"+image);
     img1.setAttribute("width", 90);
     img1.setAttribute("height", 75);
 
@@ -181,4 +231,7 @@ function addElement()
     tr.appendChild(td7);
 
     table.appendChild(tr);
+
+    makeEditableProduct(-1, tr);
 }
+
