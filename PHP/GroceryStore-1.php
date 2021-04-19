@@ -147,7 +147,7 @@ $title = "GSO";
 
                   <?php 
                                 $myfile = fopen("../Data/productList.txt", "r") or die("Unable to open file!");
-                                // Output one line until end-of-file
+                               
                                 while(!feof($myfile)) {
                                   $line = fgets($myfile);
                                   if (strlen($line) < 5){
