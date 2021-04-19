@@ -31,11 +31,11 @@
             <!-- Side Bar -->
        <div class="col-sm-2 sidenav">
             <br/>
-            <p><a href="GroceryStore-1.html">Grocery Store</a></p>
-            <p><a href="BackstoreProductList.html">Product List</a></p>
-            <p><a href="BackstoreOrderList.html"></a>Order List</p>
-            <p> <a href="BackstoreUserList.html">User List</a></p>
-            <p style="font-weight:bold;"><a href="GroceryStore-1.html">Log Out</a></p>
+            <p><a href="../GroceryStore-1.html">Grocery Store</a></p>
+            <p><a href="BackstoreProductList.php">Product List</a></p>
+            <p><a href="BackstoreOrderList.php"></a>Order List</p>
+            <p> <a href="BackstoreUserList.php">User List</a></p>
+            <p style="font-weight:bold;"><a href="../GroceryStore-1.html">Log Out</a></p>
             </div>
 
 
@@ -45,19 +45,20 @@
                     
                     <!-- Add Product button -->
                     <a href="../BackstoreEditOrderProfile.html" class="btn btn-primary" style="float: right;margin-bottom: 5px;">Add Order</a>
+                    <td><a href='../BackstoreEditOrderProfile' class='btn btn-primary'style="float: right;margin-right: 5px;">Edit</a></td>
             
                     <!-- Order List -->
                     <?php function newRow($ordername, $date, $name, $total, $income)
                     {
                         return
-                            "<tr>             
+                            "<tr>
+                            <td><input name = 'checkbox' type='checkbox'></td>             
                             <td>" . $ordername . "</td>
                             <td>" . $date . "</td>
                             <td>" . $name . "</td>
                             <td>" . $total . "</td>
                             <td>" . $income . "</td>
                            
-                            <td><a href='../1JonesEditOrderProfile.html' class='btn btn-primary'>Edit</a>  <input type = 'button' value = 'Delete' class='btn btn-primary' style='margin-top:1px'></td>
                             </tr>";
                     }
                     ?>
@@ -68,13 +69,12 @@
                     <table class=\"table\" id=\"UserTable\">
                             <thead id=\"UserHead\">
                                 <tr>
-                                
+                                <th id=Order><p>Checkboxes</p></th>
                                 <th id=Order><p>Order #</p></th>
                                 <th id=Date><p>Purchased on</p></th>
                                 <th id=name><p>Bill to name</p></th>
                                 <th id=Subtotal><p>Subtotal</p></th>
                                 <th id=Income><p>Income</p></th>
-                                <th id=Actions><p>Actions</p></th>
                                     </tr> </thead>";
                     $file = fopen("../Data/orders.txt", "r");
                     if ($file) {
