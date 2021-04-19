@@ -19,7 +19,7 @@ $title = "Pasta";
 include("header.php");
 ?>
 <!----------Product Cards---------->
-<h1 class="ProductTitle">Drinks</h1>
+<h1 class="ProductTitle">Pasta</h1>
       <div class=" justify-content-md-center row">
 
                   <?php 
