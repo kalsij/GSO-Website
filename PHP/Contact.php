@@ -28,16 +28,16 @@
 
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
-                    <li><a href="GroceryStore-1.html">Home</a></li>
+                    <li><a href="GroceryStore-1.php">Home</a></li>
 
                     <li><a href="#">Aisles</a>
                         <ul>
-                            <li><a href="Fruits and vegetables.html">Fruits and Vegetables</a></li>
-                            <li><a href="Meat.html">Meat</a></li>
-                            <li><a href="Dairy.html">Dairy</a></li>
-                            <li><a href="Bread.html">Bread</a></li>
-                            <li><a href="drinks.html">Drinks</a></li>
-                            <li><a href="pasta.html">Pasta</a></li>
+                            <li><a href="Fruits and vegetables.php">Fruits and Vegetables</a></li>
+                            <li><a href="Meat.php">Meat</a></li>
+                            <li><a href="Dairy.php">Dairy</a></li>
+                            <li><a href="Bread.php">Bread</a></li>
+                            <li><a href="drinks.php">Drinks</a></li>
+                            <li><a href="pasta.php">Pasta</a></li>
                             </a>
 
 
@@ -47,8 +47,8 @@
 
                 <li><a href="#">Account</a>
                     <ul>
-                        <li><a href="SignUp.html">Sign up</a></li>
-                        <li><a href="SignIn.html">Sign in</a></li>
+                        <li><a href="SignUp.php">Sign up</a></li>
+                        <li><a href="SignIn.php">Sign in</a></li>
                     </ul>
                 </li>
             </div>
