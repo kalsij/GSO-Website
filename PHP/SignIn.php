@@ -142,14 +142,14 @@ else if($_POST[submit]=="Reset Password"){
             foreach($_allinfo as $key=>$value){
                 $_user = preg_split("/[\s]+/", $value);
                 if($_user[4]==$_SESSION[resetEmail]){
-                    $_allinfo[$key] = $_user[0]." ".$_user[1]." ".$_user[2]." ".$_user[3]." ".$_user[4]." ".$_SESSION[resetPassword];
+                    $_allinfo[$key] = $_user[0]." ".$_user[1]." ".$_user[2]." ".$_user[3]." ".$_user[4]." ".$_SESSION[resetPassword]."\n";
                 }
             }
 
             //Writing all users into the users.txt file
             $towrite = fopen($filename, w);
             foreach($_allinfo as $value){
-                fputs($towrite, $value."\n");
+                fputs($towrite, $value);
             }
             fclose($towrite);
 
