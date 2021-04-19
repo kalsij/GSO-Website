@@ -52,7 +52,7 @@
                     {
                         return
                             "<tr>
-                            <td><input name = 'checkbox' type='checkbox'></td>             
+                            <td><input name = 'checkbox' type='radio'></td>             
                             <td>" . $ordername . "</td>
                             <td>" . $date . "</td>
                             <td>" . $name . "</td>
