@@ -86,6 +86,7 @@
                         echo "The file doesnt Exist";
                     }
                     echo "</table>
+                    <button class='btn btn-primary' type='button' onclick='deleteOrder()'>Delete</button>
                     <script type='text/javascript' src='Javascript/OrderList.js'></script>"
 
                
