@@ -66,8 +66,8 @@
                         <?php
                     echo "
                     <form method = 'POST' action='deleteOrders.php'>
-                    <table class=\"table\" id=\"UserTable\">
-                            <thead id=\"UserHead\">
+                    <table class=\"table\" id=\"OrderTable\">
+                            <thead id=\"OrderHead\">
                                 <tr>
                                 <th id=Order><p>Checkboxes</p></th>
                                 <th id=Order><p>Order #</p></th>
