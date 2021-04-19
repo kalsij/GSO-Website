@@ -14,9 +14,9 @@
 14;Media/brown-bread.jpg;Brown Bread;Bread;40;Boulart;5.00$;A type of dark, slightly sweet steamed bread, a healthier alternative to most breads.;0.50$/100g
 15;Media/ciabatta.jpg;Ciabatta;Bread;30;Boulart;5.50$;A very chewy bread with a slightly crispy crust. Ciabatta has a unique moist texture and one-of-a-kind flavor.;0.55$/100g
 16;Media/white-bread.jpg;White Bread;Bread;100;Boulart;4.50$;The classic loaf of bread.;0.53$/100g
-17;Media/water.jpg;Water;Drinks;100;Nestle;1.25$;Nestle Pure Life water offers a unique refreshing experience to anyone who gets a taste. No sugar added.;(1.5 L)
-18;Media/pexels-pixabay-50593.jpg;Coca-Cola;Drinks;300;Coca-Cola;1.74$;Get the authentic, delicious and refreshing taste of coca-cola. No artificial flavors.;(355 mL)
-19;Media/redbull.jpg;RedBull;Drinks;200;Voss;1.99$;The special formula for the RedBull energy drink contains nothing but ingredients of great quality. Cafeine, taurine and sugar. RedBull cans are made from aluminium and are 100% recyclable.;(8.4 oz)
+17;Media/water.jpg;Water;Drinks;100;Nestle;1.25$;Nestle Pure Life water offers a unique refreshing experience to anyone who gets a taste. No sugar added.;0.50$/L
+18;Media/pexels-pixabay-50593.jpg;Coca-Cola;Drinks;300;Coca-Cola;1.74$;Get the authentic, delicious and refreshing taste of coca-cola. No artificial flavors.;1.00$/L
+19;Media/redbull.jpg;RedBull;Drinks;200;Voss;1.99$;The special formula for the RedBull energy drink contains nothing but ingredients of great quality. Cafeine, taurine and sugar. RedBull cans are made from aluminium and are 100% recyclable.;2.00$/8oz
 20;Media/pexels-klaus-nielsen-6287380.jpg;Macaroni;Pasta;150;Bulk;1.66$;Made from Italy's No.1 durum, these macaroni go perfectly with one of the most famous Canadian dishes, macaroni & cheese.;0.11$/10g
 21;Media/spaghetti.jpg;Spaghetti;Pasta;300;Bulk;1.66$;Spaghetti is a must and an easy meal to make. Just boil these noodles, add your own sauce and it is ready to eat!;0.10$/10g
 22;Media/pexels-klaus-nielsen-6287336.jpg;Penne;Pasta;200;Bulk;1.66$;Penne is one of the most popular Italian pasta shape. It could easily be eaten in soups, salads, casseroles and much more! Coming fresh from Italy, add it to your grocery list.;0.11$/10g
