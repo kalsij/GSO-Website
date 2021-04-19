@@ -52,7 +52,7 @@
                     {
                         return
                             "<tr>
-                            <td><input name = 'checkbox' type='radio'></td>             
+                            <td><input name = 'checkbox' value = '$ordername' type='radio'></td>             
                             <td>" . $ordername . "</td>
                             <td>" . $date . "</td>
                             <td>" . $name . "</td>
@@ -65,7 +65,7 @@
                         
                         <?php
                     echo "
-                    <form>
+                    <form method = 'POST' action='deleteOrders.php'>
                     <table class=\"table\" id=\"UserTable\">
                             <thead id=\"UserHead\">
                                 <tr>
@@ -86,9 +86,9 @@
                         echo "The file doesnt Exist";
                     }
                     echo "</table>
-                    <button class='btn btn-primary' type='button' onclick='deleteOrder()'>Delete</button>
-                    <script type='text/javascript' src='Javascript/OrderList.js'></script>"
-
+                    <button class='btn btn-primary' type='submit' value='1' name = 'DeleteOrder' onclick='deleteOrder()'>Delete</button>
+                    <script type='text/javascript' src='Javascript/OrderList.js'></script>
+                    </form>"
                
                     ?>
                     <!-- Footer -->
