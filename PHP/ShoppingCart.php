@@ -17,9 +17,15 @@
         $sign1 = "<li><a href=\"\">".$_SESSION[fullName]."</a></li>";
         $sign2 = "<li><div style=\"text-align:center;\"><form method=\"post\"><input type=\"submit\" value=\"Log Out\" style=\"outline:none;border:none;background-color:Transparent;color:rgb(226, 215, 215);font-size:20px;\" name=\"logout\"/></form></div></li>";
     }
-    $js_file = "../Javascript/shoppingCart.js"." async";
-    $title = "ShoppingCart";
-    include("header.php");
+
+
+
+    // $js_file = "../Javascript/shoppingCart.js";
+    // $title = "ShoppingCart";
+    // include("header.php");
+
+
+
 
     //write to ordersListClients file
     if(isset($_POST["checkoutButton"])){
@@ -68,6 +74,67 @@
     }
 
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>My Shopping Cart</title>
+    <meta chartset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Style -->
+    <link rel="stylesheet" type="text/css" href="../Styles/newStyle.css"/>
+    <!-- Javascript -->
+    <script type="text/javaScript" src="../Javascript/shoppingCart.js" async></script>
+
+</head>
+
+<body>
+    <!-- Nav Bar -->
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top" style="background-color: blue;">
+        <h1 style="margin-top:0mm;color:white; font-size:50px;font-style:italic; font-weight:bold; margin-right:1cm;">
+            GSO</h1>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li><a href="GroceryStore-1.html">Home</a></li>
+
+                <li><a href="#">Aisles</a>
+                    <ul>
+                     
+                        <li><a href="Fruits and vegetables.html">Fruits and Vegetables</a></li>
+                        <li><a href="Meat.html">Meat</a></li>
+                        <li><a href="Dairy.html">Dairy</a></li>
+                        <li><a href="Bread.html">Bread</a></li>
+                
+                        </a>
+                </li>
+            </ul>
+
+            <li><a href="#">Account</a>
+                <ul>
+                    <li><a href="SignUp.html">Sign up</a></li>
+                    <li><a href="SignIn.html">Sign in</a></li>
+                </ul>
+            </li>
+        </div>
+
+        <a href="ShoppingCart.html"><img src="../Media/cart_logo.png" alt="Shopping Cart" width="50px" height="50px"
+                style="float:right"></a>
+    </nav>
+
+
     <h1 class="ShoppingCartTitle">SHOPPING CART</h1>
     <div class="container-fluid">
         <div class="shoppingCart row">
@@ -110,36 +177,38 @@
                         $QSTTax = round($subTotalPrice*0.09975,2);
                         $finalTotal = round($subTotalPrice+$GSTTax+$QSTTax, 2); 
                         $_SESSION["cartfinalTotalPrice"] = $finalTotal;
+                            ?>
+                        
+                        <div class="listMyCart justify-content-between align-items-center  row">
+                            <div class="col-md-4"><img src=<?php echo $imgProduct?> alt=<?php echo $nameProduct?> style="width: 105px;"></div>
 
-                        echo("
-                        <div class='listMyCart justify-content-between align-items-center  row'>
-                            <div class='col-md-4'><img src=$imgProduct alt=$nameProduct style='width: 105px;'></div>
-
-                            <div class='col-md-3'><h6>$nameProduct</br>$unitProduct</h6></div>
+                            <div class="col-md-3"><h6><?php echo $nameProduct?></br><?php echo $unitProduct?></h6></div>
 
                             <!-- Button to change the quantity of the item -->
-                            <div class='col-md-2'>
-                                <div class='qtyItems'>
-                                    <button class='incrementButton' type='button'>+</button>
-                                    <span class='quantityProduct'>$qtyProduct</span> 
-                                    <button class='decrementButton' type='button'>-</button>
+                            <div class="col-md-2">
+                                <div class="qtyItems">
+                                    <button class="incrementButton" type="button">+</button>
+                                    <span class="quantityProduct"><?php echo $qtyProduct?></span> 
+                                    <button class="decrementButton" type="button">-</button>
                                 </div>
                             </div>
 
-                            <div class='priceItem col-md-2 '><h6>$priceProduct</h6></div>
+                            <div class="priceItem col-md-2 "><h6><?php echo $priceProduct?></h6></div>
 
                             <!-- Button to delete the item -->
-                            <div class='col-md-1'>
-                                <div class='delete-trash'>
-                                    <button type='button'><img src='../Media/TrashCan(Flaticon).png' alt='trash can' style='height:25px; width: 25px;'></button>
+                            <div class="col-md-1">
+                                <div class="delete-trash">
+                                    <button type="button"><img src="../Media/TrashCan(Flaticon).png" alt="trash can" style="height:25px; width: 25px;"></button>
                                 </div>
                             </div>
                     
                         </div>
-                        </br></br>");
+                        </br></br>
+                    <?php
                     }
+                    ?>
                     
-                 echo("</br></br>
+                    </br></br>
                 
             </div>
             
@@ -152,37 +221,37 @@
 
                     <div class='justify-content-between row'>
                         <div class='col-md-auto'>Qty of Items</div>
-                        <div class='totalItems col-md-auto' >$totalQty</div>
+                        <div class='totalItems col-md-auto' ><?php echo $totalQty?></div>
                     </div>
                     <hr></br>
 
                     <div class='justify-content-between row'>
                         <div class='col-md-auto'>Subtotal</div>
-                        <div class='subtotalPrice col-md-auto'>$ $subTotalPrice </div>
+                        <div class='subtotalPrice col-md-auto'>$ <?php echo $subTotalPrice ?></div>
                     </div>
                     <hr></br>
 
                     <div class='justify-content-between row'>
                         <div class='col-md-auto'>GST</div>
-                        <div class='GSTPrice col-md-auto'>$ $GSTTax</div>
+                        <div class='GSTPrice col-md-auto'>$ <?php echo $GSTTax?></div>
                     </div>
 
                     <div class='justify-content-between row'>
                         <div class='col-md-auto'>QST</div>
-                        <div class='QSTPrice col-md-auto'>$ $QSTTax</div>
+                        <div class='QSTPrice col-md-auto'>$ <?php echo $QSTTax?></div>
                     </div>
                     <hr></br>
 
                     <div class='justify-content-between row'>
                         <div class='col-md-auto'>Total</div>
-                        <div class='totalPrice col-md-auto'>$ $finalTotal</div>
+                        <div class='totalPrice col-md-auto'>$ <?php echo $finalTotal?></div>
                     </div>
                     </br><hr>
 
                     <!-- Button to continue shopping -->
                     <div class='justify-content-center row'>
                         <div class='continue'>
-                            <a href=\"GroceryStore-1.php\"><button type=\"button\">CONTINUE SHOPPING</button></a>
+                            <a href="GroceryStore-1.php"><button type="button">CONTINUE SHOPPING</button></a>
                             <hr>
 
                             <form method='post'>
@@ -190,15 +259,15 @@
                             </form>
                                                     
                             <script>
-                                var checkout = document.getElementsByClassName(\"checkout\")
+                                var checkout = document.getElementsByClassName("checkout")
                                 for (var i = 0; i < checkout.length; i++) {
                                     var button = checkout[i]
-                                    button.addEventListener('click', function(event) {
+                                    button.addEventListener("click", function(event) {
                                         var buttonClicked = event.target
                                         console.log(buttonClicked)
 
-                                        alert(\"Checking out! Thank you for your purchase.\");
-                                        window.location.replace(\"window.location.href = 'Checkout.php'\");
+                                        alert("Checking out! Thank you for your purchase.");
+                                        window.location.replace("window.location.href = 'Checkout.php'");
                                     })
                                 }
                             </script>
@@ -216,9 +285,9 @@
                     </div></br>
 
                 </div>   
-            </div>");
+            </div>
                     
-            ?>
+            
         </div>
     </div>
     <!--footer-->        
