@@ -95,7 +95,6 @@ if ($_POST['submit']) {
     echo "Date: ".$info[1]."\n";
     echo "Total before tax: ".$info[4]."\n";
     echo "Items Ordered: ".$info[6]."\n";
-    echo "Status: ".$info[7]."\n";
     echo "</pre>";
 
 }

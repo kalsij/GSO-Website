@@ -80,6 +80,7 @@
                       <p class = "formnames">Questions:</p>
                     <textarea class="form-control" rows="5" spellcheck="false"></textarea>
                 </div>
+</br>
                 <button class="btn btn-outline-primary" name = "submit" type = "submit" value = "1" >Submit</button>
              </div>
             </div>
