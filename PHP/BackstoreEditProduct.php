@@ -54,7 +54,7 @@
                     
                     <?php 
                       $par = $_REQUEST["index"];
-                      echo "<form id=\"myform\" action=\"editOrAdd.php?index=$par\" method=\"post\">";
+                      echo "<form id=\"myform\" action=\"editOrAdd.php?index=$par\" method=\"post\" onsubmit=\"return save()\">";
                     
                       $myfile = fopen("../Data/productList.txt", "r") or die("Unable to open file!");
                       $elements = ["", "", "", ""];
@@ -82,10 +82,10 @@
 
 
 
-
-                      echo "<input type = \"submit\" value = \"Save\" class=\"btn btn-primary\" id=\"saveInfo\" style=\"float:right; visibility:hidden;\"/>";
-                      echo "<input type = \"button\" value = \"Validate\" onclick=\"save()\" class=\"btn btn-secondary\" id=\"validateInfo\" style=\"float:right; margin-right: 5px;\"/>";
                       echo "<input type = \"button\" value = \"Cancel\" onclick=\"resetForm()\" class=\"btn btn-secondary\" style=\"float:right; margin-right: 5px;\"/>";
+                      
+                      echo "<input type = \"submit\" value = \"Save\" class=\"btn btn-primary\" id=\"saveInfo\" style=\"float:right; margin-right: 5px;\"/>";
+                     
                       echo "<br/>";
                           echo "<div class=\"form-row\" name=\"firstRow\">";
                                 echo "<div class=\"form-group col-md-6\" name=\"firstColumn\">";
@@ -154,14 +154,13 @@
 
                           echo "<div class=\"form-row\" >";
                             echo "<div class=\"col-md-6 mb-3\" >";
-                              echo "<label for=\"validationDefault03\">Unit Size</label>";
+                              echo "<label for=\"validationDefault03\">Price/unit </label>";
                               echo "<input type=\"text\" value=\"$unit\" name= \"unit\" id=\"unit\" class=\"form-control\">";
                             echo "</div>";
                             echo "<div class=\"col-md-6 mb-3\" >";
-                              echo "<label for=\"validationDefault03\">Price/Unit</label>";
+                              echo "<label for=\"validationDefault03\">Price</label>";
                               echo "<div class=\"input-group-append\" >";
                                 echo "<input type=\"text\" value=\"$price\" name= \"price\" id=\"price\" class=\"form-control\">";
-                                echo "<span class=\"input-group-text\">$</span>";
                               echo "</div>";
                             echo "</div>";
                           echo "</div>";
