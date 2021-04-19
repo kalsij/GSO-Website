@@ -18,15 +18,6 @@
         $sign2 = "<li><div style=\"text-align:center;\"><form method=\"post\"><input type=\"submit\" value=\"Log Out\" style=\"outline:none;border:none;background-color:Transparent;color:rgb(226, 215, 215);font-size:20px;\" name=\"logout\"/></form></div></li>";
     }
 
-
-
-    // $js_file = "../Javascript/shoppingCart.js";
-    // $title = "ShoppingCart";
-    // include("header.php");
-
-
-
-
     //write to ordersListClients file
     if(isset($_POST["checkoutButton"])){
         checkoutButton1();
@@ -41,13 +32,24 @@
         $userFullName = $_SESSION["fullName"];
         $userEmail = $_SESSION["signinEmail"];
         $currentDate = date("Y-m-d");
-        $orderNumber = "#".date(m).date(d).date(h).date(i).date(s);
-        //to change
+        $range = range('A', 'Z');
+        $range2 = range('11111', '999999');
+        $index = array_rand($range);
+        $index2 = array_rand($range);
+        $orderNumber = "#".$range2[$index].$range[$index].$range[$index2];
         $income = round(0.3*$_SESSION["cartfinalTotalPrice"],2);
+
+        foreach($_SESSION["cart"] as $index=>$value) {
+            $nameProduct = $value[2];
+            $qtyProduct = $value[9];
+           $qtyProduct = substr($qtyProduct, 0, -2);
+            $outputOrderProducts = $outputOrderProducts.$qtyProduct."-".$nameProduct."|";
+        }
+        $outputOrderProducts = substr($outputOrderProducts, 0, -1);
         
         // write to file
         $orderFile = fopen("../Data/ordersListClients.txt", "a");
-        $outputOrder = $orderNumber."\t".$currentDate."\t".$userFullName."\t ".$userEmail."\t $".$_SESSION["cartfinalTotalPrice"]."\t $".$income;
+        $outputOrder = $orderNumber."\t".$currentDate."\t".$userFullName."\t ".$userEmail."\t $".$_SESSION["cartfinalTotalPrice"]."\t $".$income."\t".$outputOrderProducts;
         fputs($orderFile, $outputOrder);
         fputs($orderFile, "\r\n");
         fclose($orderFile);
