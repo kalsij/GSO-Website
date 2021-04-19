@@ -1,4 +1,53 @@
- <?php include("backstoreHeader.php");?>
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Add User</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    //Bootstrap
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+    //Style
+    <link rel="stylesheet" type="text/css" href="../Styles/BackstoreStyle.css"/>
+    //JavaScript
+    <script type="text/javascript" src="../Javascript/userAdd.js"></script>
+
+</head>
+
+<body>
+    <!-- Nav Bar -->
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top" style="background-color: blue; position:fixed;">
+            <h1 style="margin-top:0mm;color:white; font-size:50px;font-style:italic; font-weight:bold; margin-right:1cm;">
+                GSO</h1>
+    </nav>
+     
+    
+    <div class="container-fluid text-center">    
+        <div class="row content" >
+
+            <!-- Side Bar -->
+            <div class="col-sm-2 sidenav">
+                <br/>
+                <p><a href="GroceryStore-1.html">Home</a></p>
+                <p><a href="GroceryStore-1.html">Grocery Store</a></p>
+                <p><a href="BackstoreProductList.html">Product List</a></p>
+                <p><a href="BackstoreOrderList.html">Order List</a></p>
+                <p> <a href="BackstoreUserList.html">User List</a></p>
+                <p style="font-weight:bold;"><a href="">Log Out</a></p>
+            </div>
+
+
+            <div class="col-sm-8 text-left">       
+                <div class="right">
+                    <h2 style="font-style: italic;">Add User</h2>
+                    <br/>
     <form action="">
               <div>
             <input type="submit" name="signupSubmit" value="Add User" onclick="userAdd();return false;"class="btn btn-primary" style="float:right;"/>
