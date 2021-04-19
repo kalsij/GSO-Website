@@ -48,7 +48,8 @@
                 <div class="right">
                     <h2 style="font-style: italic;">Add/Edit Product</h2>
                     <br/>
-
+                    <p id="correctionInfo"></p>
+                
                     <!-- Edit part -->
                     
                     <?php 
@@ -82,53 +83,54 @@
 
 
 
-                      echo "<input type = \"submit\" value = \"Save\" class=\"btn btn-primary\" style=\"float:right;\"/>";
+                      echo "<input type = \"submit\" value = \"Save\" class=\"btn btn-primary\" id=\"saveInfo\" style=\"float:right; visibility:hidden;\"/>";
+                      echo "<input type = \"button\" value = \"Validate\" onclick=\"save()\" class=\"btn btn-secondary\" id=\"validateInfo\" style=\"float:right; margin-right: 5px;\"/>";
                       echo "<input type = \"button\" value = \"Cancel\" onclick=\"resetForm()\" class=\"btn btn-secondary\" style=\"float:right; margin-right: 5px;\"/>";
                       echo "<br/>";
                           echo "<div class=\"form-row\" name=\"firstRow\">";
                                 echo "<div class=\"form-group col-md-6\" name=\"firstColumn\">";
                                   echo "<label for=\"supplier\">Title</label>";
-                                  echo "<input type=\"text\" value=\"$title\" name=\"title\" id=\"title\" class=\"form-control\">";
+                                  echo "<input type=\"text\" id=\"title\" value=\"$title\" name=\"title\" class=\"form-control\">";
                                 echo "</div>";
                                 echo "<div>";
                                   echo "<label for=\"category\">Category</label><br/>";
                                   
-                                  echo "<label><input type=\"radio\" name=\"category\" value=\"Fruits & Vegetables\" style=\"margin-left: 10px;\"";  
+                                  echo "<label><input type=\"radio\" id=\"fruits\" name=\"category\" value=\"Fruits & Vegetables\" style=\"margin-left: 10px;\"";  
                                   if ( strcmp($category, "Fruits & Vegetables") == 0 ){
                                     echo "checked";
                                   }
                                   echo "/>Fruits & Vegetables</label>";
 
 
-                                  echo "<label><input type=\"radio\" name=\"category\" value=\"Dairy\" style=\"margin-left: 30px;\"";
+                                  echo "<label><input type=\"radio\" id=\"dairy\" name=\"category\" value=\"Dairy\" style=\"margin-left: 30px;\"";
                                   if ( strcmp($category, "Dairy") == 0 ){
                                     echo "checked";
                                   }
                                   echo "/>Dairy</label>";
 
 
-                                  echo "<label><input type=\"radio\" name=\"category\" value=\"Meat\" style=\"margin-left: 30px;\"";
+                                  echo "<label><input type=\"radio\" id=\"meats\" name=\"category\" value=\"Meat\" style=\"margin-left: 30px;\"";
                                   if ( strcmp($category, "Meat") == 0 ){
                                     echo "checked";
                                   }
                                   echo "/>Meat</label>";
 
 
-                                  echo "<label><input type=\"radio\" name=\"category\" value=\"Bread\" style=\"margin-left: 30px;\"";
+                                  echo "<label><input type=\"radio\" id=\"bread\" name=\"category\" value=\"Bread\" style=\"margin-left: 30px;\"";
                                   if ( strcmp($category, "Bread") == 0 ){
                                     echo "checked";
                                   }
                                   echo "/>Bread</label>";
 
 
-                                  echo "<label><input type=\"radio\" name=\"category\" value=\"Drinks\" style=\"margin-left: 30px;\"";
+                                  echo "<label><input type=\"radio\" id=\"drinks\" name=\"category\" value=\"Drinks\" style=\"margin-left: 30px;\"";
                                   if ( strcmp($category, "Drinks") == 0 ){
                                     echo "checked";
                                   }
                                   echo "/>Drinks</label>";
 
 
-                                  echo "<label><input type=\"radio\" name=\"category\" value=\"Pasta\" style=\"margin-left: 30px;\"";
+                                  echo "<label><input type=\"radio\" id=\"pasta\" name=\"category\" value=\"Pasta\" style=\"margin-left: 30px;\"";
                                   if ( strcmp($category, "Pasta") == 0 ){
                                     echo "checked";
                                   }
