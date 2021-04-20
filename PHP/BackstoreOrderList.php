@@ -31,11 +31,11 @@
             <!-- Side Bar -->
        <div class="col-sm-2 sidenav">
             <br/>
-            <p><a href="../GroceryStore-1.html">Grocery Store</a></p>
+            <p><a href="GroceryStore-1.php">Grocery Store</a></p>
             <p><a href="BackstoreProductList.php">Product List</a></p>
             <p><a href="BackstoreOrderList.php"></a>Order List</p>
             <p> <a href="BackstoreUserList.php">User List</a></p>
-            <p style="font-weight:bold;"><a href="../GroceryStore-1.html">Log Out</a></p>
+            <p style="font-weight:bold;"><a href="GroceryStore-1.php">Log Out</a></p>
             </div>
 
 
@@ -44,8 +44,8 @@
                     <h2 style="font-style: italic;">Order List</h2>
                     
                     <!-- Add Product button -->
-                    <a href="../BackstoreEditOrderProfile.html" class="btn btn-primary" style="float: right;margin-bottom: 5px;">Add Order</a>
-                    <td><a href='../BackstoreEditOrderProfile' class='btn btn-primary'style="float: right;margin-right: 5px;">Edit</a></td>
+                    <a href="BackstoreAddOrderProfile.php" class="btn btn-primary" style="float: right;margin-bottom: 5px;">Add Order</a>
+                    <td><a href='BackstoreEditOrderProfile.php' class='btn btn-primary'style="float: right;margin-right: 5px;">Edit</a></td>
             
                     <!-- Order List -->
                     <?php function newRow($ordername, $date, $name, $total, $income)
