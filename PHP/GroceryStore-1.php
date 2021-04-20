@@ -70,7 +70,7 @@ $title = "GSO";
         </ul>
     </div>
 
-    <a href="ShoppingCart.html"><img src="/Media/cart_logo.png" alt="Shopping Cart" width="50px" height="50px"
+    <a href="ShoppingCart.html"><img src="../Media/cart_logo.png" alt="Shopping Cart" width="50px" height="50px"
             style="float:right"></a>
 
 </nav>
@@ -91,28 +91,28 @@ $title = "GSO";
   <div class="col-md-auto">
       <div class="fandv-aisle">
         <a href="Fruits and vegetables.php">        
-              <img src="/Media/pexels-mark-stebnicki-2255935.jpg" alt="aisle 1" style="width:100%">
+              <img src="../Media/pexels-mark-stebnicki-2255935.jpg" alt="aisle 1" style="width:100%">
             </a>
       </div>
     </div>
        <div class="col-md-auto">
         <div class="bread-aisle">
           <a href="Bread.php">
-              <img src="/Media/pexels-markus-spiske-1871024.jpg" alt="aisle 2" style="width:100%">
+              <img src="../Media/pexels-markus-spiske-1871024.jpg" alt="aisle 2" style="width:100%">
             </a>
      </div>
     </div>
      <div class="col-md-auto">
       <div class="meat-aisle">
         <a href="Meat.php">
-              <img src="/Media/pexels-matheus-gomes-2491273.jpg" alt="aisle 3" style="width:100%">
+              <img src="../Media/pexels-matheus-gomes-2491273.jpg" alt="aisle 3" style="width:100%">
             </a>
       </div>
     </div> 
     <div class="col-md-auto">
       <div class="dairy-frontpage">
         <a href="Dairy.php">
-              <img src="/Media/pexels-pixabay-248412.jpg" alt="aisle 4" style="width:100%">
+              <img src="../Media/pexels-pixabay-248412.jpg" alt="aisle 4" style="width:100%">
             </a>
       </div>
     </div> 
@@ -125,7 +125,7 @@ $title = "GSO";
       
         <div class="extra-aisle1 ">
           <a href="pasta.php">        
-                <img src="/Media/pexels-klaus-nielsen-6287446.jpg" alt="pasta aisle " style="width:100%">
+                <img src="../Media/pexels-klaus-nielsen-6287446.jpg" alt="pasta aisle " style="width:100%">
               </a>
     
       </div>
@@ -133,7 +133,7 @@ $title = "GSO";
     <div class="col-lg-auto">
       <div class="extra-aisle2">
         <a href="drinks.php">
-            <img src="/Media/pexels-breakingpic-3008.jpg" alt="drinks aisle " style="width:100%">
+            <img src="../Media/pexels-breakingpic-3008.jpg" alt="drinks aisle " style="width:100%">
           </a>
    </div>
     </div>
