@@ -47,7 +47,8 @@
                     <!-- Add Product button -->
                     <a href="BackstoreAddUser.php" class="btn btn-primary" style="float: right;margin-bottom: 5px;">Add user</a>
                     <input type = "button" value = "Edit " onclick=edit() class="btn btn-primary" style="float:right; margin-right: 5px;"/>
-            
+                     <br>
+                     <br>
                     <!-- Order List -->
                     <?php function newRow($firstName, $lastName, $gender, $postalCode, $email, $password)
                     {
