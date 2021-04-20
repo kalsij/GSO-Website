@@ -61,8 +61,7 @@ include("header.php");
     <div class="row">
       <div class="col-12 col-md">
         <small class="d-block mb-3 text-muted">&copy; 2021-2022 </br> </small>
-         <ul class="list-unstyled text-small">
-        <li><a href="BackstoreProductList.php"class="text-muted">Backstore</a></li></ul>
+        
       </div>
       <div class="col-6 col-md">
         <h5>Team</h5>
