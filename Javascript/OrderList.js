@@ -41,3 +41,19 @@ function ship4(){
         alert("The order has now shipped")
    return true;
 }
+
+//identify the selected row in the list 
+function edit()
+{ 
+    var line=document.getElementsByTagName("tr");
+    index = -1;
+    for(i=0;i<line.length;i++){
+        var element = line[i];
+        if(element.cells[0].firstChild.checked) {
+            index = i;
+            break;
+        }
+    }
+
+    window.location.replace("BackstoreEditOrderProfile.php?index="+index);
+}
