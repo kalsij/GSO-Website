@@ -9,7 +9,7 @@ $UserSelected = $_REQUEST["index"];
     $user .= $_POST["gender"] . " ";
     $user .= $_POST["postal"] . " ";
     $user .= $_POST["email"] . " ";
-    $user .= $_POST["password"] . "\n";
+    $user .= $_POST["password"] . "\r\n";
     
     
 
