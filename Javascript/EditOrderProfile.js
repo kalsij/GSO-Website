@@ -2,27 +2,18 @@
 function checkEditOrderFields() 
 {     
     //Retrieve the infomation entered in Customer Contact & Shipping Address sections
-    var fName = document.getElementById("firstName").value;
-    var LName = document.getElementById("lastName").value;
-    var Email = document.getElementById("email").value;
-    var Adr = document.getElementById("address").value;
-    var PosCo = document.getElementById("postalCode").value;
-    var City = document.getElementById("city").value;
+    var fName = document.getElementById("fullName").value;
+    var Email = document.getElementById("email").value;   
+    var prodName = document.getElementById("orderProducts").value;
 
     //validation information
-    var validName = /[a-zA-Z]+/;
+    var validName = /[a-zA-Z]+\s[a-zA-Z]+/;
     var validEmail = /^([\.\_a-zA-Z0-9]+)@([a-zA-Z]+)\.([a-zA-Z]){2,8}$/;
-    var validAdr = /\d+[a-zA-Z\s]+/;
-    var validPosCo = /^[a-zA-Z]\d[a-zA-Z]\s\d[a-zA-Z]\d$/;
-  
-    //Retrieve the infomation entered in Products section
-    var prodName = document.getElementById("productName").value;
-    var prodQty = document.getElementById("quantity").value;
-    var prodPriceUnit = document.getElementById("priceUnit").value;
-    var prodTotal = document.getElementById("total").value;
+    var validProducts = /^\d+\-[a-zA-Z\s]+\|\d+\-[a-zA-Z\s]+/;
 
     //validation information 
-    var validPriceUnit = /\d+\.\d+/;
+    var validQtyItems = /^\d+$/;
+    var validPrice = /^\$\d+\.\d+/;
 
     //Retrieve the infomation entered in Summary section
     var quantityItems = document.getElementById("qtyItemsSummary").value;
@@ -31,97 +22,65 @@ function checkEditOrderFields()
     var QST = document.getElementById("QSTSummary").value;
     var Total = document.getElementById("TotalSummary").value;
 
-    //validation information 
-    var Completedbox = document.getElementById("Completed");
-    var Pendingbox = document.getElementById("Pending");
-    var Cancelledbox = document.getElementById("Cancelled");
-    var validQtyItems = /^\d+$/;
-    var validPrice = /\d+\.\d+/;
-
     //Retrieve the infomation entered in Income section
     var Income = document.getElementById("income").value;  
 
 	// Check valid information for Customer Contact & Shipping Address sections
-    if (fName == "" || LName == "" || Email == "" || Adr == "" || PosCo == "" || City == "")
+    if (fName == "" || Email == "" || prodName == "")
     {
-        alert("One/Some of the field(s) is/are empty.\n" + "Please make sure to fill all cases in the Customer Contact & Shipping Address sections.");
+        alert("One/Some of the field(s) is/are empty.\n" + "Please make sure to fill all cases in the Customer Contact section.");
+        return false;
     }
     else if(fName.search(validName)) 
     {
         alert("First Name entered is incorrect. Please re-enter a valid first name. (example: Gso)");
+        return false;
     }
-    else if(LName.search(validName)) 
-    {
-        alert("Last Name entered is incorrect. Please re-enter a valid last name. (example: Gso)");
-    }
+
     else if (Email.search(validEmail)) 
     {
         alert("Email entered is incorrect. Please re-enter a valid email address. (example: gso@example.ca)");
+        return false;
     }
-    else if(Adr.search(validAdr)) 
+    else if(prodName.search(validProducts)) 
     {
-        alert("Address entered is incorrect. Please re-enter a valid address. (example: 123 gso street)");
-    }
-    else if (PosCo.search(validPosCo)) 
-    {
-        alert("Postal Code entered is incorrect. Please re-enter a valid postal code. (example: G1S 2O3)");
-    }
-    else if(City.search(validName)) 
-    {
-        alert("City entered is incorrect. Please re-enter a valid city. (example: gso)");
-    }
-
-    // Check valid information for Products section
-    else if (prodName == "" || prodName == null || prodQty == "" || prodQty == null || prodPriceUnit == "" || prodPriceUnit == null || prodTotal == "" || prodTotal == null)
-    {
-        alert("One/Some of the field(s) is/are empty.\n" + "Please make sure to fill all cases in the Products section.");
-    }
-    else if(prodName.search(validName)) 
-    {
-        alert("Product Name entered is incorrect. Please re-enter a valid item. (example: kiwi)");
-    }
-    else if(prodQty.search(validQtyItems)) 
-    {
-        alert("Product Quantity entered is incorrect. Please re-enter a valid quantity. (example: 1)");
-    }
-    else if (prodPriceUnit.search(validPriceUnit)) 
-    {
-        alert("Product Price/Unit is incorrect. Please re-enter a valid GST. (example: 1.23/10)");
-    }
-    else if(prodTotal.search(validPrice)) 
-    {
-        alert("Product total price is incorrect. Please re-enter a valid price. (example: 1.23$)");
+        alert("Product Name entered is incorrect. Please re-enter a valid item. (example: 1-apple|3-yogurt)");
+        return false;
     }
     
     // Check valid information for Summary section
     else if (quantityItems == "" || Subtotal == "" || GST == "" || QST == "" || Total == "")
     {
         alert("One/Some of the field(s) is/are empty.\n" + "Please make sure to fill all cases in the Summary section.");
+        return false;
     }
     else if(quantityItems.search(validQtyItems)) {
-        alert("Quantity entered is incorrect. Please re-enter a valid quantity. (example: 1)")
+        alert("Quantity entered is incorrect. Please re-enter a valid quantity. (example: 1)");
+        return false;
     }
     else if(Subtotal.search(validPrice)) {
-        alert("Subototal entered is incorrect. Please re-enter a valid subtotal. (example: 1.23$)")
+        alert("Subototal entered is incorrect. Please re-enter a valid subtotal. (example: 1.23$)");
+        return false;
     }
     else if (GST.search(validPrice)) {
-        alert("GST is incorrect. Please re-enter a valid GST. (example: 1.23$)")
+        alert("GST is incorrect. Please re-enter a valid GST. (example: 1.23$)");
+        return false;
     }
     else if(QST.search(validPrice)) {
-        alert("QST is incorrect. Please re-enter a valid QST. (example: 1.23$)")
+        alert("QST is incorrect. Please re-enter a valid QST. (example: 1.23$)");
+        return false;
     }
     else if (Total.search(validPrice)) {
-        alert("Total entered is incorrect. Please re-enter a valid total. (example: 1.23$)")
-    }
-    else if(!(Completedbox.checked) && !(Pendingbox.checked) && !(Cancelledbox.checked)) {
-        alert("Payment Status is not selected. Please choose the status by clicking on one the the status.")
+        alert("Total entered is incorrect. Please re-enter a valid total. (example: 1.23$)");
+        return false;
     }
     else if (Income.search(validPrice)) {
-        alert("Income entered is incorrect. Please re-enter a valid income. (example: 1.23$)")
+        alert("Income entered is incorrect. Please re-enter a valid income. (example: 1.23$)");
+        return false;
     }
     else {
         alert("The order edits are saved and it's added to the order list!");  
-        window.location.replace("../PHP/BackstoreOrderList.php");
+        window.location.replace("../php/BackstoreOrderList.php");
     }
 }
 
