@@ -6,13 +6,15 @@ for(var i = 0; i < incrementButtonShoppingCart.length; i++) {
       var buttonClicked = event.target;
 
       var input = buttonClicked.parentElement.children[1].innerText;
-
-      buttonClicked.parentElement.children[1].innerText = parseInt(input) + 1;
-
-      updateTotalQuantityShoppingCart();
-      updateTotalPriceShoppingCart();
+    
+      if(input != '0'){
+        buttonClicked.parentElement.children[1].innerText = parseInt(input) + 1;
+        updateTotalQuantityShoppingCart();
+        updateTotalPriceShoppingCart();
+      }
     })
 }
+
 //decrement button
 var decrementButtonShoppingCart = document.getElementsByClassName('decrementButton');
 for(var i = 0; i < decrementButtonShoppingCart.length; i++) {

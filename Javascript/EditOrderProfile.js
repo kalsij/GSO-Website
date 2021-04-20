@@ -7,7 +7,7 @@ function checkEditOrderFields()
     var prodName = document.getElementById("orderProducts").value;
 
     //validation information
-    var validName = /[a-zA-Z]+\s[a-zA-Z]+/;
+    var validName = /[a-zA-Z\-\_\w]+\s[a-zA-Z\-\_\w]+/;
     var validEmail = /^([\.\_a-zA-Z0-9]+)@([a-zA-Z]+)\.([a-zA-Z]){2,8}$/;
     var validProducts = /^\d+\-[a-zA-Z\s]+\|\d+\-[a-zA-Z\s]+/;
 
@@ -33,7 +33,7 @@ function checkEditOrderFields()
     }
     else if(fName.search(validName)) 
     {
-        alert("First Name entered is incorrect. Please re-enter a valid first name. (example: Gso)");
+        alert("Full Name entered is incorrect. Please re-enter a valid full name. (example: Gso)");
         return false;
     }
 
