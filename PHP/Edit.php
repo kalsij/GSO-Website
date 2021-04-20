@@ -1,27 +1,28 @@
 <?php
-    // $orderSelected = $_REQUEST["index"];
+    
+//Obtain the index of checked user
 $UserSelected = $_REQUEST["index"];
     
-    $product = $_POST["firstName"] . " ";
-    $product .= $_POST["lastName"] . " ";
-    $product .= $_POST["gender"] . " ";
-    $product .= $_POST["postal"] . " ";
-    $product .= $_POST["email"] . " ";
-    $product .= $_POST["password"] . "\n";
+    $user = $_POST["firstName"] . " ";
+    $user .= $_POST["lastName"] . " ";
+    $user .= $_POST["gender"] . " ";
+    $user .= $_POST["postal"] . " ";
+    $user .= $_POST["email"] . " ";
+    $user .= $_POST["password"] . "\n";
     
     
 
-    editProduct( $UserSelected, $product);
+    editUser( $UserSelected, $user);
     
     // navigates back to the store list
     header("Location:BackstoreUserList.php");
     exit;
 
-    function editProduct($UserSelected, $product) {
+    function editUser($UserSelected, $user) {
         
         $myfile = fopen("../Data/users.txt", "r") or die("Unable to open file!");
 
-        $productArray = explode(" ", $product) ;
+        $userArray = explode(" ", $user) ;
         // $productIndex = $productArray[0];
         // $productData = $productArray[1];
 
@@ -33,44 +34,34 @@ $UserSelected = $_REQUEST["index"];
         while(!feof($myfile)) {
             $line = fgets($myfile); 
             
-            
             $lineArray =  explode(" ", $line);
-            
-            
-        
-            
+    
              if ($UserSelected == $lineNumber){
                 
-                array_push($linesToKeep,  $productArray); 
+                array_push($linesToKeep,  $userArray); 
                 $found = true; 
              }
 
              else {
-                if (strlen($line) > 5) {
+                if (strlen($line) > 7) {
                    
                     array_push($linesToKeep, $line); 
                 }
-
-                
+ 
             }
              
                 $lineNumber++;
-            
-                
-              
-                                                        
+                                              
           }
 
           if (!$found) {
-            array_push($linesToKeep,  $productArray); 
+            array_push($linesToKeep,  $userArray); 
         }
         fclose($myfile);
         writeArray($linesToKeep);
-          
-        
+  
         }
-        
-
+  
     function writeArray($linesToKeep) {
         $myfile = fopen("../Data/users.txt", "w") or die("Unable to open file!");
     
