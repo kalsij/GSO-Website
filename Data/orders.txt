@@ -1,4 +1,4 @@
 #12345AB	2021-02-18	Victor Jones	victorjones@gmail.ca	$45.00	$37.00	1-Yogurt|2-Chicken	
 #54321BA	2021-02-18	Victor Jones	victorjones@gmail.ca	$145.00	$127.00	13-Yogurt|4-Chicken	
 #83745VD	2021-02-18	Victor Jones	victorjones@gmail.ca	$64.00	$25.00	12-Yogurt|1-Milk	
-#00012HT	2021-02-18	John Doe	johndoe@gmail.ca	$66.00	$21.00	13-yogurt|1-Lemon	
+#00012HT	2021-02-18	John Doe	johndoe@gmail.ca	$66.00	$21.00	13-yogurt|1-Lemon
