@@ -14,7 +14,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     
     <link rel="stylesheet" type="text/css" href="../Styles/BackstoreStyle.css"/>
-    <script type="text/javascript" src="../Javascript/OrderList.js"></script>
 
 </head>
 
@@ -46,14 +45,14 @@
                     
                     <!-- Add Product button -->
                     <a href="../BackstoreEditOrderProfile.html" class="btn btn-primary" style="float: right;margin-bottom: 5px;">Add Order</a>
-                    <input type = "button" value = "Edit Order here" onclick=edit() class="btn btn-primary" style="float:right; margin-right: 5px;"/>
-
+                    <td><a href='../BackstoreEditOrderProfile' class='btn btn-primary'style="float: right;margin-right: 5px;">Edit</a></td>
+            
                     <!-- Order List -->
                     <?php function newRow($ordername, $date, $name, $total, $income)
                     {
                         return
                             "<tr>
-                            <td><input name = 'checkbox' type='radio'></td>             
+                            <td><input name = 'checkbox' value = '$ordername' type='radio'></td>             
                             <td>" . $ordername . "</td>
                             <td>" . $date . "</td>
                             <td>" . $name . "</td>
@@ -66,9 +65,9 @@
                         
                         <?php
                     echo "
-                    <form>
-                    <table class=\"table\" id=\"UserTable\">
-                            <thead id=\"UserHead\">
+                    <form method = 'POST' action='deleteOrders.php'>
+                    <table class=\"table\" id=\"OrderTable\">
+                            <thead id=\"OrderHead\">
                                 <tr>
                                 <th id=Order><p>Checkboxes</p></th>
                                 <th id=Order><p>Order #</p></th>
@@ -87,9 +86,9 @@
                         echo "The file doesnt Exist";
                     }
                     echo "</table>
-                    <button class='btn btn-primary' type='button' onclick='deleteOrder()'>Delete</button>
-                    <script type='text/javascript' src='Javascript/OrderList.js'></script>"
-
+                    <button class='btn btn-primary' type='submit' value='1' name = 'DeleteOrder' onclick='deleteOrder()'>Delete</button>
+                    <script type='text/javascript' src='Javascript/OrderList.js'></script>
+                    </form>"
                
                     ?>
                     <!-- Footer -->
@@ -98,4 +97,3 @@
     </div>
 </body>
 </html> 
-
