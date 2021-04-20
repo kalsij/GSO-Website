@@ -2,7 +2,6 @@
     session_start();
     // session_unset();
     if(empty($_POST[logout])){
-
     }
     else{
     session_unset();
@@ -22,11 +21,11 @@
     $totalQty = 0;
     $finalTotal = 0;
 
-
+    $_SESSION["buttonBase"] =10;
+    $_SESSION["buttonIndex"] =1;
     //write to orders file
     if(isset($_POST["checkoutButton"])){
         checkoutButton1();
-
     }
     $cartElements = $_SESSION["elementsProduct"];
     $cartElements[8] = str_replace("\n", '', $cartElements[8]);
@@ -167,6 +166,7 @@
                 <hr></br>
                 
                 <?php
+                    
                     $finalTotal = 0;
 
                     function displayItem(){
@@ -183,8 +183,13 @@
                             $QSTTax = round($subTotalPrice*0.09975,2);
                             $finalTotal = round($subTotalPrice+$GSTTax+$QSTTax, 2); 
                             $_SESSION["cartfinalTotalPrice"] = $finalTotal;
+                            $_SESSION["buttonIndex"] = $_SESSION["buttonBase"] + 1;
+                          
                             ?>
+                    
+                         <form method="post" action="updateSC.php?index="+clicked_id>
                         
+
                         <div class="listMyCart justify-content-between align-items-center  row">
                             <div class="col-md-4"><img src=<?php echo $imgProduct?> alt=<?php echo $nameProduct?> style="width: 105px;"></div>
 
@@ -193,23 +198,38 @@
                             <!-- Button to change the quantity of the item -->
                             <div class="col-md-2">
                                 <div class="qtyItems">
-                                    <button class="incrementButton" type="button">+</button>
+                                <input type="button" id="<?php  echo $_SESSION["buttonIndex"] ?>" type="submit" name="incrementButton" class="incrementButton" onClick="reply_click(this.id)" value="+" style="border: none; outline: 0; color: white; background-color: rgb(219, 11, 11); cursor: pointer; width: 100%;"> 
                                     <span class="quantityProduct"><?php echo $qtyProduct?></span> 
-                                    <button class="decrementButton" type="button">-</button>
+                                   <?php $_SESSION["buttonIndex"]=$_SESSION["buttonIndex"]+1;  ?>
+                                    <input type="button" id="<?php  echo $_SESSION["buttonIndex"] ?>" type="submit" name="decrementButton" class="decrementButton" onClick="reply_click(this.id)" value="-"  style="border: none; outline: 0; color: white; background-color: rgb(219, 11, 11); cursor: pointer; width: 100%;" >
                                 </div>
                             </div>
 
                             <div class="priceItem col-md-2 "><h6><?php echo $priceProduct?></h6></div>
 
+                            <?php $_SESSION["buttonIndex"]=$_SESSION["buttonIndex"]+1; ?>
+
                             <!-- Button to delete the item -->
                             <div class="col-md-1">
                                 <div class="delete-trash">
-                                    <button type="button"><img src="../Media/TrashCan(Flaticon).png" alt="trash can" style="height:25px; width: 25px;"></button>
+                                <input type="button" id="<?php  echo $_SESSION["buttonIndex"] ?>" type="submit" name="deleteButton" class="deleteButton" onClick="reply_click(this.id)" value="DEL" class="btn btn-danger" >
                                 </div>
                             </div>
-                    
-                        </div>
-                        </br></br><?php
+                            </br></br>
+
+                            <script type="text/javascript">
+                                function reply_click(clicked_id)
+                                {
+                                    // alert("hello");
+                                    window.location.replace("updateSC.php?index="+clicked_id);
+                                }
+                            </script>
+
+                        </div></br></br>
+                        </form>
+                        <?php
+                        $_SESSION["buttonBase"] = $_SESSION["buttonBase"] + 10;
+
                         }
                     }
 
@@ -225,11 +245,6 @@
                         fputs($sessionFile, $toPrintProduct);
                         fputs($sessionFile, "\r\n");
                         fclose($sessionFile);
-
-                        
-                        
-                        // unset($_SESSION ["elementsProduct"]);
-                        // $_SESSION ["elementsProduct"]_unset;
                     }
                    
                     ?>
