@@ -20,14 +20,14 @@
 
         $linesToKeep = array();
         // Output one line until end-of-file
-        $index = 0;
-        $deleteCount = 0;
+        $index = 1;
+        $count = 0;
         while(!feof($myfile)) {
             $line = fgets($myfile);  
             if (strlen($line) > 5 && !containsIndex($index, $indexArray ))
             {
                 $restOfLine=substr($line, strpos($line, ";"));
-                $line=strval(1 + $index - $count) . $restOfLine;
+                $line=strval($index - $count) . $restOfLine;
                 array_push($linesToKeep, $line); 
             }
             else 
