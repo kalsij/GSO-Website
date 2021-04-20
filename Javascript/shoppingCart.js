@@ -59,6 +59,25 @@ function updateTotalQuantityShoppingCart() {
     }
     
     document.getElementsByClassName("totalItems")[0].innerText = quantity 
+
+    $.ajax({
+        url: "shoppingCart.php", // the url we want to send and get data from
+        type: "POST", // type of the data we send (POST/GET)
+        data: {toto: quantity }, // the data we want to send
+        success: function(data){ // when successfully sent data and returned
+            // do something with the returned data
+               console.log(data);
+        }
+    }).done(function(){
+        // this part will run when we send and return successfully
+        console.log("Success.");
+    }).fail(function(){
+        // this part will run when an error occurres
+        console.log("An error has occurred.");
+    }).always(function(){
+        // this part will always run no matter what
+          console.log("Complete.");
+    });
 }
 
 //Update total prices
@@ -90,4 +109,24 @@ function updateTotalPriceShoppingCart() {
     document.getElementsByClassName("GSTPrice")[0].innerText = '$ ' + GSTtaxe.toFixed(2)
     document.getElementsByClassName("QSTPrice")[0].innerText = '$ ' + QSTtaxe.toFixed(2)
     document.getElementsByClassName("totalPrice")[0].innerText = '$ ' + total.toFixed(2)
+
+    $.ajax({
+        url: "../php/shoppingCart.php", // the url we want to send and get data from
+        type: "POST", // type of the data we send (POST/GET)
+        data: {p1: subTotal }, // the data we want to send
+        success: function(data){ // when successfully sent data and returned
+            // do something with the returned data
+               console.log(data);
+        }
+    }).done(function(){
+        // this part will run when we send and return successfully
+        console.log("Success.");
+    }).fail(function(){
+        // this part will run when an error occurres
+        console.log("An error has occurred.");
+    }).always(function(){
+        // this part will always run no matter what
+          console.log("Complete.");
+    });
 }
+
