@@ -102,7 +102,7 @@
                         <!-- Button to save/cancel the edits -->
                         
                         <input type = "submit" value = "Save" name="savingOrder"  onclick="checkEditOrderFields()" class="btn btn-primary" style="float: right;"/>
-                        <input type = "button" value = "Cancel" onclick="resetEditOrder()" class="btn btn-secondary" style="float: right; margin-right: 5px;"/>
+                        <input type = "button" value = "Cancel" onclick="resetEditOrder()" id="formOrderEdit" class="btn btn-secondary" style="float: right; margin-right: 5px;"/>
                         
                         <br/><br/><br/>
 
