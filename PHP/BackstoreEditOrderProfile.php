@@ -49,7 +49,7 @@
                     
                     <?php
                       $orderSelected = $_REQUEST["index"];
-                      echo "<form id=\"myform\" action=\"backstoreOrderSave.php?index=$orderSelected\" method=\"post\">";
+                      echo "<form id=\"myform\" action=\"backstoreOrderSave.php?index=$orderSelected\" method=\"post\" onsubmit=\" return checkEditOrderFields()\">";
                       $myfile = fopen("../Data/orders.txt", "r") or die("Unable to open orders file to read. Bye-bye!");
                       $orderInfo = array();
                       $lineNumber = 1;
@@ -101,7 +101,7 @@
     
                         <!-- Button to save/cancel the edits -->
                         
-                        <input type = "submit" value = "Save" name="savingOrder"  onclick="checkEditOrderFields()" class="btn btn-primary" style="float: right;"/>
+                        <input type = "submit" value = "Save" name="savingOrder" class="btn btn-primary" style="float: right;"/>
                         <input type = "button" value = "Cancel" onclick="resetEditOrder()" id="formOrderEdit" class="btn btn-secondary" style="float: right; margin-right: 5px;"/>
                         
                         <br/><br/><br/>
@@ -122,10 +122,16 @@
                             </div>
 
                             <div class="form-group col-md-6">
-                            <label for="emailAddress">Email</label>
-                            <input type="text" class="form-control" name="email" id="email" placeholder="gso@example.ca" value=<?php echo $orderEmail; ?>  >
-
+                                <label for="emailAddress">Email</label>
+                                <input type="text" class="form-control" name="email" id="email" placeholder="gso@example.ca" value=<?php echo $orderEmail; ?>  >
                             </div>
+                            <div class="form-row">            
+                                <label for="products">Products (quantity-product|quantity-product)</label>
+                                <input type="text" class="form-control" name="orderProducts" id="orderProducts" placeholder="1-banana|5-chicken" value="<?php echo $orderProducts; ?>"/>
+                            </div>
+                        </div>
+
+                            
                         </div><br/>
 
                         <!-- Summary of the order -->
@@ -140,7 +146,7 @@
                                 <div class="col-md-6 input-group">
                                     <label class="sr-only" for="Quantity">Quantity</label>
                                     <input type="text" class="form-control" name="qtyItemsSummary" id="qtyItemsSummary" placeholder=&#35; value="<?php echo $orderQty?>" />
-                                    <input type="hidden" class="form-control" name="orderProducts" id="orderProducts" placeholder=&#35; value="<?php echo $orderProducts?>" />
+                                    <!-- <input type="hidden" class="form-control" name="orderProducts" id="orderProducts" placeholder=&#35; value="" /> -->
                                 </div>
                             </div>
                             </br>
