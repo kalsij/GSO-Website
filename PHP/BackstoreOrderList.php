@@ -87,7 +87,7 @@
                     }
                     echo "</table>
                     <button class='btn btn-primary' type='submit' value='1' name = 'DeleteOrder'>Delete</button>
-                    <script type='text/javascript' src='/Javascript/OrderList.js'></script>
+                    <script type='text/javascript' src='../Javascript/OrderList.js'></script>
                     </form>"
                
                     ?>
