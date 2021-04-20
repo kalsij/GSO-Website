@@ -85,7 +85,7 @@
                      <?php $userSelected = $_REQUEST["index"];
                     
                     echo" <form id=\"myform\" action=\"addUser.php?index=$userSelected\" method=\"post\">"?>
-                       <input type = "submit" value = "Save"  onsubmit="return userAdd() " class="btn btn-primary" style="float:right;"/>
+                       <input type = "submit" value = "Save"  onsubmit=" userAdd() " class="btn btn-primary" style="float:right;"/>
                        <input type = "reset" value = "Cancel" class="btn btn-secondary" style="float:right; margin-right: 5px;"/>
                        <br/>  
                        <!-- text emplacement for the errors of each input-->
