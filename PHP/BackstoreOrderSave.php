@@ -8,7 +8,7 @@
     $order .= $_POST["email"] . "\t";
     $order .= $_POST["SubtotalSummary"] . "\t";
     $order .= $_POST["income"] . "\t";
-    $order .= $_POST["orderProducts"];
+    $order .= $_POST["orderProducts"]."\t\n";
 
     //re-configurating the lines
     editOrder($index-1 . "--" . $order);
@@ -26,6 +26,7 @@
 
     //organize and put back the elements to form the line 
     function editOrder($order) {
+        
         $myfile = fopen("../Data/orders.txt", "r") or die("Unable to open file!");
 
         $orderArray = explode("--", $order, 2) ;
@@ -56,6 +57,7 @@
             array_push($lines, $orderData); 
         }
         fclose($myfile);
+       
         writeArray($lines);
     }
 
