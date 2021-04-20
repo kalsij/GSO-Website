@@ -121,19 +121,20 @@ function checkEditOrderFields()
     }
     else {
         alert("The order edits are saved and it's added to the order list!");  
-        window.location.replace("BackstoreOrderList.html");
+        window.location.replace("BackstoreOrderList.php");
     }
 }
 
 //Reset the Edit Order Profile 
 function resetEditOrder()
 {
-    var toReset= confirm("Please click OK to confirm reset.");
+    var toReset= confirm("Cancelling  edits. Please confirm.");
     if(toReset){
         document.getElementById("formOrderEdit").reset();
-        window.location.replace("BackstoreEditOrderProfile.html")
+        window.location.replace("BackstoreOrderList.php")
     } 
 }
+
 
 //Remove items in order
 function deleteItem(target) {
