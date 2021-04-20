@@ -1,15 +1,16 @@
-// function that deletes all checked items with button "delete"
+// function that deletes all checked products with button "delete"
 function deleteElement()
 { 
     var products=document.getElementsByTagName("tr");
 
     var toRemove = [];
     var itemsToRemove = "";
+    
     for(var i=0;i<products.length;i++){
         var chk=products[i].cells[0].firstChild;
         if(chk.checked){
             toRemove.push(products[i]);
-            itemsToRemove += (i-1).toString() + ',';
+            itemsToRemove += i.toString() + ',';
         }
     }
     for(var i=0;i<toRemove.length;i++){
