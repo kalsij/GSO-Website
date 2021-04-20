@@ -1,7 +1,7 @@
 
 //function to verify if the user entered the correct information and save
 function userAdd() {
-    var c=0;
+
     fname = document.getElementById('firstname');
     lname = document.getElementById('lastname');
     postalCode = document.getElementById('postCode');
@@ -18,14 +18,14 @@ function userAdd() {
             var changeFirstName = document.getElementById('correctionFirst');
             changeFirstName.innerHTML = "*Invalid first name*";
             changeFirstName.style.color = "red";
-            
+
         }
         //checks if the last name is invalid and output an error
         if (lname.value.search(/^[A-Za-z]+$/) == -1) {
             var changeLastName = document.getElementById('correctionLast');
             changeLastName.innerHTML = "*Invalid last name*";
             changeLastName.style.color = "red";
-            
+
         }
 
         //checks if the postal code is invalid and output an error
@@ -33,7 +33,7 @@ function userAdd() {
             var changePostal = document.getElementById('correctionPostal');
             changePostal.innerHTML = "*Invalid postal code*";
             changePostal.style.color = "red";
-            
+
         }
 
         //checks if the email address is invalid and output an error 
@@ -41,7 +41,7 @@ function userAdd() {
             var changeEmail = document.getElementById('correctionEmail');
             changeEmail.innerHTML = "*Invalid email address*";
             changeEmail.style.color = "red";
-            
+
         }
 
         //checks if the password is invalid and output an error
@@ -49,15 +49,15 @@ function userAdd() {
             var changePostal = document.getElementById('correctionPassword');
             changePostal.innerHTML = "*Invalid password*";
             changePostal.style.color = "red";
-            
+
         }
-      c=0;
+
     }
 
     //checks if all the inputs are correctly entered 
     if (fname.value.search(/^[A-Za-z]+$/) == 0 && lname.value.search(/^[A-Za-z]+$/) == 0 && postalCode.value.search(/^[A-Za-z]\d[A-Za-z] ?\d[A-Za-z]\d$/) == 0 && email.value.search(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/) == 0 && pass.value.search(/^[a-zA-Z0-9!@#$%^&*]{8,20}$/) == 0) {
         check = true;
-c=1;
+
     }
 
     //checks if the first name is correct and remove the error text
@@ -104,5 +104,4 @@ c=1;
         alert("The user was added!");
 
     }
-    return c;
 }
