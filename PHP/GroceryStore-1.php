@@ -217,7 +217,7 @@ $title = "GSO";
     <div class="col-6 col-md">
       <h5>About</h5>
       <ul class="list-unstyled text-small">
-        <li><a class="text-muted">Contact us</a></li>
+        <li><a class="text-muted" href="Contact Us.php">Contact us</a></li>
         <li><a class="text-muted">Our story</a></li>
         <li><a class="text-muted">FAQ</a></li>
       </ul>
