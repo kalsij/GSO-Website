@@ -1,137 +1,107 @@
 
+//function to verify if the user entered the correct information and save
 function userAdd() {
-    var prob = false;
 
-    //identifying all necessary variables for verification
-    var fName = document.getElementById("firstName");
-    var lName = document.getElementById("lastName");
-    var male = document.getElementById("male");
-    var female = document.getElementById("female");
-    var post = document.getElementById("postalCode");
-    var email1 = document.getElementById("email1");
-    var email2 = document.getElementById("email2");
-    var pass1 = document.getElementById("password1");
-    var pass2 = document.getElementById("password2");
-    var nodeAnnounce = document.getElementById("aAnnounce");
-    var nodeFN = document.getElementById("aFName");
-    var nodeLN = document.getElementById("aLName");
-    var nodeG = document.getElementById("aGender");
-    var nodePC = document.getElementById("aPost");
-    var nodeE1 = document.getElementById("aEmail1");
-    var nodeE2 = document.getElementById("aEmail2");
-    var nodeP1 = document.getElementById("aPass1");
-    var nodeP2 = document.getElementById("aPass2");
-    var nodeS = document.getElementById("aSubmitted");
+    fname = document.getElementById('firstname');
+    lname = document.getElementById('lastname');
+    postalCode = document.getElementById('postCode');
+    email = document.getElementById('emailAddress');
+    pass = document.getElementById('password');
+    check = false;
 
-    //clearing the areas where tags will be inserted
-    nodeAnnounce.innerHTML = "";
-    nodeFN.innerHTML = "";
-    nodeLN.innerHTML = "";
-    nodeG.innerHTML = "";
-    nodePC.innerHTML = "";
-    nodeE1.innerHTML = "";
-    nodeE2.innerHTML = "";
-    nodeP1.innerHTML = "";
-    nodeP2.innerHTML = "";
-    nodeS.innerHTML = "";
+    //Checks if there is an error in the input
+    if (fname.value.search(/^[A-Za-z]+$/) == -1 || lname.value.search(/^[A-Za-z]+$/) == -1 || postalCode.value.search(/^[A-Za-z]\d[A-Za-z] ?\d[A-Za-z]\d$/) == -1 || email.value.search(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/) == -1 || pass.value.search(/^[a-zA-Z0-9!@#$%^&*]{8,20}$/) == -1) {
+        check = false;
 
-    //first name verif
-    if (fName.value.search(/^[A-Za-z]+$/) == -1) {
-        var elem1 = document.createElement("p");
-        elem1.style.color = "red";
-        elem1.style.display = "inline";
-        elem1.textContent = "*";
-        nodeFN.appendChild(elem1);
-        prob = true;
+        //checks if the first name is invalid and output an error
+        if (fname.value.search(/^[A-Za-z]+$/) == -1) {
+            var changeFirstName = document.getElementById('correctionFirst');
+            changeFirstName.innerHTML = "*Invalid first name*";
+            changeFirstName.style.color = "red";
+
+        }
+        //checks if the last name is invalid and output an error
+        if (lname.value.search(/^[A-Za-z]+$/) == -1) {
+            var changeLastName = document.getElementById('correctionLast');
+            changeLastName.innerHTML = "*Invalid last name*";
+            changeLastName.style.color = "red";
+
+        }
+
+        //checks if the postal code is invalid and output an error
+        if (postalCode.value.search(/^[A-Za-z]\d[A-Za-z] ?\d[A-Za-z]\d$/) == -1) {
+            var changePostal = document.getElementById('correctionPostal');
+            changePostal.innerHTML = "*Invalid postal code*";
+            changePostal.style.color = "red";
+
+        }
+
+        //checks if the email address is invalid and output an error 
+        if (email.value.search(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/) == -1) {
+            var changeEmail = document.getElementById('correctionEmail');
+            changeEmail.innerHTML = "*Invalid email address*";
+            changeEmail.style.color = "red";
+
+        }
+
+        //checks if the password is invalid and output an error
+        if (pass.value.search(/^[a-zA-Z0-9!@#$%^&*]{8,32}$/) == -1) {
+            var changePostal = document.getElementById('correctionPassword');
+            changePostal.innerHTML = "*Invalid password*";
+            changePostal.style.color = "red";
+
+        }
+
     }
 
-    //last name verif
-    if (lName.value.search(/^[A-Za-z]+$/) == -1) {
-        var elem2 = document.createElement("p");
-        elem2.style.color = "red";
-        elem2.style.display = "inline";
-        elem2.textContent = "*";
-        nodeLN.appendChild(elem2);
-        prob = true;
+    //checks if all the inputs are correctly entered 
+    if (fname.value.search(/^[A-Za-z]+$/) == 0 && lname.value.search(/^[A-Za-z]+$/) == 0 && postalCode.value.search(/^[A-Za-z]\d[A-Za-z] ?\d[A-Za-z]\d$/) == 0 && email.value.search(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/) == 0 && pass.value.search(/^[a-zA-Z0-9!@#$%^&*]{8,20}$/) == 0) {
+        check = true;
+
     }
 
-    //gender verif
-    if (!male.checked && !female.checked) {
-        var elem9 = document.createElement("p");
-        elem9.style.color = "red";
-        elem9.style.display = "inline";
-        elem9.textContent = "*";
-        nodeG.appendChild(elem9);
-        prob = true;
+    //checks if the first name is correct and remove the error text
+    if (fname.value.search(/^[A-Za-z]+$/) == 0) {
+        var changeFirstName = document.getElementById('correctionFirst');
+        changeFirstName.innerHTML = "";
+
     }
 
-    //postal code verif
-    if (post.value.search(/^[A-Za-z]\d[A-Za-z] ?\d[A-Za-z]\d$/) == -1) {
-        var elem3 = document.createElement("p");
-        elem3.style.color = "red";
-        elem3.style.display = "inline";
-        elem3.textContent = "*";
-        nodePC.appendChild(elem3);
-        prob = true;
+    //checks if the last name is correct and remove the error text
+    if (lname.value.search(/^[A-Za-z]+$/) == 0) {
+        var changeLastName = document.getElementById('correctionLast');
+        changeLastName.innerHTML = "";
+
+
     }
 
-    //email1 verif
-    if (email1.value.search(/^[0-9A-Za-z.]+\@[a-z]+\.[a-z]{2,3}$/) == -1) {
-        var elem4 = document.createElement("p");
-        elem4.style.color = "red";
-        elem4.style.display = "inline";
-        elem4.textContent = "*";
-        nodeE1.appendChild(elem4);
-        prob = true;
+    //checks if the postal code is correct and remove the error text
+    if (postalCode.value.search(/^[A-Za-z]\d[A-Za-z] ?\d[A-Za-z]\d$/) == 0) {
+        var changePostal = document.getElementById('correctionPostal');
+        changePostal.innerHTML = "";
+
+
     }
 
-    //email2 verif
-    if (email2.value !== email1.value || email2.value.search(/^[0-9A-Za-z.]+\@[a-z]+\.[a-z]{2,3}$/) == -1) {
-        var elem5 = document.createElement("p");
-        elem5.style.color = "red";
-        elem5.style.display = "inline";
-        elem5.textContent = "*";
-        nodeE2.appendChild(elem5);
-        prob = true;
+    //checks if the email address is correct and remove the error text
+    if (email.value.search(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/) == 0) {
+        var changeEmail = document.getElementById('correctionEmail');
+        changeEmail.innerHTML = "";
+
     }
 
-    //password1 verif
-    if (pass1.value.length < 8) {
-        var elem6 = document.createElement("p");
-        elem6.style.color = "red";
-        elem6.style.display = "inline";
-        elem6.textContent = "*";
-        nodeP1.appendChild(elem6);
-        prob = true;
+    //checks if the password is invalid and output an error
+    if (pass.value.search(/^[a-zA-Z0-9!@#$%^&*]{8,20}$/) == 0) {
+        var changePostal = document.getElementById('correctionPassword');
+        changePostal.innerHTML = "";
+        changePostal.style.color = "red";
+
     }
 
-    //password2 verif
-    if (pass2.value.length < 8 || pass2.value !== pass1.value) {
-        var elem7 = document.createElement("p");
-        elem7.style.color = "red";
-        elem7.style.display = "inline";
-        elem7.textContent = "*";
-        nodeP2.appendChild(elem7);
-        prob = true;
+    //output an alert if everything is correct
+    if (check) {
+
+        alert("The user was added!");
+
     }
-
-
-    //general message in case of errors from the user
-    if (prob === true) {
-        var elem0 = document.createElement("p");
-        elem0.style.color = "red";
-        elem0.style.display = "inline";
-        alert("Form needs revision");
-        nodeAnnounce.appendChild(elem0);
-    }
-
-    //general message if all inputs are correct
-    else {
-        var elemF = document.createElement("p");
-        elemF.style.color = "black";
-        elemF.style.textAlign = "center";
-        nodeS.appendChild(elemF);
-        
-    }
-
 }

@@ -1,6 +1,4 @@
-<!--Retrieve data from items -->
 <?php
-    //click ctrl shift I to see the print text in the Elements section of the body
     session_start();
     // session_unset();
     if(empty($_POST[logout])){
@@ -18,19 +16,34 @@
         $sign2 = "<li><div style=\"text-align:center;\"><form method=\"post\"><input type=\"submit\" value=\"Log Out\" style=\"outline:none;border:none;background-color:Transparent;color:rgb(226, 215, 215);font-size:20px;\" name=\"logout\"/></form></div></li>";
     }
 
-    //write to ordersListClients file
+    $subTotalPrice = 0;
+    $GSTTax = 0;
+    $QSTTax =0;
+    $totalQty = 0;
+    $finalTotal = 0;
+
+
+    //write to orders file
     if(isset($_POST["checkoutButton"])){
         checkoutButton1();
 
     }
     $cartElements = $_SESSION["elementsProduct"];
     $cartElements[8] = str_replace("\n", '', $cartElements[8]);
-    $cartElements[9] = $_POST["quantity"];
+    $cartElements[9] = $_POST["quan"];
     $_SESSION["elementsProduct"] = $cartElements;
     
     function checkoutButton1() {
-        $userFullName = $_SESSION["fullName"];
-        $userEmail = $_SESSION["signinEmail"];
+       
+        if(strlen($_SESSION["fullName"]) <2){
+            $userFullName = "client NoSignIn";
+            $userEmail = "noEmail";
+        }
+        else {
+            $userFullName = $_SESSION["fullName"];
+            $userEmail = $_SESSION["signinEmail"];
+        }
+        
         $currentDate = date("Y-m-d");
         $range = range('A', 'Z');
         $range2 = range('11111', '999999');
@@ -48,24 +61,28 @@
         $outputOrderProducts = substr($outputOrderProducts, 0, -1);
         
         // write to file
-        $orderFile = fopen("../Data/ordersListClients.txt", "a");
-        $outputOrder = $orderNumber."\t".$currentDate."\t".$userFullName."\t ".$userEmail."\t $".$_SESSION["cartfinalTotalPrice"]."\t $".$income."\t".$outputOrderProducts;
+        $orderFile = fopen("../Data/orders.txt", "a");
+        $outputOrder = $orderNumber."\t".$currentDate."\t".$userFullName."\t".$userEmail."\t$".$_SESSION["cartfinalTotalPrice"]."\t$".$income."\t".$outputOrderProducts;
         fputs($orderFile, $outputOrder);
         fputs($orderFile, "\r\n");
         fclose($orderFile);
+
+        header("Location: CheckOut.php");die();
         
     }             
     function readingConstructSessionCart() {
     
-        $handle = @fopen("../Data/cartProducts.txt", "r") or die("Unable to open cartProducts file to read. Bye-bye!");
+        $handle = fopen("../Data/cartProducts.txt", "r") or die("Unable to open cartProducts file to read. Bye-bye!");
         $i = 0;
         if($handle){
             while(($line = fgets($handle))!== false) {
                 //product Qty
+                if( strlen($line ) >3 ){
                 $elements = explode(";", $line);
-    
+                
                 $_SESSION["cart"][$i] = $elements;
                 $i=$i+1;
+                }
             }
         }
         $countingN = count($_SESSION["cart"]);
@@ -110,15 +127,17 @@
 
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
-                <li><a href="GroceryStore-1.html">Home</a></li>
+                <li><a href="GroceryStore-1.php">Home</a></li>
 
                 <li><a href="#">Aisles</a>
                     <ul>
                      
-                        <li><a href="Fruits and vegetables.html">Fruits and Vegetables</a></li>
-                        <li><a href="Meat.html">Meat</a></li>
-                        <li><a href="Dairy.html">Dairy</a></li>
-                        <li><a href="Bread.html">Bread</a></li>
+                        <li><a href="Fruits and vegetables.php">Fruits and Vegetables</a></li>
+                        <li><a href="Meat.php">Meat</a></li>
+                        <li><a href="Dairy.php">Dairy</a></li>
+                        <li><a href="Bread.php">Bread</a></li>
+                        <li><a href="drinks.php">Drinks</a></li>
+                        <li><a href="pasta.php">Pasta</a></li>
                 
                         </a>
                 </li>
@@ -126,19 +145,20 @@
 
             <li><a href="#">Account</a>
                 <ul>
-                    <li><a href="SignUp.html">Sign up</a></li>
-                    <li><a href="SignIn.html">Sign in</a></li>
+                    <?php print $sign1;
+                    print $sign2;?>
                 </ul>
             </li>
         </div>
 
-        <a href="ShoppingCart.html"><img src="../Media/cart_logo.png" alt="Shopping Cart" width="50px" height="50px"
+        <a href="ShoppingCart.php"><img src="../Media/cart_logo.png" alt="Shopping Cart" width="50px" height="50px"
                 style="float:right"></a>
     </nav>
 
 
     <h1 class="ShoppingCartTitle">SHOPPING CART</h1>
     <div class="container-fluid">
+
         <div class="shoppingCart row">
 
             <!-- List of items in shopping cart -->
@@ -149,36 +169,20 @@
                 <?php
                     $finalTotal = 0;
 
-                    // write to cartProducts file 
-                    if( isset($_POST["quantity"])  && isset($_SESSION["elementsProduct"])  ){
-                        $sessionFile = fopen("../Data/cartProducts.txt", "a") or die("Unable to open cartProducts file to write. Bye-bye!");
-                        for($i = 0; $i <10; $i++){
-                            $toPrintProduct = $toPrintProduct.$_SESSION["elementsProduct"][$i].";";
-                        }
-                        $toPrintProduct = substr($toPrintProduct, 0, -1);
-                        
-                        fputs($sessionFile, $toPrintProduct);
-                        fputs($sessionFile, "\r\n");
-                        fclose($sessionFile);
-                    }
-
-                    //read from cartProducts file
-                    readingConstructSessionCart();
-
-
-                    //display product on shopping cart page
-                    foreach($_SESSION["cart"] as $index=>$value) {
-                        $imgProduct = "../".$value[1];
-                        $nameProduct = $value[2];
-                        $priceProduct = $value[6];
-                        $unitProduct = $value[8];
-                        $qtyProduct = $value[9];
-                        $totalQty = $totalQty+$qtyProduct;
-                        $subTotalPrice = $subTotalPrice+($priceProduct*$qtyProduct);
-                        $GSTTax = round($subTotalPrice*0.05,2);
-                        $QSTTax = round($subTotalPrice*0.09975,2);
-                        $finalTotal = round($subTotalPrice+$GSTTax+$QSTTax, 2); 
-                        $_SESSION["cartfinalTotalPrice"] = $finalTotal;
+                    function displayItem(){
+                        //display product on shopping cart page
+                         foreach($_SESSION["cart"] as $index=>$value) {
+                            $imgProduct = "../".$value[1];
+                            $nameProduct = $value[2];
+                            $priceProduct = $value[6];
+                            $unitProduct = $value[8];
+                            $qtyProduct = $value[9];
+                            $totalQty = $totalQty+$qtyProduct;
+                            $subTotalPrice = $subTotalPrice+($priceProduct*$qtyProduct);
+                            $GSTTax = round($subTotalPrice*0.05,2);
+                            $QSTTax = round($subTotalPrice*0.09975,2);
+                            $finalTotal = round($subTotalPrice+$GSTTax+$QSTTax, 2); 
+                            $_SESSION["cartfinalTotalPrice"] = $finalTotal;
                             ?>
                         
                         <div class="listMyCart justify-content-between align-items-center  row">
@@ -205,13 +209,36 @@
                             </div>
                     
                         </div>
-                        </br></br>
-                    <?php
+                        </br></br><?php
+                        }
                     }
+
+                    // write to cartProducts file 
+                    if( isset($_POST["quan"])  && isset($_SESSION["elementsProduct"])  ){
+
+                        $sessionFile = fopen("../Data/cartProducts.txt", "a") or die("Unable to open cartProducts file to write. Bye-bye!");
+                        for($i = 0; $i <10; $i++){
+                            $toPrintProduct = $toPrintProduct.$_SESSION["elementsProduct"][$i].";";
+                        }
+                        $toPrintProduct = substr($toPrintProduct, 0, -1);
+                        
+                        fputs($sessionFile, $toPrintProduct);
+                        fputs($sessionFile, "\r\n");
+                        fclose($sessionFile);
+
+                        
+                        
+                        // unset($_SESSION ["elementsProduct"]);
+                        // $_SESSION ["elementsProduct"]_unset;
+                    }
+                   
                     ?>
-                    
                     </br></br>
-                
+                    <?php
+                    //read from cartProducts file
+                        readingConstructSessionCart();
+                        displayItem();
+                    ?>
             </div>
             
             <!-- Summary of the items (number of items, subtotal, QST, GST and total)-->
@@ -220,6 +247,22 @@
 
                     <h3>SUMMARY LIST</h3>
                     <hr></br>
+
+                    <?php
+                        foreach($_SESSION["cart"] as $index=>$value) {
+                            $imgProduct = "../".$value[1];
+                            $nameProduct = $value[2];
+                            $priceProduct = $value[6];
+                            $unitProduct = $value[8];
+                            $qtyProduct = $value[9];
+                            $totalQty = $totalQty+$qtyProduct;
+                            $subTotalPrice = $subTotalPrice+($priceProduct*$qtyProduct);
+                            $GSTTax = round($subTotalPrice*0.05,2);
+                            $QSTTax = round($subTotalPrice*0.09975,2);
+                            $finalTotal = round($subTotalPrice+$GSTTax+$QSTTax, 2); 
+                            $_SESSION["cartfinalTotalPrice"] = $finalTotal;
+                        }
+                            ?>
 
                     <div class='justify-content-between row'>
                         <div class='col-md-auto'>Qty of Items</div>
@@ -257,20 +300,16 @@
                             <hr>
 
                             <form method='post'>
-                                <input type='submit' name='checkoutButton' class='checkout' value='CHECK OUT' />  
+                                <div class= checkout>
+                                    <input type='submit' name='checkoutButton' onclick="checkoutCS()" class='checkout' value='CHECK OUT' style="border: none; outline: 0; padding: 5px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); color: #ffffff; background-color:black;" />  
+                                </div>
                             </form>
                                                     
                             <script>
-                                var checkout = document.getElementsByClassName("checkout")
-                                for (var i = 0; i < checkout.length; i++) {
-                                    var button = checkout[i]
-                                    button.addEventListener("click", function(event) {
-                                        var buttonClicked = event.target
-                                        console.log(buttonClicked)
+                                function checkoutCS(){
+                                    alert("Checking out! Thank you for your purchase.");
+                                    // window.location.replace("CheckOut.php");
 
-                                        alert("Checking out! Thank you for your purchase.");
-                                        window.location.replace("window.location.href = 'Checkout.php'");
-                                    })
                                 }
                             </script>
                          

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,6 +17,26 @@
 </head>
 
 <body>
+  
+<?php 
+session_start();
+if(empty($_POST[logout])){
+
+}
+else{
+session_unset();
+}
+if(empty($_SESSION[fullName])){
+$sign1 = "<li><a href=\"SignUp.php\">Sign up</a></li>";
+$sign2 = "<li><a href=\"SignIn.php\">Sign in</a></li>";
+}
+else{
+    $sign1 = "<li><a href=\"\">".$_SESSION[fullName]."</a></li>";
+    $sign2 = "<li><div style=\"text-align:center;\"><form method=\"post\"><input type=\"submit\" value=\"Log Out\" style=\"outline:none;border:none;background-color:Transparent;color:rgb(226, 215, 215);font-size:20px;\" name=\"logout\"/></form></div></li>";
+} 
+$js_file = "../Javascript/script.js";
+$title = "GSO";
+?>
 
 <!----------nav bar---------->
   <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top" style="background-color: blue;">
@@ -40,16 +59,18 @@
                     <li><a href="pasta.php">Pasta</a></li>
                    </li>
                   </ul>
+                  <li><a href="#">Account</a>
+                <ul>
+                    <?php print $sign1;
+                    print $sign2;?>
+                </ul>
 
-        <li><a href="#">Account</a>
-            <ul>
-                <li><a href="SignUp.php">Sign up</a></li>
-                <li><a href="SignIn.php">Sign in</a></li>
+      
             </ul>
         </ul>
     </div>
 
-    <a href="ShoppingCart.html"><img src="/Media/cart_logo.png" alt="Shopping Cart" width="50px" height="50px"
+    <a href="ShoppingCart.php"><img src="../Media/cart_logo.png" alt="Shopping Cart" width="50px" height="50px"
             style="float:right"></a>
 
 </nav>
@@ -70,28 +91,28 @@
   <div class="col-md-auto">
       <div class="fandv-aisle">
         <a href="Fruits and vegetables.php">        
-              <img src="/Media/pexels-mark-stebnicki-2255935.jpg" alt="aisle 1" style="width:100%">
+              <img src="../Media/pexels-mark-stebnicki-2255935.jpg" alt="aisle 1" style="width:100%">
             </a>
       </div>
     </div>
        <div class="col-md-auto">
         <div class="bread-aisle">
           <a href="Bread.php">
-              <img src="/Media/pexels-markus-spiske-1871024.jpg" alt="aisle 2" style="width:100%">
+              <img src="../Media/pexels-markus-spiske-1871024.jpg" alt="aisle 2" style="width:100%">
             </a>
      </div>
     </div>
      <div class="col-md-auto">
       <div class="meat-aisle">
         <a href="Meat.php">
-              <img src="/Media/pexels-matheus-gomes-2491273.jpg" alt="aisle 3" style="width:100%">
+              <img src="../Media/pexels-matheus-gomes-2491273.jpg" alt="aisle 3" style="width:100%">
             </a>
       </div>
     </div> 
     <div class="col-md-auto">
       <div class="dairy-frontpage">
         <a href="Dairy.php">
-              <img src="/Media/pexels-pixabay-248412.jpg" alt="aisle 4" style="width:100%">
+              <img src="../Media/pexels-pixabay-248412.jpg" alt="aisle 4" style="width:100%">
             </a>
       </div>
     </div> 
@@ -104,7 +125,7 @@
       
         <div class="extra-aisle1 ">
           <a href="pasta.php">        
-                <img src="/Media/pexels-klaus-nielsen-6287446.jpg" alt="pasta aisle " style="width:100%">
+                <img src="../Media/pexels-klaus-nielsen-6287446.jpg" alt="pasta aisle " style="width:100%">
               </a>
     
       </div>
@@ -112,7 +133,7 @@
     <div class="col-lg-auto">
       <div class="extra-aisle2">
         <a href="drinks.php">
-            <img src="/Media/pexels-breakingpic-3008.jpg" alt="drinks aisle " style="width:100%">
+            <img src="../Media/pexels-breakingpic-3008.jpg" alt="drinks aisle " style="width:100%">
           </a>
    </div>
     </div>
@@ -121,46 +142,40 @@
 
 <!----------weekly deals----------->
 
-<h2 class="weeklydeals">Weekly Deals</h2>
-  <div class=" justify-content-md-center row">
-  <div class="col-md-auto">
-<div class="orangedeals">
-  <a href="orange.php">
-    <img src="/Media/pexels-suzy-hazelwood-1937743.jpg" alt="Oranges" style="width:100%">
-  </a>
-    <h4>Oranges</h4>
-    <p>$5.50</p>
-  </div>
-  </div>
-  <div class="col-md-auto">
-    <div class="lambdeals">
-      <a href="rackOfLamb.php">
-    <img src="/Media/pexels-pascal-claivaz-410648.jpg" alt="lamb" style="width:100%">
-  </a>
-    <h4>Lamb</h4>
-    <p>$55.00</p>
-  </div>
-  </div>
-  <div class="col-md-auto">
-    <div class="pitadeals">
-      <a href="pitas.php">
-    <img src="/Media/pexels-karolina-grabowska-4495758.jpg" alt="pita" style="width:100%">
-  </a>
-    <h4>Pita Bread</h4>
-    <p>$3.50</p>
-  </div>
-  </div>
-  <div class="col-md-auto">
-    <div class="yogurtdeals">
-      <a href="yogurt.php">
-    <img src="/Media/yogurt.jpg" alt="yogurt" style="width:100%">
-  </a>
-    <h4>Yogurt</h4>
-    <p>$5.00</p>
-  </div>
-  </div>
-</div>
+<h1 class="aisles">$5.50 Weekly Deals</h1>
+                <div class=" justify-content-md-center row">
 
+                  <?php 
+                                $myfile = fopen("../Data/productList.txt", "r") or die("Unable to open file!");
+                               
+                                while(!feof($myfile)) {
+                                  $line = fgets($myfile);
+                                  if (strlen($line) < 5){
+                                      break;
+                                  }
+                            
+                                  $elements = explode(";", $line);
+                                  
+                                  if (strcmp($elements[6], "5.50$") == 0)  {
+                                    echo "<div class=\"col-md-auto\">";
+                                    echo "<div class=\"coca-cola\">";
+                                        echo "<a href=\"product-detail.php?id=$elements[0]\">";
+                                            echo "<img src=\"../$elements[1]\" alt= \" $elements[2] \" style=\"width:100% ; max-height:200px;\">";
+                                        echo "</a>";
+                                        echo "<h1 style=\"margin-top: auto; color:rgb(75, 75, 75);\">$elements[2]</h1>";
+                                        echo "<p class=\"price\" style=\"color:rgb(75, 75, 75);\">$elements[6]<br/>($elements[8])</p>";
+                                        
+                                    echo "</div>";
+                                  echo "</div>";
+
+
+                                  }  
+
+                                }
+                                fclose($myfile);
+                            ?>
+                </div>
+ 
 <!-------email subscription-------->
 <div class="container shadow-lg pt-4 pb-3 pt-2 mt-4 w-75 text-center border rounded-pill">
   <form class="row">
@@ -202,7 +217,7 @@
     <div class="col-6 col-md">
       <h5>About</h5>
       <ul class="list-unstyled text-small">
-        <li><a class="text-muted">Contact us</a></li>
+        <li><a class="text-muted" href="Contact Us.php">Contact us</a></li>
         <li><a class="text-muted">Our story</a></li>
         <li><a class="text-muted">FAQ</a></li>
       </ul>
@@ -213,3 +228,4 @@
 </body>
 
 </html>
+

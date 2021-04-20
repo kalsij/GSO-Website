@@ -1,4 +1,3 @@
-<!-- ask Jasmit to add in BackstoreOrderList.php: line 48 the link to edit page add .php at end -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,183 +43,110 @@
                 <div class="right">
                     <h2 style="font-style: italic;">Edit Order</h2>
                     <!-- to be changed Alice -->
-                    <p style="color: gray; border-bottom: 1px solid lightgray;">Edit Order &#8725; Order &#35; <?php echo $orderNumber ?></p>
+                    <p style="color: gray; border-bottom: 1px solid lightgray;"></p>
                     
                     <div id="missingInfo"></div>
                     
                     <?php
-
                       $orderSelected = $_REQUEST["index"];
-                      //added name - but can nbe removed Alice
-                      echo "<form name='editForm' id='formOrderEdit' class='orderFrom' action='edit.php?index=$orderSelected' method='POST'>";
-
-                      $myfile = fopen("../Data/orders.txt", "r") or die("Unable to open file!");
+                      echo "<form id=\"myform\" action=\"backstoreOrderSave.php?index=$orderSelected\" method=\"post\" onsubmit=\" return checkEditOrderFields()\">";
+                      $myfile = fopen("../Data/orders.txt", "r") or die("Unable to open orders file to read. Bye-bye!");
                       $orderInfo = array();
                       $lineNumber = 1;
-                      echo"THe order is: $orderSelected";
+
                       while(!feof($myfile)) {
                           $line = fgets($myfile);  
                           $lineArray = explode("\t", $line);
 
                            if ($orderSelected == $lineNumber){
-                            echo"found line is: $lineNumber";
+                            // echo"found line is: $lineNumber";
                             break; 
                            }
-                          if ($orderSelected == -1 ){
+                            if ($orderSelected == -1 ){
                             echo "<script>alert('Did not select any order#. Please click any radio button to edit the order. Will re-direct back to Order List.');document.location='BackstoreOrderList.php'</script>";
-                            break;    
-                            $lineNumber++;  
-                                                                      
-                        }
+                            break;                                      
+                            }
+                            $lineNumber++; 
+                            $index++;
                     
                       }
-                      echo"the line info: \n";
-                      print_r($lineArray);
 
-                      $orderNumber=$lineArray[0];
+                        $orderNumber=$lineArray[0];
                         $orderDate=$lineArray[1];
                         $orderUserFullName=$lineArray[2];
                         $orderEmail=$lineArray[3];
-                        $orderSubtotal=$lineArray[4];
+                        $orderSubtotal=substr($lineArray[4], 1);
                         $orderIncome=$lineArray[5];
                         $orderProducts=$lineArray[6];
-                        echo $orderProducts;
                         $orderProductsArraytmp = explode("|", $orderProducts);
-                        print_r($orderProductsArraytmp);
 
-                        foreach($orderProductsArraytmp as$key=> $value){
-                            // echo($value);
-                            $orderProductsArray= $orderProductsArray.explode("-", $value);
-                            // $orderProductsArraytmp = $orderProductsArray.$orderProductsArraytmp2;
+                        $orderGST = round($orderSubtotal*0.05,2);
+                        $orderQST = round($orderSubtotal*0.09975,2);
+                        // $orderSubtotal = 10;
+                        $taxgst =round($orderSubtotal*0.05,2);
+                        $taxqst =round($orderSubtotal*0.09975,2);
+                        $orderTotal = $taxgst+$taxqst+$orderSubtotal;
+                        //quantity
+                        $orderQty = 0;
+                        for( $i=0; $i<count($orderProductsArraytmp);$i++){
+                            $orderProductsArray = explode("-", $orderProductsArraytmp[$i]);
+                            $orderQty = $orderQty+$orderProductsArray[0];
                         }
 
-                        echo"The PRODUCTS SELECTED BY USER ARE: \n";
-                        print_r($orderProductsArray);
                       fclose($myfile);
                      
-               
+                      $theDate = date("Y-m-d");
+                       
                     ?>
-
-                    <!-- <form action="" id="formOrderEdit"> -->
+    
                         <!-- Button to save/cancel the edits -->
-                        <input type = "button" value = "Save" onclick="checkEditOrderFields()" class="btn btn-primary" style="float: right;"/>
-                        <input type = "reset" value = "Cancel" onclick="resetEditOrder()" class="btn btn-secondary" style="float: right; margin-right: 5px;"/>
+                        
+                        <input type = "submit" value = "Save" name="savingOrder" class="btn btn-primary" style="float: right;"/>
+                        <input type = "button" value = "Cancel" onclick="resetEditOrder()" id="formOrderEdit" class="btn btn-secondary" style="float: right; margin-right: 5px;"/>
+                        
                         <br/><br/><br/>
 
+                        <label for="start">Order#</label>
+                        <input type="text" name="orderNumber" placeholder="orderNumber" value=<?php echo $orderNumber ?>>
+                        <hr>
                         <label for="start">Date</label>
-                        <input type="date" name="order purchase date" value=<?php echo $theDate = date("Y-m-d"); ?>>
+                        <input type="date" name="orderDate" value=<?php echo $theDate ?>>
                         <hr>
 
                         <!-- Add/Edit the client's information -->
                         <h5>Customer Contact</h5>
-
                         <div class="form-row">                    
                             <div class="form-group col-md-6">
                                 <label for="firstName">Bill to Name</label>
-                                <input type="text" id="firstName" class="form-control" placeholder="First Name" value=<?php echo $orderUserFullName; ?>>
+                                <input type="text" id="fullName" name="fullName" class="form-control" placeholder="Full Name" value="<?php echo $orderUserFullName; ?>">
                             </div>
 
                             <div class="form-group col-md-6">
-                            <label for="emailAddress">Email</label>
-                            <input type="text" class="form-control" id="email" placeholder="gso@example.ca" value=<?php echo $orderEmail; ?>  >
-
+                                <label for="emailAddress">Email</label>
+                                <input type="text" class="form-control" name="email" id="email" placeholder="gso@example.ca" value=<?php echo $orderEmail; ?>  >
                             </div>
+                            <div class="form-row">            
+                                <label for="products">Products (quantity-product|quantity-product)</label>
+                                <input type="text" class="form-control" name="orderProducts" id="orderProducts" placeholder="1-banana|5-chicken" value="<?php echo $orderProducts; ?>"/>
+                            </div>
+                        </div>
+
+                            
                         </div><br/>
-                        
-                        <!-- <h5>Shipping Address</h5>
-
-                        <div class="form-row">            
-                            <label for="address">Address</label>
-                            <input type="text" class="form-control" id="address" placeholder="Address"/>
-                        </div></br>    
-
-                        <div class="form-row">                    
-                            <div class="form-group col-md-6">
-                                <label for="postalCode">Postal Code</label>
-                                <input type="text" class="form-control" id="postalCode" placeholder="Postal Code"/>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="city">City</label>
-                                <input type="text" class="form-control" id="city" placeholder="City"/>
-                            </div>
-                        </div></br> -->
-
-                        <!-- Add/Edit the produce(s) of the customer's order -->
-<!-- 
-                        <h5>Product(s)</h5>
-                        <div class="table-responsive-md">
-                            <table class="table" id="tableItem0">
-
-                                <thead>
-                                    <tr>
-                                        <th><p>Product</p></th>
-                                        <th><p>Name/Details</p></th>
-                                        <th><p>Quantity</p></th>
-                                        <th><p>Price(&#36;)&#8725;Unit</p></th>
-                                        <th><p>Total.Amount(&#36;)</p></th>
-                                        <th><p></p></th>
-                                    </tr>
-                                </thead> -->
-
-                                <!-- <tr>
-                                    
-                                    <td>
-                                        <img alt="product" src="Media/groceries.png" style="width: 45px; height: 40px;">
-                                    </td>
-
-                                    <td>
-                                        <div class="input-group">
-                                            <label class="sr-only" for="ProductName">Product Name</label>
-                                            <input type="text" id="productName" class="form-control form-control-sm productName" placeholder="product"/>
-                                        </div>      
-                                    </td>
-
-                                    <td>
-                                        <div class="input-group">
-                                            <label class="sr-only" for="Quantity">Quantity</label>
-                                            <input type="text" id="quantity" class="form-control form-control-sm quantity" placeholder=&#35; />
-                                        </div>
-                                    </td>
-                                    
-                                    <td>
-                                        <div class="input-group">
-                                            <label class="sr-only" for="PriceUnit">PriceUnit</label>
-                                            <input type="text" id="priceUnit" class="form-control form-control-sm priceUnit" placeholder="&#36"/>
-                                        </div> 
-
-                                    <td>
-                                        <div class="input-group">
-                                            <label class="sr-only" for="Total">Total</label>
-                                            <input type="text" id="total" class="form-control form-control-sm total" placeholder=&#36; />
-                                        </div>
-                                    </td>
-
-                                    // Delete an item in client's order 
-                                    <td style="margin-left: 0px; padding-left: 0px;"><button type="button" onclick=deleteItem(this) class="btn btn-danger"><img src="Media/TrashCan(Flaticon).png" alt="trash can" style="height:15px; width:14px;"></button></td>
-                                    
-                                </tr>
-                               
-                            </table>
-
-                             //Add an item in client's order 
-                            <button type="button" onclick=addItem() class="btn btn-primary">Add</button>
-                            </br></br>
-                        </div> -->
-                    
 
                         <!-- Summary of the order -->
                         <div class="summaryOrder">
                             </br>
                             <h5>Summary</h5>
                             <hr></br>
-                            
                             <div class="justify-content-between row">
                                 <div class="col-md-6">
                                     Qty of Items
                                 </div>
                                 <div class="col-md-6 input-group">
                                     <label class="sr-only" for="Quantity">Quantity</label>
-                                    <input type="text" class="form-control" id="qtyItemsSummary" placeholder=&#35; />
+                                    <input type="text" class="form-control" name="qtyItemsSummary" id="qtyItemsSummary" placeholder=&#35; value="<?php echo $orderQty?>" />
+                                    <!-- <input type="hidden" class="form-control" name="orderProducts" id="orderProducts" placeholder=&#35; value="" /> -->
                                 </div>
                             </div>
                             </br>
@@ -231,7 +157,7 @@
                                 </div>
                                 <div class="col-md-6 input-group">
                                     <label class="sr-only" for="Subtotal">Subtotal</label>
-                                    <input type="text" class="form-control" id="SubtotalSummary" placeholder=&#36; value=<?php echo $orderSubtotal?>  >
+                                    <input type="text" class="form-control" name="SubtotalSummary" id="SubtotalSummary" placeholder=&#36; value="$<?php echo $orderSubtotal?>"  />
                                 </div>
                             </div>
                             </br>
@@ -242,7 +168,7 @@
                                 </div>
                                 <div class="col-md-6 input-group">
                                     <label class="sr-only" for="GST">GST</label>
-                                    <input type="text" class="form-control" id="GSTSummary" value=<?php echo round($subTotalPrice*0.05,2) ?> placeholder=&#36; />
+                                    <input type="text" class="form-control" name="GSTSummary" id="GSTSummary" placeholder=&#36; value="$<?php echo $orderGST ?>"  />
                                 </div>
                             </div>
                             </br>
@@ -253,7 +179,7 @@
                                 </div>
                                 <div class="col-md-6 input-group">
                                     <label class="sr-only" for="QST">QST</label>
-                                    <input type="text" class="form-control" id="QSTSummary" value=<?php echo round($subTotalPrice*0.09975,2)?> placeholder=&#36; />
+                                    <input type="text" class="form-control" name="QSTSummary" id="QSTSummary" placeholder=&#36; value="$<?php echo $orderQST ?>"  />
                                 </div>
                             </div>
                             </br>
@@ -264,7 +190,7 @@
                                 </div>
                                 <div class="col-md-6 input-group">
                                     <label class="sr-only" for="Total">Total</label>
-                                    <input type="text" class="form-control" id="TotalSummary" value=<?php echo round( round($subTotalPrice*0.09975,2)+round($subTotalPrice*0.05,2), 2 ) ?> placeholder=&#36; />
+                                    <input type="text" class="form-control" name="TotalSummary" id="TotalSummary" value="$<?php echo $orderTotal ?>" placeholder=&#36; />
                                 </div>
                             </div>
                             </br>
@@ -274,16 +200,15 @@
 
                         <div class="form-row">            
                             <label for="income">Income</label>
-                            <input type="text" class="form-control" id="income" value=<?php echo $orderIncome ?> placeholder="&#36;" />
+                            <input type="text" class="form-control" name="income" id="income" value=<?php echo $orderIncome ?> placeholder="&#36;" />
                         </div></br> 
 
                         <div class="form-group">
                             <label>Extra Order Note:</label>
-                            <textarea class="form-control" name ="ExtraNoteOrder" id="extraOrderNote" rows = "5"></textarea>
+                            <textarea class="form-control" name ="ExtraNoteOrder" name="extraOrderNote" id="extraOrderNote" rows = "5"></textarea>
                         </div></br>
 
-                    </form> 
-                    <!-- the echo open the form name=edit id=formOrderEdit -->
+                    <?php echo "</form>" ?>
 
                 </div>
             </div>

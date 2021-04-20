@@ -1,9 +1,16 @@
+<?php
+
+session_start();
+
+
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Add User</title>
+    <title>Edit</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -15,7 +22,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     
     <link rel="stylesheet" type="text/css" href="../Styles/BackstoreStyle.css"/>
-    <script type="text/javascript" src="../Javascript/userAdd.js"></script>
+    <script type="text/javascript" src="../Javascript/EditUser.js"></script>
     
 
 </head>
@@ -45,13 +52,13 @@
             <div class="col-sm-8 text-left">       
                 <div class="right">
                     
-                    <h2 style="font-style: italic;">Add User</h2>
+                    <h2 style="font-style: italic;">Edit User</h2>
                     <br/>
                     
         <?php
 //read the file and find the correct line of data from the checkbox and store the information in an array for display
             $userSelected = $_REQUEST["index"];
-            echo "<form name='addForm' id='formOrderEdit' class='orderFrom' action='adduser.php' method='POST'>";
+            echo "<form name='editForm' id='formOrderEdit' class='orderFrom' action='Edit.php?index=$userSelected' method='POST'>";
 
             $myfile = fopen("../Data/users.txt", "r") or die("Unable to open file!");
             $lineNumber = 1;
@@ -64,7 +71,15 @@
   
 
     
-        
+            if ($userSelected == $lineNumber){
+      
+                    break; 
+                }
+            if ($userSelected == -1 ){
+                echo "<script>alert('Did not select any user. Please click any radio button to edit the order. Will re-direct back to User List.');document.location='BackstoreUserList.php'</script>";
+                break;                                            
+                 }
+                $lineNumber++;  
 
             }
 
@@ -84,18 +99,21 @@
           
                      <?php $userSelected = $_REQUEST["index"];
                     
-                    echo" <form id=\"myform\" action=\"addUser.php?index=$userSelected\" method=\"post\">"?>
-                       <input type = "submit" value = "Save"  onsubmit=" userAdd() " class="btn btn-primary" style="float:right;"/>
+                    echo" <form id=\"myform\" action=\"Edit.php?index=$userSelected\" method=\"post\">"?>
+                       <input type = "submit" value = "Save"  onclick="save()" class="btn btn-primary" style="float:right;"/>
                        <input type = "reset" value = "Cancel" class="btn btn-secondary" style="float:right; margin-right: 5px;"/>
                        <br/>  
                        <!-- text emplacement for the errors of each input-->
-                       <p id="correctionFirst"></p>
-                        <p id="correctionLast"></p>
-                        <p id="correctionPostal"></p>
-                        <p id="correctionEmail"></p>
-                        <p id="correctionPassword"></p>
-                        <p id="correct"></p>
-
+                      
+                         <p id="correctionFirst"></p>
+                         <p id="correctionLast"></p>
+                         <p id="correctionPostal"></p>
+                         <p id="correctionEmail"></p>
+                         <p id="correctionPassword"></p>
+                         <p id="correctionGender"></p>
+                         <p id="correct"></p>
+ 
+                         
                          <div class="form-row">
                             
                            <div class="form-group col-md-6">
@@ -106,7 +124,10 @@
                                <label for="lastName">Last Name</label>
                                <input id="lastname" name="lastName"type="text" value="<?php echo $lastName?>" class="form-control">
                            </div> 
-
+                           <!-- <div class="form-group col-md-6">
+                               <label for="gender">Gender</label>
+                               <input id="gender" name="gender" type="text" value="<?php echo $gender?>" class="form-control">
+                           </div>  -->
 
                            <?php
                              echo"<div>";
@@ -148,7 +169,7 @@
                      
                        <div class="form-group col-md-6">
                          <label name="password">Password</label>
-                         <input type="text" id="password" name="password" value="<?php echo $password?>" class="form-control" placeholder=" Atleast 8 characters">
+                         <input type="text" id="password" name="password" value="<?php echo $password?>" class="form-control">
                        </div>
                        
                    </div>

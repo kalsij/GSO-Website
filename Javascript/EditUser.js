@@ -12,7 +12,7 @@
                          //Checks if there is an error in the input
                           if ( fname.value.search(/^[A-Za-z]+$/)==-1 || lname.value.search(/^[A-Za-z]+$/)==-1 || postalCode.value.search(/^[A-Za-z]\d[A-Za-z] ?\d[A-Za-z]\d$/)==-1 || email.value.search(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)==-1 || pass.value.search(/^[a-zA-Z0-9!@#$%^&*]{8,20}$/)==-1){
                             check = false;
-
+                            alert("Please Edit the file again, you entered invalid data!");
                              //checks if the first name is invalid and output an error
                               if(fname.value.search(/^[A-Za-z]+$/)==-1 )
                               {

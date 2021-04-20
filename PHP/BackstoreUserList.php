@@ -14,6 +14,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     
     <link rel="stylesheet" type="text/css" href="../Styles/BackstoreStyle.css"/>
+    <script type="text/javascript" src="/Javascript/ChooseUser.js"></script>
 
 </head>
 
@@ -31,11 +32,11 @@
             <!-- Side Bar -->
        <div class="col-sm-2 sidenav">
             <br/>
-            <p><a href="../GroceryStore-1.php">Grocery Store</a></p>
+            <p><a href="GroceryStore-1.php">Grocery Store</a></p>
             <p><a href="BackstoreProductList.php">Product List</a></p>
-            <p><a href="BackstoreOrderList.php"></a>Order List</p>
+            <p><a href="BackstoreOrderList.php">Order List</a></p>
             <p> <a href="BackstoreUserList.php">User List</a></p>
-            <p style="font-weight:bold;"><a href="../GroceryStore-1.php">Log Out</a></p>
+            <p style="font-weight:bold;"><a href="GroceryStore-1.php">Log Out</a></p>
             </div>
 
 
@@ -46,7 +47,8 @@
                     <!-- Add Product button -->
                     <a href="BackstoreAddUser.php" class="btn btn-primary" style="float: right;margin-bottom: 5px;">Add user</a>
                     <input type = "button" value = "Edit " onclick=edit() class="btn btn-primary" style="float:right; margin-right: 5px;"/>
-            
+                     <br>
+                     <br>
                     <!-- Order List -->
                     <?php function newRow($firstName, $lastName, $gender, $postalCode, $email, $password)
                     {

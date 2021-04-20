@@ -59,6 +59,25 @@ function updateTotalQuantityShoppingCart() {
     }
     
     document.getElementsByClassName("totalItems")[0].innerText = quantity 
+
+    $.ajax({
+        url: "shoppingCart.php", 
+        type: "POST", 
+        data: {toto: quantity }, 
+        success: function(data){ 
+         
+               console.log(data);
+        }
+    }).done(function(){
+        
+        console.log("Success.");
+    }).fail(function(){
+      
+        console.log("An error has occurred.");
+    }).always(function(){
+      
+          console.log("Complete.");
+    });
 }
 
 //Update total prices
@@ -90,4 +109,24 @@ function updateTotalPriceShoppingCart() {
     document.getElementsByClassName("GSTPrice")[0].innerText = '$ ' + GSTtaxe.toFixed(2)
     document.getElementsByClassName("QSTPrice")[0].innerText = '$ ' + QSTtaxe.toFixed(2)
     document.getElementsByClassName("totalPrice")[0].innerText = '$ ' + total.toFixed(2)
+
+    $.ajax({
+        url: "../php/shoppingCart.php", 
+        type: "POST", 
+        data: {p1: subTotal }, 
+        success: function(data){ 
+           
+               console.log(data);
+        }
+    }).done(function(){
+       
+        console.log("Success.");
+    }).fail(function(){
+       
+        console.log("An error has occurred.");
+    }).always(function(){
+     
+          console.log("Complete.");
+    });
 }
+
