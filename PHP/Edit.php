@@ -2,7 +2,8 @@
     
 //Obtain the index of checked user
 $UserSelected = $_REQUEST["index"];
-    
+
+    $user = "";
     $user = $_POST["firstName"] . " ";
     $user .= $_POST["lastName"] . " ";
     $user .= $_POST["gender"] . " ";
@@ -12,56 +13,50 @@ $UserSelected = $_REQUEST["index"];
     
     
 
-    editUser( $UserSelected, $user);
+    editUser( $UserSelected-1 . "--" . $user);
     
     // navigates back to the store list
     header("Location:BackstoreUserList.php");
     exit;
 
-    function editUser($UserSelected, $user) {
+    //function to edit the user
+    function editUser( $user) {
         
         $myfile = fopen("../Data/users.txt", "r") or die("Unable to open file!");
 
-        $userArray = explode(" ", $user) ;
-        // $productIndex = $productArray[0];
-        // $productData = $productArray[1];
+        $userArray = explode("--", $user, 2) ;
+        $userIndex = $userArray[0];
+        $userData = $userArray[1];
 
-        $linesToKeep = array();
-        // Output one line until end-of-file
+        $lines = array();
+        
         $found = false;
-        $lineNumber = 1;
-
+        $index = 0;
         while(!feof($myfile)) {
-            $line = fgets($myfile); 
-            
-            $lineArray =  explode(" ", $line);
-    
-             if ($UserSelected == $lineNumber){
-                
-                array_push($linesToKeep,  $userArray); 
+            $line = fgets($myfile);  
+            if ($index == $userIndex){
+                array_push($lines, $userData); 
                 $found = true; 
-             }
-
-             else {
-                if (strlen($line) > 7) {
-                   
-                    array_push($linesToKeep, $line); 
-                }
- 
             }
-             
-                $lineNumber++;
-                                              
-          }
-
-          if (!$found) {
-            array_push($linesToKeep,  $userArray); 
+            else {
+                if (strlen($line) > 5) {
+                    array_push($lines, $line); 
+                }
+            }
+            if (strlen($line) > 5)
+            {
+                $index++;
+            }
+        }
+        if (!$found) {
+            array_push($lines, $userData); 
         }
         fclose($myfile);
-        writeArray($linesToKeep);
+        writeArray($lines);
   
         }
   
+        //write to file
     function writeArray($linesToKeep) {
         $myfile = fopen("../Data/users.txt", "w") or die("Unable to open file!");
     
@@ -70,5 +65,6 @@ $UserSelected = $_REQUEST["index"];
         }
         
         fclose($myfile);
+       
     }
 ?>
