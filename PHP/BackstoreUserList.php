@@ -32,7 +32,7 @@
             <!-- Side Bar -->
        <div class="col-sm-2 sidenav">
             <br/>
-            <p><a href="../GroceryStore-1.php">Grocery Store</a></p>
+            <p><a href="GroceryStore-1.php">Grocery Store</a></p>
             <p><a href="BackstoreProductList.php">Product List</a></p>
             <p><a href="BackstoreOrderList.php">Order List</a></p>
             <p> <a href="BackstoreUserList.php">User List</a></p>
