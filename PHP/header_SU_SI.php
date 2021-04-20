@@ -50,6 +50,6 @@
             </li>
         </div>
 
-        <a href="../ShoppingCart.php"><img src="../Media/cart_logo.png" alt="Shopping Cart" width="50px" height="50px"
+        <a href="ShoppingCart.php"><img src="../Media/cart_logo.png" alt="Shopping Cart" width="50px" height="50px"
                 style="float:right"></a>
     </nav>
