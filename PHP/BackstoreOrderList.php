@@ -45,7 +45,7 @@
                     
                     <!-- Add Product button -->
                     <a href="BackstoreAddOrderProfile.php" class="btn btn-primary" style="float: right;margin-bottom: 5px;">Add Order</a>
-                    <td><a href='BackstoreEditOrderProfile.php' class='btn btn-primary'style="float: right;margin-right: 5px;">Edit</a></td>
+                    <td><input type = 'button' value = "Edit Order Here" onclick = 'edit()' class = "btn btn-primary" style = "float:right; margin-right: 10px;"/> </td>
             
                     <!-- Order List -->
                     <?php function newRow($ordername, $date, $name, $total, $income)
@@ -86,8 +86,8 @@
                         echo "The file doesnt Exist";
                     }
                     echo "</table>
-                    <button class='btn btn-primary' type='submit' value='1' name = 'DeleteOrder' onclick='deleteOrder()'>Delete</button>
-                    <script type='text/javascript' src='Javascript/OrderList.js'></script>
+                    <button class='btn btn-primary' type='submit' value='1' name = 'DeleteOrder'>Delete</button>
+                    <script type='text/javascript' src='/Javascript/OrderList.js'></script>
                     </form>"
                
                     ?>
